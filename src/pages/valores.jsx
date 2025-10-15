@@ -1,7 +1,7 @@
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import fotoValores from "/src/img/fotovalores.jpg";
-import descuValores from "/src/img/descuvalores.png";
-import logo from "/src/img/logo.png";
+import "@fontawesome/fontawesome-free/css/all.min.css";
+import fotoValores from "./src/img/fotovalores.jpg";
+import descuValores from "./src/img/descuvalores.png";
+import logo from "./src/img/logo.png";
 
 export default function Valores() {
   return (

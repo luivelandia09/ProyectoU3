@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../index.css";
-import logo from "../assets/react.svg";
-import ibuprofeno from "../assets/react.svg";
-import diclofenaco from "../assets/react.svg";
-import amoxicilina from "../assets/react.svg";
-import paracetamol from "../assets/react.svg";
-import azitromicina from "../assets/react.svg";
-import prom1 from "../assets/react.svg";
-import prom2 from "../assets/react.svg";
-import prom3 from "../assets/react.svg";
+import logo from "../img/logo.png";
+import ibuprofeno from "../img/IBUPROFENO.png";
+import diclofenaco from "../img/DICLOFENACO.png";
+import amoxicilina from "../img/AMOXICILINA.png";
+import paracetamol from "../img/PARACETAMOL.";
+import azitromicina from "../img/AZITROMICINA.png";
+import prom1 from "../img/prom1";
+import prom2 from "../img/prom2";
+import prom3 from "../img/prom3";
 
 export default function Inicio() {
   return (
@@ -33,19 +34,19 @@ export default function Inicio() {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <a className="nav-link active" href="./inicio.jsx">
+                  <Link to="/" className="nav-link active">
                     INICIO
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" href="./nosotras.jsx">
+                  <Link to="/nosotras" className="nav-link active">
                     SOBRE NOSOTRAS
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" href="./valores.jsx">
+                  <Link to="/valores" className="nav-link active">
                     VALORES
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

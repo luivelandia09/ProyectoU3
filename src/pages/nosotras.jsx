@@ -30,7 +30,7 @@ export default function Nosotras() {
         {/* Tarjeta 1 */}
         <div className="bg-[#e9f5ff] shadow-lg rounded-xl overflow-hidden hover:scale-105 hover:shadow-2xl transition-transform duration-300">
           <img
-            src="/src/assets/img/NIÑA1.jpg"
+            src="/src/img/NIÑA1.jpg"
             alt="Nayeli Mamani sonríe con calidez y confianza"
             className="w-full h-64 object-cover"
           />
@@ -53,7 +53,7 @@ export default function Nosotras() {
         {/* Tarjeta 2 */}
         <div className="bg-[#e9f5ff] shadow-lg rounded-xl overflow-hidden hover:scale-105 hover:shadow-2xl transition-transform duration-300">
           <img
-            src="/src/assets/img/NIÑA2.jpg"
+            src="/src/img/NIÑA2.jpg"
             alt="Luisana Velandia sonríe cálidamente"
             className="w-full h-64 object-cover"
           />
@@ -74,7 +74,7 @@ export default function Nosotras() {
         {/* Tarjeta 3 */}
         <div className="bg-[#e9f5ff] shadow-lg rounded-xl overflow-hidden hover:scale-105 hover:shadow-2xl transition-transform duration-300">
           <img
-            src="/src/assets/img/NIÑA3.png"
+            src="/src/img/NIÑA3.png"
             alt="Mikela Mora sonríe con amabilidad y confianza"
             className="w-full h-64 object-cover"
           />
@@ -85,10 +85,10 @@ export default function Nosotras() {
             <p className="text-justify text-black text-base">
               Soy Mikela Mora, una apasionada por conectar las necesidades de
               cada persona con soluciones de salud efectivas. En Farmaven,
-              combino mi conocimiento farmacéutico con estrategias de orientación
-              al cliente para garantizar que cada recomendación sea clara, segura
-              y adaptada. Mi objetivo es que cada cliente reciba confianza y
-              acompañamiento en su bienestar.
+              combino mi conocimiento farmacéutico con estrategias de
+              orientación al cliente para garantizar que cada recomendación sea
+              clara, segura y adaptada. Mi objetivo es que cada cliente reciba
+              confianza y acompañamiento en su bienestar.
             </p>
           </div>
         </div>
@@ -178,17 +178,17 @@ export default function Nosotras() {
             <h5 className="font-bold mb-2">FARMAVEN</h5>
             <ul className="text-sm space-y-1">
               <li>
-                <a href="#" className="hover:underline">
+                <a href="../catalogo.jsx" className="hover:underline">
                   Catálogo del mes
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="../testimonios.jsx" className="hover:underline">
                   Testimonios
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="../libroderecla.jsx" className="hover:underline">
                   Libro de reclamaciones
                 </a>
               </li>
@@ -201,7 +201,10 @@ export default function Nosotras() {
             <ul className="text-sm space-y-1">
               <li>
                 📧{" "}
-                <a href="mailto:contacto@farmaven.com" className="hover:underline">
+                <a
+                  href="mailto:contacto@farmaven.com"
+                  className="hover:underline"
+                >
                   contacto@farmaven.com
                 </a>
               </li>
