@@ -26,13 +26,13 @@ export default function Nosotras() {
     setFormData({ nombres: "", correo: "", experiencia: "", sugerencias: "" });
   };
   return (
-    <div className="font-[Montserrat] text-[#495057] bg-[#f8f9fa] leading-relaxed">
+    <div className="font-[Montserrat] text-[#495057] bg-gradient-to-b from-blue-50 via-blue-100 to-blue-200 leading-relaxed min-h-screen">
       {/* HEADER */}
-      <header className="bg-[#0056b3] shadow-xl w-fit mx-auto mt-10 mb-20 p-8 text-center rounded-xl">
-        <h1 className="text-4xl font-extrabold bg-gradient-to-r from-white via-sky-300 to-blue-700 bg-clip-text text-transparent animate-pulse">
+      <header className="bg-gradient-to-r from-blue-600 to-blue-700 shadow-xl mx-auto mt-10 mb-20 p-8 text-center rounded-xl max-w-4xl">
+        <h1 className="text-4xl font-extrabold bg-gradient-to-r from-white via-sky-300 to-blue-200 bg-clip-text text-transparent animate-pulse mb-6">
           Conócenos
         </h1>
-        <p className="text-white text-center text-lg mt-4 max-w-3xl">
+        <p className="text-white text-center text-lg mt-4 max-w-3xl mx-auto leading-relaxed">
           Somos tres mentes creativas y poderosas, que juntas decidimos formar
           esta empresa como una forma de poder ayudar a las personas con
           nuestros conocimientos en salud y atención personalizada. Nos
@@ -52,22 +52,27 @@ export default function Nosotras() {
       </div>
 
       {/* TARJETAS */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 mb-20">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
         {data.map((persona, idx) => (
           <div
             key={idx}
-            className="bg-[#e9f5ff] shadow-lg rounded-xl overflow-hidden hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+            className="bg-white shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col"
           >
-            <img
-              src={persona.img}
-              alt={persona.alt}
-              className="w-full h-64 object-cover"
-            />
-            <div className="p-5">
-              <h5 className="text-center text-2xl font-bold text-gray-800 mb-2">
+            <div className="relative bg-gradient-to-b from-blue-50 to-blue-100 flex items-center justify-center h-64 p-4">
+              <img
+                src={persona.img}
+                alt={persona.alt}
+                className="w-full h-full object-cover rounded-lg shadow-md"
+              />
+            </div>
+            <div className="p-6 flex-1 bg-gradient-to-b from-white to-blue-50">
+              <h5 className="text-center text-2xl font-bold text-blue-800 mb-2">
                 {persona.nombre}
               </h5>
-              <p className="text-justify text-black text-base">
+              <h6 className="text-center text-lg font-semibold text-blue-600 mb-3">
+                {persona.especialidad}
+              </h6>
+              <p className="text-gray-700 text-base leading-relaxed">
                 {persona.descripcion}
               </p>
             </div>
@@ -76,74 +81,85 @@ export default function Nosotras() {
       </div>
 
       {/* FORMULARIO */}
-      <section className="max-w-xl mx-auto p-6 bg-gray-100 rounded-2xl shadow-md mb-20">
-        <h2 className="text-center bg-[#0056b3] text-black px-10 py-4 w-fit mx-auto rounded-full text-xl font-bold uppercase tracking-wider shadow-lg">
-          Cuéntanos tu experiencia
-        </h2>
-        <p className="text-center text-lg my-4">
-          ✨ Tu opinión nos ayuda a crecer y a seguir cuidando de ti. ✨
+      <section className="max-w-2xl mx-auto px-8 py-12 bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-xl mb-20">
+        <div className="bg-gradient-to-r from-blue-600 to-blue-700 -mt-20 mb-10 px-8 py-6 rounded-xl shadow-lg mx-auto max-w-fit transform hover:scale-105 transition-transform duration-300">
+          <h2 className="text-center text-white text-2xl font-bold uppercase tracking-wider">
+            Cuéntanos tu experiencia
+          </h2>
+        </div>
+        <p className="text-center text-lg mb-10 text-blue-800 font-medium px-4">
+          ✨ Tu opinión nos ayuda a crecer y a seguir cuidando de ti ✨
         </p>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-6">
-          <label htmlFor="nombres" className="font-semibold text-black">
-            Nombres y Apellidos:
-          </label>
-          <input
-            type="text"
-            id="nombres"
-            name="nombres"
-            value={formData.nombres}
-            onChange={handleChange}
-            placeholder="Escribe tu nombre completo"
-            className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          />
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6 mt-8">
+          <div className="space-y-2">
+            <label htmlFor="nombres" className="font-semibold text-blue-800 block">
+              Nombres y Apellidos:
+            </label>
+            <input
+              type="text"
+              id="nombres"
+              name="nombres"
+              value={formData.nombres}
+              onChange={handleChange}
+              placeholder="Escribe tu nombre completo"
+              className="w-full p-4 border-2 border-blue-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/80 placeholder-gray-400 transition-all duration-300"
+              required
+            />
 
-          <label htmlFor="correo" className="font-semibold text-black">
-            Correo Electrónico:
-          </label>
-          <input
-            type="email"
-            id="correo"
-            name="correo"
-            value={formData.correo}
-            onChange={handleChange}
-            placeholder="ejemplo@correo.com"
-            className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          />
+          </div>
 
-          <label htmlFor="experiencia" className="font-semibold text-black">
-            ¿Cómo fue tu experiencia en Farmaven?
-          </label>
-          <textarea
-            id="experiencia"
-            name="experiencia"
-            value={formData.experiencia}
-            onChange={handleChange}
-            rows="5"
-            placeholder="Cuéntanos cómo fue"
-            className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          ></textarea>
+          <div className="space-y-2">
+            <label htmlFor="correo" className="font-semibold text-blue-800 block">
+              Correo Electrónico:
+            </label>
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              value={formData.correo}
+              onChange={handleChange}
+              placeholder="ejemplo@correo.com"
+              className="w-full p-4 border-2 border-blue-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/80 placeholder-gray-400 transition-all duration-300"
+              required
+            />
+          </div>
 
-          <label htmlFor="sugerencias" className="font-semibold text-black">
-            Cuéntanos tus sugerencias aquí:
-          </label>
-          <input
-            type="text"
-            name="sugerencias"
-            id="sugerencias"
-            value={formData.sugerencias}
-            onChange={handleChange}
-            placeholder="Escribe tus sugerencias"
-            className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          />
+          <div className="space-y-2">
+            <label htmlFor="experiencia" className="font-semibold text-blue-800 block">
+              ¿Cómo fue tu experiencia en Farmaven?
+            </label>
+            <textarea
+              id="experiencia"
+              name="experiencia"
+              value={formData.experiencia}
+              onChange={handleChange}
+              rows="5"
+              placeholder="Cuéntanos cómo fue"
+              className="w-full p-4 border-2 border-blue-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/80 placeholder-gray-400 transition-all duration-300 resize-none"
+              required
+            ></textarea>
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="sugerencias" className="font-semibold text-blue-800 block">
+              Cuéntanos tus sugerencias aquí:
+            </label>
+            <input
+              type="text"
+              name="sugerencias"
+              id="sugerencias"
+              value={formData.sugerencias}
+              onChange={handleChange}
+              placeholder="Escribe tus sugerencias"
+              className="w-full p-4 border-2 border-blue-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/80 placeholder-gray-400 transition-all duration-300"
+              required
+            />
+          </div>
 
           <button
             type="submit"
-            className="bg-blue-700 text-white font-bold py-3 px-5 rounded-lg hover:bg-blue-800 transition-all"
+            className="mt-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-4 px-8 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl active:scale-95"
           >
             Enviar
           </button>

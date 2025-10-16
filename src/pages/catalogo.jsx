@@ -1,6 +1,9 @@
 import { useState } from "react";
 import catalogoDataRaw from "../json/catalogo.json";
 
+// Placeholder público para imágenes faltantes
+const PLACEHOLDER = "https://via.placeholder.com/300x300?text=Sin+imagen";
+
 //Procesar imágenes
 const catalogoData = catalogoDataRaw.map((producto) => ({
   ...producto,
@@ -81,7 +84,7 @@ export default function Catalogo() {
             onClick={() => setMostrarCarrito(!mostrarCarrito)}
             className="relative bg-blue text-black-700 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition"
           >
-            🛒 Carrito
+            🛒 Carrito:
             {cantidadTotal > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">
                 {cantidadTotal}
@@ -120,17 +123,18 @@ export default function Catalogo() {
         </div>
 
         {/* Productos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
           {productosFiltrados.map((p) => (
             <div
               key={p.id}
-              className="bg-blue rounded-xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 overflow-hidden"
+              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 hover:scale-102 overflow-hidden"
             >
-              <div className="relative">
+              <div className="relative bg-gray-50 flex items-center justify-center h-32">
                 <img
                   src={p.img}
                   alt={p.nombre}
-                  className="w-full h-48 object-cover"
+                  onError={(e) => (e.currentTarget.src = PLACEHOLDER)}
+                  className="max-h-24 max-w-[80%] object-contain p-2"
                 />
                 <span className="absolute top-2 right-2 bg-blue-700 text-white text-xs px-2 py-1 rounded-full">
                   {p.categoria}
@@ -207,7 +211,8 @@ export default function Catalogo() {
                       <img
                         src={item.img}
                         alt={item.nombre}
-                        className="w-20 h-20 object-cover rounded"
+                        onError={(e) => (e.currentTarget.src = PLACEHOLDER)}
+                        className="w-12 h-12 object-contain rounded bg-white p-1"
                       />
                       <div className="flex-1">
                         <h3 className="font-semibold text-sm">{item.nombre}</h3>
