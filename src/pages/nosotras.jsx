@@ -1,13 +1,12 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { Link } from "react-router-dom"
-import equipo from "../json/equipo.json"
+import { Link } from "react-router-dom";
+import equipo from "../json/equipo.json";
 import { useState } from "react";
 
-const data = equipo.map(persona => ({
+const data = equipo.map((persona) => ({
   ...persona,
-  img: new URL(`../img/${persona.img}`, import.meta.url).href
+  img: new URL(`../img/${persona.img}`, import.meta.url).href,
 }));
-
 
 export default function Nosotras() {
   const [formData, setFormData] = useState({
@@ -25,7 +24,7 @@ export default function Nosotras() {
     e.preventDefault();
     alert("Gracias por compartir tu experiencia 💙");
     setFormData({ nombres: "", correo: "", experiencia: "", sugerencias: "" });
-  }
+  };
   return (
     <div className="font-[Montserrat] text-[#495057] bg-[#f8f9fa] leading-relaxed">
       {/* HEADER */}
@@ -219,45 +218,48 @@ export default function Nosotras() {
               Recibe notificaciones de sorteos y promociones exclusivas 🎁
             </p>
             <form
-                className="d-flex mb-3"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const email = e.target.email.value;
-                  console.log("Email suscrito:", email);
-                  alert("¡Gracias por suscribirte!");
-                  e.target.reset();
-                }}
+              className="flex gap-2 mb-3"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const email = e.target.email.value;
+                console.log("Email suscrito:", email);
+                alert("¡Gracias por suscribirte!");
+                e.target.reset();
+              }}
+            >
+              <input
+                type="email"
+                name="email"
+                className="flex-1 px-3 py-1 text-sm border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Tu correo"
+                required
+              />
+              <button
+                type="submit"
+                className="bg-blue-700 text-white text-sm font-semibold px-4 py-1 rounded hover:bg-blue-800 transition-all"
               >
-                <input
-                  type="email"
-                  name="email"
-                  className="form-control form-control-sm me-2"
-                  placeholder="Tu correo"
-                  required
-                />
-                <button type="submit" className="btn btn-primary btn-sm">
-                  Enviar
-                </button>
-              </form>
-              <h6 className="fw-bold">Síguenos</h6>
+                Enviar
+              </button>
+            </form>
+            <h6 className="font-bold mb-2">Síguenos</h6>
             <div className="flex justify-center space-x-4">
-              <Link  className="text-black text-xl">
+              <Link className="text-black text-xl hover:text-blue-700 transition-colors">
                 <i className="fab fa-facebook"></i>
               </Link>
-              <Link className="text-black text-xl">
+              <Link className="text-black text-xl hover:text-pink-600 transition-colors">
                 <i className="fab fa-instagram"></i>
               </Link>
-              <Link className="text-black text-xl">
+              <Link className="text-black text-xl hover:text-gray-800 transition-colors">
                 <i className="fab fa-tiktok"></i>
               </Link>
             </div>
           </div>
-        </div>
 
-        <hr className="my-6 border-black/20" />
-        <p className="text-sm pb-4">
-          © 2025 FARMAVEN - Todos los derechos reservados
-        </p>
+          <hr className="my-6 border-black/20" />
+          <p className="text-sm pb-4">
+            © 2025 FARMAVEN - Todos los derechos reservados
+          </p>
+        </div>
       </footer>
     </div>
   );

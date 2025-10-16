@@ -1,18 +1,11 @@
 import { useState } from "react";
+import catalogoData from '../json/catalogo.json';
 
-const productosData = [
-  {
-    id: 1,
-    nombre: "Paracetamol 500mg",
-    precio: S / 10.0,
-    desc: "Alivio rápido para dolores y fiebre.",
-    img: "https://via.placeholder.com/200x200?text=Paracetamol",
-    categoria: "Analgésicos",
-  },
+[
   {
     id: 2,
     nombre: "Ibuprofeno 400mg",
-    precio: S / 12.0,
+    precio: 10.0,
     desc: "Antiinflamatorio y analgésico.",
     img: "https://via.placeholder.com/200x200?text=Ibuprofeno",
     categoria: "Antiinflamatorios",
@@ -233,10 +226,21 @@ export default function Catalogo() {
                 <h3 className="text-lg font-bold text-gray-800 mb-2">
                   {p.nombre}
                 </h3>
-                <p className="text-gray-600 text-sm mb-3">{p.desc}</p>
+                <p className="text-gray-600 text-sm mb-3">{p.descripcion}</p>
+                <div className="space-y-2 mb-3">
+                  <p className="text-sm text-gray-600">
+                    <strong>Dosificación:</strong> {p.dosificacion}
+                  </p>
+                  <p className="text-sm text-red-600">
+                    <strong>Advertencias:</strong> {p.advertencias}
+                  </p>
+                </div>
                 <div className="flex justify-between items-center">
                   <span className="text-2xl font-bold text-blue-700">
                     S/ {p.precio.toFixed(2)}
+                  </span>
+                  <span className="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">
+                    Stock: {p.stock}
                   </span>
                 </div>
                 <button

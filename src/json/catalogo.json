@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nombre": "Paracetamol",
+    "descripcion": "Analgésico y antipirético eficaz para dolores leves a moderados y fiebre.",
+    "precio": 12.00,
+    "categoria": "Analgésicos",
+    "img": "../img/PARACETAMOL.png",
+    "alt": "Paracetamol tabletas",
+    "stock": 100,
+    "dosificacion": "500mg - 1000mg cada 4-6 horas según necesidad",
+    "advertencias": "No exceder 4000mg en 24 horas. Consulte a su médico si los síntomas persisten."
+  },
+  {
+    "id": 2,
+    "nombre": "Ibuprofeno",
+    "descripcion": "Antiinflamatorio no esteroideo (AINE) para dolor, inflamación y fiebre.",
+    "precio": 15.00,
+    "categoria": "Antiinflamatorios",
+    "img": "../img/IBUPROFENO.png",
+    "alt": "Ibuprofeno tabletas",
+    "stock": 85,
+    "dosificacion": "200mg - 400mg cada 4-6 horas según necesidad",
+    "advertencias": "Tomar con alimentos. No usar si tiene úlcera gástrica."
+  },
+  {
+    "id": 3,
+    "nombre": "Diclofenaco",
+    "descripcion": "Potente antiinflamatorio para dolores musculares y articulares.",
+    "precio": 18.00,
+    "categoria": "Antiinflamatorios",
+    "img": "../img/DICLOFENACO.png",
+    "alt": "Diclofenaco tabletas",
+    "stock": 75,
+    "dosificacion": "50mg cada 8-12 horas según prescripción",
+    "advertencias": "No usar por períodos prolongados sin supervisión médica."
+  },
+  {
+    "id": 4,
+    "nombre": "Azitromicina",
+    "descripcion": "Antibiótico de amplio espectro para infecciones bacterianas.",
+    "precio": 25.00,
+    "categoria": "Antibióticos",
+    "img": "../img/AZITROMICINA.png",
+    "alt": "Azitromicina tabletas",
+    "stock": 60,
+    "dosificacion": "500mg una vez al día por 3-5 días según prescripción",
+    "advertencias": "Completar el tratamiento según prescripción médica. Venta bajo receta médica."
+  },
+  {
+    "id": 5,
+    "nombre": "Amoxicilina",
+    "descripcion": "Antibiótico penicilínico para diversas infecciones bacterianas.",
+    "precio": 22.00,
+    "categoria": "Antibióticos",
+    "img": "../img/AMOXICILINA.png",
+    "alt": "Amoxicilina cápsulas",
+    "stock": 90,
+    "dosificacion": "500mg cada 8 horas según prescripción",
+    "advertencias": "No usar si es alérgico a la penicilina. Venta bajo receta médica."
+  }
+]
