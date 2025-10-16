@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "../App.css";
 import imgData from "../json/img2.json"; // 
 
 export default function Testimonios() {

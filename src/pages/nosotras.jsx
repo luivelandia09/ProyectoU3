@@ -1,4 +1,4 @@
-import "@fontawesome/fontawesome-free/css/all.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Link } from "react-router-dom"
 import equipo from "../json/equipo.json"
 import { useState } from "react";

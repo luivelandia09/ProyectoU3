@@ -10,14 +10,14 @@ import azitromicina from "../img/AZITROMICINA.png";
 import prom1 from "../img/prom1.png";
 import prom2 from "../img/prom2.png";
 import prom3 from "../img/prom3.png";
-import crema from "../assets/img/crema.jpg";
-import suero from "../assets/img/suero.jpg";
-import alcohol from "../assets/img/alcohol.jpg";
-import mascarillas from "../assets/img/mascarillas.jpg";
-import gel from "../assets/img/gel.jpg";
-import cliente1 from "../assets/img/cliente1.jpg";
-import cliente2 from "../assets/img/cliente2.jpg";
-import cliente3 from "../assets/img/cliente3.jpg";
+import crema from "../img/crema-antibiótica.png";
+import suero from "../img/suero-oral.png";
+import alcohol from "../img/alcohol70.png";
+import mascarillas from "../img/mascarillas.png";
+import gel from "../img/gel-antibacterial.png";
+import cliente1 from "../img/cliente1.jpg";
+import cliente2 from "../img/cliente2.jpg";
+import cliente3 from "../img/cliente3.jpg";
 
 const productosExtra = [
   {

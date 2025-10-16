@@ -1,4 +1,4 @@
-{
+[
     {
     "nombre": "Nayeli Mamani",
     "especialidad": "Marketing Digital",
@@ -20,4 +20,4 @@
     "img": "../img/NIÑA3.png",
     "alt": "Mikela Mora sonríe con amabilidad y confianza"
   }
-}
+]
