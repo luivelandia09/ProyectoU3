@@ -1,13 +1,16 @@
 import React from "react";
+import "../App.css";
 
-export default function LibroReclamaciones() {
+
+
+export default function Libro() {
+
   return (
     <div className="bg-gray-50 min-h-screen font-[Montserrat] text-gray-800">
       {/* ENCABEZADO */}
       <header className="bg-blue-700 text-white py-6 shadow-lg">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 gap-3">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="Farmaven Logo" className="h-14" />
             <h1 className="text-2xl font-bold uppercase tracking-wide">
               Libro de Reclamaciones
             </h1>
