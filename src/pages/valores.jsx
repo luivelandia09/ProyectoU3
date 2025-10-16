@@ -1,31 +1,75 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import imagenes from "../json/img.json";
 
-export default function valores() {
+export default function Valores() {
+  const [formData, setFormData] = useState({
+    nombre: "",
+    correo: "",
+    valor: "",
+    comentarios: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("¡Formulario enviado correctamente!");
+    console.log(formData);
+    setFormData({
+      nombre: "",
+      correo: "",
+      valor: "",
+      comentarios: "",
+    });
+  };
+
   return (
     <div className="font-[Montserrat] text-[#495057] bg-[#f8f9fa] leading-relaxed">
-      {/* SECCIÓN PRINCIPAL */}
+      {/* === IMÁGENES DESDE JSON === */}
+     <div className="text-center py-8 bg-gradient-to-r from-[#dbeeff] to-[#f8f9fa]">
+  {imagenes.img.map((item, i) => (
+    <div
+      key={i}
+      className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12"
+    >
+      <img
+        src={new URL(`../${item.imagenfoto}`, import.meta.url).href}
+        alt="Foto valores"
+        className="rounded-xl shadow-lg w-56 md:w-72 lg:w-80 border-4 border-white object-cover"
+      />
+      <img
+        src={new URL(`../${item.imagendes}`, import.meta.url).href}
+        alt="Descuento valores"
+        className="rounded-xl shadow-lg w-48 md:w-60 lg:w-72 border-4 border-white object-cover"
+      />
+      <img
+        src={new URL(`../${item.img3}`, import.meta.url).href}
+        alt="Logo valores"
+        className="rounded-full shadow-md w-20 md:w-24 lg:w-28 border-2 border-[#0056b3]"
+      />
+    </div>
+  ))}
+</div>
+
+
+      {/* === SECCIÓN PRINCIPAL === */}
       <section className="py-16 bg-gradient-to-br from-[#e6f2ff] to-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold text-[#003b73] uppercase tracking-wide mb-6">
             LOS VALORES QUE NOS DEFINEN
           </h1>
-         <div>
-  {imagenes.img.map((imagesTOP) => (
-    <div key={imagesTOP.img3}>
-      <img src={imagesTOP.imagenfoto} alt="Foto valores" width="200" />
-      <img src={imagesTOP.imagendes} alt="Descuento valores" width="200" />
-      <img src={imagesTOP.img3} alt="Logo valores" width="100" />
-    </div>
-  ))}
-</div>
+
           <p className="text-lg text-[#6c757d] max-w-3xl mx-auto">
             Estos principios guían cada producto, servicio e interacción con
             nuestros clientes.
           </p>
 
-          {/* MISIÓN Y VISIÓN */}
           <div className="flex flex-col md:flex-row items-center mt-12 gap-8">
+            {/* Misión y Visión */}
             <div className="flex flex-col gap-6 w-full md:w-1/2">
               <div className="bg-[#e9f5ff] rounded-xl p-6 shadow-md hover:border-[#0056b3] border-2 border-transparent transition">
                 <h3 className="text-xl font-semibold text-[#0e3b5c] mb-2">
@@ -50,7 +94,7 @@ export default function valores() {
 
             <div className="w-full md:w-1/2 text-center">
               <img
-                src={fotoValores}
+                src={new URL("../img/fotovalores.jpg", import.meta.url).href}
                 alt="Imagen de valores"
                 className="rounded-xl shadow-lg max-w-full border-4 border-white"
               />
@@ -59,7 +103,7 @@ export default function valores() {
         </div>
       </section>
 
-      {/* PILARES */}
+      {/* === PILARES === */}
       <section className="py-16 bg-white border-t border-gray-200">
         <h2 className="text-2xl text-white font-bold bg-[#0056b3] w-fit px-6 py-3 mx-auto rounded-full uppercase tracking-wider shadow-md mb-8">
           Nuestros pilares fundamentales
@@ -73,7 +117,6 @@ export default function valores() {
               texto:
                 "Brindamos un servicio transparente, honesto y personalizado para todos.",
               frase: "“Tu bienestar es nuestra prioridad.”",
-              img: "/atencion valores.png",
             },
             {
               icon: "fa-lightbulb",
@@ -81,7 +124,6 @@ export default function valores() {
               texto:
                 "Usamos tecnología para mejorar el acceso a servicios y productos de salud.",
               frase: "“La tecnología al servicio de tu bienestar.”",
-              img: "/reunion valores.png",
             },
             {
               icon: "fa-hands-holding-child",
@@ -89,14 +131,12 @@ export default function valores() {
               texto:
                 "Promovemos el uso responsable de medicamentos e información confiable.",
               frase: "“Cuidarte hoy es vivir mejor mañana.”",
-              img: "/productos valores.png",
             },
           ].map((p, i) => (
             <div
               key={i}
               className="bg-[#e9f5ff] p-8 rounded-xl text-center shadow-lg max-w-sm border-2 border-transparent hover:border-[#0056b3] transition"
             >
-              {/* <-- CORRECCIÓN: usar backticks para interpolar clases */}
               <i
                 className={`fa-solid ${p.icon} text-[#0056b3] text-4xl mb-3`}
               ></i>
@@ -108,15 +148,19 @@ export default function valores() {
         </div>
       </section>
 
-      {/* FORMULARIO */}
+      {/* === FORMULARIO === */}
       <section className="py-16 bg-gradient-to-br from-white to-[#e6f2ff] border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl text-center font-bold bg-[#0056b3] text-white px-6 py-3 rounded-full w-fit mx-auto mb-10 shadow-md">
             Participa por un descuento en nuestros productos 🎁
           </h2>
 
-          <div className="flex flex-col md:flex-row items-center gap-10">
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg w-full md:w-1/2 border border-gray-200">
+          <div className="flex flex-col md:flex-row items-stretch justify-center gap-10">
+
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white p-8 rounded-xl shadow-lg w-full md:w-1/2 border border-gray-200"
+            >
               <div className="mb-4">
                 <label
                   htmlFor="nombre"
@@ -135,6 +179,7 @@ export default function valores() {
                   required
                 />
               </div>
+
               <div className="mb-4">
                 <label
                   htmlFor="correo"
@@ -153,6 +198,7 @@ export default function valores() {
                   required
                 />
               </div>
+
               <div className="mb-4">
                 <label
                   htmlFor="valor"
@@ -176,6 +222,7 @@ export default function valores() {
                   <option value="compromiso">Compromiso con el cuidado</option>
                 </select>
               </div>
+
               <div className="mb-4">
                 <label
                   htmlFor="comentarios"
@@ -194,6 +241,7 @@ export default function valores() {
                   required
                 />
               </div>
+
               <button
                 type="submit"
                 className="w-full bg-gradient-to-r from-[#4facfe] to-[#00f2fe] text-white py-2 rounded-full font-bold hover:opacity-90 transition"
@@ -204,7 +252,7 @@ export default function valores() {
 
             <div className="w-full md:w-1/2 text-center">
               <img
-                src={descuValores}
+                src={new URL("../img/descuvalores.png", import.meta.url).href}
                 alt="Promoción descuento"
                 className="rounded-xl shadow-lg max-w-full border-4 border-white"
               />
@@ -213,16 +261,17 @@ export default function valores() {
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* === FOOTER === */}
       <footer className="bg-[#64bafb] text-black text-center pt-10">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo */}
           <div>
             <img
-              src="/src/assets/img/logo.png"
+              src={new URL("../img/logo.png", import.meta.url).href}
               alt="Logo FARMAVEN"
-              className="mx-auto mb-4 h-16"
-            />
+              className="mx-auto mb-4 h-12 md:h-14 w-auto object-contain"
+             />
+
             <p className="text-sm">
               FARMAVEN nació con la misión de ofrecer medicamentos y productos
               de salud accesibles para todos, con un servicio humano y cercano.
@@ -255,21 +304,8 @@ export default function valores() {
           <div>
             <h5 className="font-bold mb-2">Contáctanos</h5>
             <ul className="text-sm space-y-1">
-              <li>
-                📧{" "}
-                <Link
-                  to="mailto:contacto@farmaven.com"
-                  className="hover:underline"
-                >
-                  contacto@farmaven.com
-                </Link>
-              </li>
-              <li>
-                📞{" "}
-                <Link to="tel:+51987654321" className="hover:underline">
-                  +51 987 654 321
-                </Link>
-              </li>
+              <li>📧 contacto@farmaven.com</li>
+              <li>📞 +51 987 654 321</li>
               <li>Central Telefónica: (01) 612-5000</li>
             </ul>
           </div>
@@ -281,38 +317,26 @@ export default function valores() {
               Recibe notificaciones de sorteos y promociones exclusivas 🎁
             </p>
             <form
-                className="d-flex mb-3"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const email = e.target.email.value;
-                  console.log("Email suscrito:", email);
-                  alert("¡Gracias por suscribirte!");
-                  e.target.reset();
-                }}
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert("¡Gracias por suscribirte!");
+                e.target.reset();
+              }}
+            >
+              <input
+                type="email"
+                name="email"
+                placeholder="Tu correo"
+                required
+                className="border rounded px-2 py-1 mr-2"
+              />
+              <button
+                type="submit"
+                className="bg-[#0056b3] text-white px-3 py-1 rounded"
               >
-                <input
-                  type="email"
-                  name="email"
-                  className="form-control form-control-sm me-2"
-                  placeholder="Tu correo"
-                  required
-                />
-                <button type="submit" className="btn btn-primary btn-sm">
-                  Enviar
-                </button>
-              </form>
-              <h6 className="fw-bold">Síguenos</h6>
-            <div className="flex justify-center space-x-4">
-              <Link  className="text-black text-xl">
-                <i className="fab fa-facebook"></i>
-              </Link>
-              <Link className="text-black text-xl">
-                <i className="fab fa-instagram"></i>
-              </Link>
-              <Link className="text-black text-xl">
-                <i className="fab fa-tiktok"></i>
-              </Link>
-            </div>
+                Enviar
+              </button>
+            </form>
           </div>
         </div>
 
