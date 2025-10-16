@@ -9,7 +9,15 @@ import azitromicina from "../assets/react.svg";
 import prom1 from "../assets/react.svg";
 import prom2 from "../assets/react.svg";
 import prom3 from "../assets/react.svg";
+import crema from "../assets/img/crema.jpg";
+import suero from "../assets/img/suero.jpg";
+import alcohol from "../assets/img/alcohol.jpg";
+import mascarillas from "../assets/img/mascarillas.jpg";
+import gel from "../assets/img/gel.jpg";
 
+import cliente1 from "../assets/img/cliente1.jpg";
+import cliente2 from "../assets/img/cliente2.jpg";
+import cliente3 from "../assets/img/cliente3.jpg";
 export default function Inicio() {
   return (
     <div>
