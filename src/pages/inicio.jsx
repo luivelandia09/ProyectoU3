@@ -10,7 +10,14 @@ import azitromicina from "../img/AZITROMICINA.png";
 import prom1 from "../img/prom1";
 import prom2 from "../img/prom2";
 import prom3 from "../img/prom3";
-
+import crema from "../assets/img/crema.jpg";
+import suero from "../assets/img/suero.jpg";
+import alcohol from "../assets/img/alcohol.jpg";
+import mascarillas from "../assets/img/mascarillas.jpg";
+import gel from "../assets/img/gel.jpg";
+import cliente1 from "../assets/img/cliente1.jpg";
+import cliente2 from "../assets/img/cliente2.jpg";
+import cliente3 from "../assets/img/cliente3.jpg";
 export default function Inicio() {
   return (
     <div>
@@ -193,6 +200,43 @@ export default function Inicio() {
             </div>
           </div>
         </div>
+          {
+    id: 6,
+    nombre: "Crema antibiótica",
+    precio: 8.50,
+    desc: "Ideal para heridas leves y quemaduras.",
+    img: "images/crema-antibiotica.png",
+  },
+  {
+    id: 7,
+    nombre: "Suero oral 500ml",
+    precio: 5.00,
+    desc: "Hidratación efectiva para cuadros de deshidratación.",
+    img: "images/suero-oral.png",
+  },
+  {
+    id: 8,
+    nombre: "Alcohol 70%",
+    precio: 4.00,
+    desc: "Desinfectante de uso externo para limpieza de heridas.",
+    img: "images/alcohol70.png",
+  },
+  {
+    id: 9,
+    nombre: "Mascarillas quirúrgicas (10u)",
+    precio: 6.00,
+    desc: "Protección diaria contra agentes externos.",
+    img: "images/mascarillas.png",
+  },
+  {
+    id: 10,
+    nombre: "Gel antibacterial 250ml",
+    precio: 5.50,
+    desc: "Elimina el 99.9% de bacterias sin necesidad de agua.",
+    img: "images/gel-antibacterial.png",
+  },
+];
+
       </section>
 
       <section className="py-5 promociones">
@@ -341,6 +385,46 @@ export default function Inicio() {
           </div>
         </div>
       </section>
+{/* Sección de Testimonios */}
+<section id="testimonios" className="bg-gray-100 py-16">
+  <div className="container mx-auto text-center">
+    <h2 className="text-3xl font-bold mb-8 text-gray-800">Testimonios de Clientes</h2>
+
+    <div className="grid md:grid-cols-3 gap-8">
+      {[{
+        nombre: "María López",
+        opinion: "El servicio fue excelente, el equipo siempre atento y profesional.",
+        foto: cliente1,
+      }, {
+        nombre: "Carlos Pérez",
+        opinion: "Me encantó el diseño final, captaron exactamente lo que quería.",
+        foto: cliente2,
+      }, {
+        nombre: "Lucía Fernández",
+        opinion: "Muy buen trabajo, cumplieron con todo en el tiempo acordado.",
+        foto: cliente3,
+      }].map((cliente, index) => (
+        <div
+          key={index}
+          className="bg-white shadow-lg rounded-2xl p-6 hover:scale-105 hover:shadow-2xl transition-transform duration-500"
+        >
+          <img
+            src={cliente.foto}
+            alt={cliente.nombre}
+            className="w-24 h-24 mx-auto rounded-full mb-4 object-cover border-4 border-blue-500"
+          />
+          <h3 className="text-xl font-semibold text-gray-700">{cliente.nombre}</h3>
+          <p className="text-gray-600 italic mt-2">"{cliente.opinion}"</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* Footer existente debajo */}
+<footer>
+  ...
+</footer>
 
       <footer className="custom-footer text-dark pt-5">
         <div className="container">
