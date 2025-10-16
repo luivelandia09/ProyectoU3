@@ -58,8 +58,47 @@ const productosExtra = [
 ];
 
 export default function Inicio() {
+  const productosExtra = [
+    {
+      id: 6,
+      nombre: "Crema antibiótica",
+      precio: 8.5,
+      desc: "Ideal para heridas leves y quemaduras.",
+      img: crema,
+    },
+    {
+      id: 7,
+      nombre: "Suero oral 500ml",
+      precio: 5.0,
+      desc: "Hidratación efectiva para cuadros de deshidratación.",
+      img: suero,
+    },
+    {
+      id: 8,
+      nombre: "Alcohol 70%",
+      precio: 4.0,
+      desc: "Desinfectante de uso externo para limpieza de heridas.",
+      img: alcohol,
+    },
+    {
+      id: 9,
+      nombre: "Mascarillas quirúrgicas (10u)",
+      precio: 6.0,
+      desc: "Protección diaria contra agentes externos.",
+      img: mascarillas,
+    },
+    {
+      id: 10,
+      nombre: "Gel antibacterial 250ml",
+      precio: 5.5,
+      desc: "Elimina el 99.9% de bacterias sin necesidad de agua.",
+      img: gel,
+    },
+  ];
+
   return (
-    <div className="inicio-container">
+
+    <div>
       <header className="bg-primary text-white py-3">
         <nav className="navbar navbar-expand-lg navbar-dark">
           <div className="container">
@@ -211,6 +250,7 @@ export default function Inicio() {
             </div>
           </div>
         </div>
+
       </section>
 
       <section className="py-5 promociones">
