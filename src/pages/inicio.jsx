@@ -1,14 +1,14 @@
 import React from "react";
 import "../index.css";
-import logo from "../assets/img/logo";
-import ibuprofeno from "../assets/img/IBUPROFENO";
-import diclofenaco from "../assets/img/DICLOFENACO";
-import amoxicilina from "../assets/img/AMOXICILINA";
-import paracetamol from "../assets/img/PARACETAMOL";
-import azitromicina from "../assets/img/AZITROMICIDA";
-import prom1 from "../assets/img/prom1";
-import prom2 from "../assets/img/prom2";
-import prom3 from "../assets/img/prom3";
+import logo from "../assets/react.svg";
+import ibuprofeno from "../assets/react.svg";
+import diclofenaco from "../assets/react.svg";
+import amoxicilina from "../assets/react.svg";
+import paracetamol from "../assets/react.svg";
+import azitromicina from "../assets/react.svg";
+import prom1 from "../assets/react.svg";
+import prom2 from "../assets/react.svg";
+import prom3 from "../assets/react.svg";
 
 export default function Inicio() {
   return (
@@ -33,17 +33,17 @@ export default function Inicio() {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <a className="nav-link active" href="#">
+                  <a className="nav-link active" href="./inicio.jsx">
                     INICIO
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" href="#">
+                  <a className="nav-link active" href="./nosotras.jsx">
                     SOBRE NOSOTRAS
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" href="#">
+                  <a className="nav-link active" href="./valores.jsx">
                     VALORES
                   </a>
                 </li>
@@ -102,7 +102,7 @@ export default function Inicio() {
                     Antiinflamatorio y analgésico ideal para dolores y fiebre.
                   </p>
                   <p className="precio">S/ 12.00</p>
-                  <a href="#" className="btn btn-primary">
+                  <a href="./catalogo.jsx" className="btn btn-primary">
                     Comprar
                   </a>
                 </div>
@@ -122,7 +122,7 @@ export default function Inicio() {
                     Reduce inflamación y alivia dolores musculares.
                   </p>
                   <p className="precio">S/ 15.00</p>
-                  <a href="#" className="btn btn-primary">
+                  <a href="./catalogo.jsx" className="btn btn-primary">
                     Comprar
                   </a>
                 </div>
@@ -142,7 +142,7 @@ export default function Inicio() {
                     Antibiótico eficaz contra diversas infecciones bacterianas.
                   </p>
                   <p className="precio">S/ 22.00</p>
-                  <a href="#" className="btn btn-primary">
+                  <a href="./catalogo.jsx" className="btn btn-primary">
                     Comprar
                   </a>
                 </div>
@@ -164,7 +164,7 @@ export default function Inicio() {
                   <p className="precio">
                     <span className="precio-tachado">S/ 10.00</span> S/7.50
                   </p>
-                  <a href="#" className="btn btn-primary">
+                  <a href="./catalogo.jsx" className="btn btn-primary">
                     Comprar
                   </a>
                 </div>
@@ -184,7 +184,7 @@ export default function Inicio() {
                     Tratamiento para infecciones respiratorias y más.
                   </p>
                   <p className="precio">S/ 32.00</p>
-                  <a href="#" className="btn btn-primary">
+                  <a href="./catalogo.jsx" className="btn btn-primary">
                     Comprar
                   </a>
                 </div>
@@ -220,7 +220,7 @@ export default function Inicio() {
                     </span>{" "}
                     S/ 18.00
                   </p>
-                  <a href="#" className="btn btn-primary">
+                  <a href="./catalogo.jsx" className="btn btn-primary">
                     Comprar
                   </a>
                 </div>
@@ -245,7 +245,7 @@ export default function Inicio() {
                     </span>{" "}
                     S/ 28.00
                   </p>
-                  <a href="#" className="btn btn-primary">
+                  <a href="./catalogo.jsx" className="btn btn-primary">
                     Comprar
                   </a>
                 </div>
@@ -270,7 +270,7 @@ export default function Inicio() {
                     </span>{" "}
                     S/ 12.50
                   </p>
-                  <a href="#" className="btn btn-primary">
+                  <a href=".7catalogo.jsx" className="btn btn-primary">
                     Comprar
                   </a>
                 </div>
@@ -302,23 +302,27 @@ export default function Inicio() {
               <h5 className="fw-bold">FARMAVEN</h5>
               <ul className="list-unstyled">
                 <li>
-                  <a href="#" className="text-dark text-decoration-none">
+                  <a
+                    href="./catalogo.jsx"
+                    className="text-dark text-decoration-none"
+                  >
                     Catálogo del mes
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-dark text-decoration-none">
-                    Efectos secundarios
+                  <a
+                    href="./libroderecla.jsx"
+                    className="text-dark text-decoration-none"
+                  >
+                    Libro de Reclamaciones
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-dark text-decoration-none">
-                    Productos equivalentes
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-dark text-decoration-none">
-                    Preguntas frecuentes
+                  <a
+                    href="testimonios.jsx"
+                    className="text-dark text-decoration-none"
+                  >
+                    Testimonios
                   </a>
                 </li>
               </ul>
