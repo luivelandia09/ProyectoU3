@@ -1,96 +1,11 @@
 import { useState } from "react";
-import catalogoData from '../json/catalogo.json';
+import catalogoDataRaw from "../json/catalogo.json";
 
-[
-  {
-    id: 2,
-    nombre: "Ibuprofeno 400mg",
-    precio: 10.0,
-    desc: "Antiinflamatorio y analgésico.",
-    img: "https://via.placeholder.com/200x200?text=Ibuprofeno",
-    categoria: "Antiinflamatorios",
-  },
-  {
-    id: 3,
-    nombre: "Vitamina C 1g",
-    precio: 2.9,
-    desc: "Refuerza el sistema inmunológico.",
-    img: "https://via.placeholder.com/200x200?text=Vitamina+C",
-    categoria: "Vitaminas",
-  },
-  {
-    id: 4,
-    nombre: "Jarabe para la tos",
-    precio: 6.8,
-    desc: "Alivia la congestión y suaviza la garganta.",
-    img: "https://via.placeholder.com/200x200?text=Jarabe",
-    categoria: "Jarabes",
-  },
-  {
-    id: 5,
-    nombre: "Aspirina 100mg",
-    precio: 3.0,
-    desc: "Previene coágulos sanguíneos.",
-    img: "https://via.placeholder.com/200x200?text=Aspirina",
-    categoria: "Analgésicos",
-  },
-  {
-    id: 6,
-    nombre: "Omeprazol 20mg",
-    precio: 5.5,
-    desc: "Reduce la producción de ácido estomacal.",
-    img: "https://via.placeholder.com/200x200?text=Omeprazol",
-    categoria: "Gastrointestinales",
-  },
-  {
-    id: 7,
-    nombre: "Vitamina D3 2000UI",
-    precio: 4.8,
-    desc: "Fortalece huesos y sistema inmune.",
-    img: "https://via.placeholder.com/200x200?text=Vitamina+D",
-    categoria: "Vitaminas",
-  },
-  {
-    id: 8,
-    nombre: "Loratadina 10mg",
-    precio: 3.2,
-    desc: "Antihistamínico para alergias.",
-    img: "https://via.placeholder.com/200x200?text=Loratadina",
-    categoria: "Antihistamínicos",
-  },
-  {
-    id: 9,
-    nombre: "Amoxicilina 500mg",
-    precio: S / 22.0,
-    desc: "Antibiótico eficaz contra diversas infecciones bacterianas.",
-    img: "https://via.placeholder.com/200x200?text=Amoxicilina",
-    categoria: "Antibióticos",
-  },
-  {
-    id: 10,
-    nombre: "Azitromicina 200mg",
-    precio: S / 32.0,
-    desc: "Tratamiento para infecciones respiratorias y más.",
-    img: "https://via.placeholder.com/200x200?text=Azitromicina",
-    categoria: "Antibióticos",
-  },
-  {
-    id: 11,
-    nombre: "Dicoflenaco 100mg",
-    precio: S / 15.0,
-    desc: "Reduce inflamación y alivia dolores musculares.",
-    img: "https://via.placeholder.com/200x200?text=Dicoflenaco",
-    categoria: "Antiinflamatorio",
-  },
-  {
-    id: 12,
-    nombre: "Multivitminico 100mg",
-    precio: S / 15.0,
-    desc: "Más energía y bienestar para tu día a día.",
-    img: "https://via.placeholder.com/200x200?text=Multivitaminico",
-    categoria: "Vitaminas",
-  },
-];
+//Procesar imágenes
+const catalogoData = catalogoDataRaw.map((producto) => ({
+  ...producto,
+  img: new URL(`../img/${producto.img}`, import.meta.url).href,
+}));
 
 export default function Catalogo() {
   const [carrito, setCarrito] = useState([]);
@@ -101,14 +16,14 @@ export default function Catalogo() {
   // Obtener categorías únicas
   const categorias = [
     "Todas",
-    ...new Set(productosData.map((p) => p.categoria)),
+    ...new Set(catalogoData.map((p) => p.categoria)),
   ];
 
   // Filtrar productos
-  const productosFiltrados = productosData.filter((p) => {
+  const productosFiltrados = catalogoData.filter((p) => {
     const matchBusqueda =
       p.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
-      p.desc.toLowerCase().includes(busqueda.toLowerCase());
+      p.descripcion.toLowerCase().includes(busqueda.toLowerCase());
     const matchCategoria =
       categoriaSeleccionada === "Todas" ||
       p.categoria === categoriaSeleccionada;
@@ -159,12 +74,12 @@ export default function Catalogo() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Header con carrito */}
-      <div className="bg-blue-700 text-white p-4 sticky top-0 z-40 shadow-lg">
+      <div className="bg-blue-700 text-black p-4 sticky top-0 z-40 shadow-lg">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold">🩺 Catálogo Farmaven</h1>
           <button
             onClick={() => setMostrarCarrito(!mostrarCarrito)}
-            className="relative bg-white text-blue-700 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition"
+            className="relative bg-blue text-black-700 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition"
           >
             🛒 Carrito
             {cantidadTotal > 0 && (
@@ -178,7 +93,7 @@ export default function Catalogo() {
 
       {/* Filtros y búsqueda */}
       <div className="container mx-auto p-6">
-        <div className="bg-white p-4 rounded-lg shadow-md mb-6">
+        <div className="bg-gray p-4 rounded-lg shadow-md mb-6">
           <div className="flex flex-col md:flex-row gap-4">
             {/* Búsqueda */}
             <input
@@ -209,7 +124,7 @@ export default function Catalogo() {
           {productosFiltrados.map((p) => (
             <div
               key={p.id}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 overflow-hidden"
+              className="bg-blue rounded-xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 overflow-hidden"
             >
               <div className="relative">
                 <img
@@ -245,7 +160,7 @@ export default function Catalogo() {
                 </div>
                 <button
                   onClick={() => agregarAlCarrito(p)}
-                  className="w-full mt-3 bg-blue-700 text-white py-2 rounded-lg font-semibold hover:bg-green-800 transition active:scale-95"
+                  className="w-full mt-3 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-800 transition active:scale-95"
                 >
                   Agregar al carrito
                 </button>
@@ -340,7 +255,7 @@ export default function Catalogo() {
                     S/ {total.toFixed(2)}
                   </span>
                 </div>
-                <button className="w-full bg-blue-700 text-white py-3 rounded-lg font-bold hover:bg-green-800 transition">
+                <button className="w-full bg-blue-700 text-white py-3 rounded-lg font-bold hover:bg-blue-800 transition">
                   Proceder al pago
                 </button>
               </div>
