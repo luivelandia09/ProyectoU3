@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 import "@fontawesome/fontawesome-free/css/all.min.css";
 import imagenes from "../json/img.json";
-=======
-// Imports (asegúrate de que las rutas existan en src/assets/img)
-import "@fortawesome/fontawesome-free/css/all.min.css"; 
-import fotoValores from "/src/assets/img/fotovalores.jpg"; 
-import descuValores from "/src/assets/img/descuvalores.png";
-import logo from "/src/assets/img/logo.png";
->>>>>>> 65bbb66 (Cambios)
 
 export default function Valores() {
   return (
@@ -18,9 +10,15 @@ export default function Valores() {
           <h1 className="text-4xl font-bold text-[#003b73] uppercase tracking-wide mb-6">
             LOS VALORES QUE NOS DEFINEN
           </h1>
-          <div>{imagenes.img.map((imagesTOP)=>(
-            <img key={imagesTOP.img3}/>
-          ))}</div>
+         <div>
+  {imagenes.img.map((imagesTOP) => (
+    <div key={imagesTOP.img3}>
+      <img src={imagesTOP.imagenfoto} alt="Foto valores" width="200" />
+      <img src={imagesTOP.imagendes} alt="Descuento valores" width="200" />
+      <img src={imagesTOP.img3} alt="Logo valores" width="100" />
+    </div>
+  ))}
+</div>
           <p className="text-lg text-[#6c757d] max-w-3xl mx-auto">
             Estos principios guían cada producto, servicio e interacción con
             nuestros clientes.
