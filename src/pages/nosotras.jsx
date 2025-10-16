@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function Nosotras() {
   return (
     <div className="font-[Montserrat] text-[#495057] bg-[#f8f9fa] leading-relaxed">
@@ -103,49 +105,61 @@ export default function Nosotras() {
           ✨ Tu opinión nos ayuda a crecer y a seguir cuidando de ti. ✨
         </p>
 
-        <form className="flex flex-col gap-4 mt-6">
-          <label htmlFor="Nombres" className="font-semibold text-black">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-6">
+          <label htmlFor="nombres" className="font-semibold text-black">
             Nombres y Apellidos:
           </label>
           <input
             type="text"
-            id="Nombres"
-            name="Nombre"
+            id="nombres"
+            name="nombres"
+            value={formData.nombres}
+            onChange={handleChange}
             placeholder="Escribe tu nombre completo"
             className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
           />
 
-          <label htmlFor="Correo" className="font-semibold text-black">
+          <label htmlFor="correo" className="font-semibold text-black">
             Correo Electrónico:
           </label>
           <input
             type="email"
-            id="Correo"
-            name="Correo"
+            id="correo"
+            name="correo"
+            value={formData.correo}
+            onChange={handleChange}
             placeholder="ejemplo@correo.com"
             className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
           />
 
-          <label htmlFor="Experiencia" className="font-semibold text-black">
+          <label htmlFor="experiencia" className="font-semibold text-black">
             ¿Cómo fue tu experiencia en Farmaven?
           </label>
           <textarea
-            id="Experiencia"
-            name="Experiencia"
+            id="experiencia"
+            name="experiencia"
+            value={formData.experiencia}
+            onChange={handleChange}
             rows="5"
             placeholder="Cuéntanos cómo fue"
             className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
           ></textarea>
 
-          <label htmlFor="Sugerencias" className="font-semibold text-black">
+          <label htmlFor="sugerencias" className="font-semibold text-black">
             Cuéntanos tus sugerencias aquí:
           </label>
           <input
             type="text"
-            name="Sugerencias"
-            id="Sugerencias"
+            name="sugerencias"
+            id="sugerencias"
+            value={formData.sugerencias}
+            onChange={handleChange}
             placeholder="Escribe tus sugerencias"
             className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
           />
 
           <button

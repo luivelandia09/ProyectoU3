@@ -419,13 +419,21 @@ export default function Inicio() {
               <p className="small">
                 Recibe notificaciones de sorteos y promociones exclusivas 🎁
               </p>
-              <form className="d-flex mb-3">
+              <form className="d-flex mb-3" onSubmit={(e) => {
+                e.preventDefault();
+                const email = e.target.email.value;
+                console.log("Email suscrito:", email);
+                alert("¡Gracias por suscribirte!");
+                e.target.reset();
+              }}>
                 <input
                   type="email"
+                  name="email"
                   className="form-control form-control-sm me-2"
                   placeholder="Tu correo"
+                  required
                 />
-                <button className="btn btn-primary btn-sm">Enviar</button>
+                <button type="submit" className="btn btn-primary btn-sm">Enviar</button>
               </form>
               <h6 className="fw-bold">Síguenos</h6>
               <div>

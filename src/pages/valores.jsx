@@ -1,7 +1,7 @@
 import "@fontawesome/fontawesome-free/css/all.min.css";
-import fotoValores from "./src/img/fotovalores.jpg";
-import descuValores from "./src/img/descuvalores.png";
-import logo from "./src/img/logo.png";
+import fotoValores from "../img/fotovalores.jpg";
+import descuValores from "../img/descuvalores.png";
+import logo from "../src/img/logo.png";
 
 export default function Valores() {
   return (
@@ -109,7 +109,7 @@ export default function Valores() {
           </h2>
 
           <div className="flex flex-col md:flex-row items-center gap-10">
-            <form className="bg-white p-8 rounded-xl shadow-lg w-full md:w-1/2 border border-gray-200">
+            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg w-full md:w-1/2 border border-gray-200">
               <div className="mb-4">
                 <label
                   htmlFor="nombre"
@@ -120,8 +120,12 @@ export default function Valores() {
                 <input
                   type="text"
                   id="nombre"
+                  name="nombre"
+                  value={formData.nombre}
+                  onChange={handleChange}
                   placeholder="Tu nombre completo"
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#0056b3]"
+                  required
                 />
               </div>
               <div className="mb-4">
@@ -134,8 +138,12 @@ export default function Valores() {
                 <input
                   type="email"
                   id="correo"
+                  name="correo"
+                  value={formData.correo}
+                  onChange={handleChange}
                   placeholder="tucorreo@example.com"
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#0056b3]"
+                  required
                 />
               </div>
               <div className="mb-4">
@@ -147,7 +155,11 @@ export default function Valores() {
                 </label>
                 <select
                   id="valor"
+                  name="valor"
+                  value={formData.valor}
+                  onChange={handleChange}
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#0056b3]"
+                  required
                 >
                   <option value="">Selecciona un valor</option>
                   <option value="inclusion">Inclusión y Diversidad</option>
@@ -166,9 +178,13 @@ export default function Valores() {
                 </label>
                 <textarea
                   id="comentarios"
+                  name="comentarios"
+                  value={formData.comentarios}
+                  onChange={handleChange}
                   rows="3"
                   placeholder="Cuéntanos tu experiencia..."
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#0056b3]"
+                  required
                 />
               </div>
               <button
