@@ -77,7 +77,7 @@ export default function Nosotras() {
 
       {/* FORMULARIO */}
       <section className="max-w-xl mx-auto p-6 bg-gray-100 rounded-2xl shadow-md mb-20">
-        <h2 className="text-center bg-[#0056b3] text-white px-10 py-4 w-fit mx-auto rounded-full text-xl font-bold uppercase tracking-wider shadow-lg">
+        <h2 className="text-center bg-[#0056b3] text-black px-10 py-4 w-fit mx-auto rounded-full text-xl font-bold uppercase tracking-wider shadow-lg">
           Cuéntanos tu experiencia
         </h2>
         <p className="text-center text-lg my-4">

@@ -61,7 +61,7 @@ import catalogoData from '../json/catalogo.json';
   {
     id: 9,
     nombre: "Amoxicilina 500mg",
-    precio: 22.0,
+    precio:  22.0,
     desc: "Antibiótico eficaz contra diversas infecciones bacterianas.",
     img: "https://via.placeholder.com/200x200?text=Amoxicilina",
     categoria: "Antibióticos",
@@ -77,7 +77,7 @@ import catalogoData from '../json/catalogo.json';
   {
     id: 11,
     nombre: "Dicoflenaco 100mg",
-    precio:  15.0,
+    precio: 15.0,
     desc: "Reduce inflamación y alivia dolores musculares.",
     img: "https://via.placeholder.com/200x200?text=Dicoflenaco",
     categoria: "Antiinflamatorio",
@@ -101,14 +101,14 @@ export default function Catalogo() {
   // Obtener categorías únicas
   const categorias = [
     "Todas",
-    ...new Set(productosData.map((p) => p.categoria)),
+    ...new Set(catalogoData.map((p) => p.categoria)),
   ];
 
   // Filtrar productos
-  const productosFiltrados = productosData.filter((p) => {
+  const productosFiltrados = catalogoData.filter((p) => {
     const matchBusqueda =
       p.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
-      p.desc.toLowerCase().includes(busqueda.toLowerCase());
+      p.descripcion.toLowerCase().includes(busqueda.toLowerCase());
     const matchCategoria =
       categoriaSeleccionada === "Todas" ||
       p.categoria === categoriaSeleccionada;
@@ -159,12 +159,12 @@ export default function Catalogo() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Header con carrito */}
-      <div className="bg-blue-700 text-white p-4 sticky top-0 z-40 shadow-lg">
+      <div className="bg-blue-700 text-black p-4 sticky top-0 z-40 shadow-lg">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold">🩺 Catálogo Farmaven</h1>
           <button
             onClick={() => setMostrarCarrito(!mostrarCarrito)}
-            className="relative bg-white text-blue-700 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition"
+            className="relative bg-blue text-black-700 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition"
           >
             🛒 Carrito
             {cantidadTotal > 0 && (
@@ -178,7 +178,7 @@ export default function Catalogo() {
 
       {/* Filtros y búsqueda */}
       <div className="container mx-auto p-6">
-        <div className="bg-white p-4 rounded-lg shadow-md mb-6">
+        <div className="bg-gray p-4 rounded-lg shadow-md mb-6">
           <div className="flex flex-col md:flex-row gap-4">
             {/* Búsqueda */}
             <input
@@ -209,7 +209,7 @@ export default function Catalogo() {
           {productosFiltrados.map((p) => (
             <div
               key={p.id}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 overflow-hidden"
+              className="bg-blue rounded-xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-2 overflow-hidden"
             >
               <div className="relative">
                 <img
@@ -245,7 +245,7 @@ export default function Catalogo() {
                 </div>
                 <button
                   onClick={() => agregarAlCarrito(p)}
-                  className="w-full mt-3 bg-blue-700 text-white py-2 rounded-lg font-semibold hover:bg-green-800 transition active:scale-95"
+                  className="w-full mt-3 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-800 transition active:scale-95"
                 >
                   Agregar al carrito
                 </button>
@@ -340,7 +340,7 @@ export default function Catalogo() {
                     S/ {total.toFixed(2)}
                   </span>
                 </div>
-                <button className="w-full bg-blue-700 text-white py-3 rounded-lg font-bold hover:bg-green-800 transition">
+                <button className="w-full bg-blue-700 text-white py-3 rounded-lg font-bold hover:bg-blue-800 transition">
                   Proceder al pago
                 </button>
               </div>
