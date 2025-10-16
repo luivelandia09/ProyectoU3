@@ -61,7 +61,7 @@ import catalogoData from '../json/catalogo.json';
   {
     id: 9,
     nombre: "Amoxicilina 500mg",
-    precio: S / 22.0,
+    precio: 22.0,
     desc: "Antibiótico eficaz contra diversas infecciones bacterianas.",
     img: "https://via.placeholder.com/200x200?text=Amoxicilina",
     categoria: "Antibióticos",
@@ -69,7 +69,7 @@ import catalogoData from '../json/catalogo.json';
   {
     id: 10,
     nombre: "Azitromicina 200mg",
-    precio: S / 32.0,
+    precio:  32.0,
     desc: "Tratamiento para infecciones respiratorias y más.",
     img: "https://via.placeholder.com/200x200?text=Azitromicina",
     categoria: "Antibióticos",
@@ -77,7 +77,7 @@ import catalogoData from '../json/catalogo.json';
   {
     id: 11,
     nombre: "Dicoflenaco 100mg",
-    precio: S / 15.0,
+    precio:  15.0,
     desc: "Reduce inflamación y alivia dolores musculares.",
     img: "https://via.placeholder.com/200x200?text=Dicoflenaco",
     categoria: "Antiinflamatorio",
@@ -85,7 +85,7 @@ import catalogoData from '../json/catalogo.json';
   {
     id: 12,
     nombre: "Multivitminico 100mg",
-    precio: S / 15.0,
+    precio:  15.0,
     desc: "Más energía y bienestar para tu día a día.",
     img: "https://via.placeholder.com/200x200?text=Multivitaminico",
     categoria: "Vitaminas",
