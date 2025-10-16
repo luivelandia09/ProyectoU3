@@ -8,7 +8,16 @@
       "mascarillas": "/src/img/mascarillas.png",
       "alcohol70": "/src/img/alcohol70.png",
       "suero": "/src/img/suero-oral.png",
-      "crema": "/src/img/crema-antibiotica.png"
+      "crema": "/src/img/crema-antibiotica.png",
+      "amoxicilina": "/src/img/AMOXICILINA.png",
+      "paracetamol": "/src/img/PARACETAMOL.png",
+      "azitromicina": "/src/img/AZITROMICINA.png",
+      "ibuprofeno": "/src/img/IBUPROFENO.png",
+      "diclofenaco": "/src/img/DICLOFENACO.png",
+      "prom1": "/src/img/prom1.jpg",
+      "prom2": "/src/img/prom2.jpg",
+      "prom3": "/src/img/prom3.jpg"
     }
   ]
 }
+
