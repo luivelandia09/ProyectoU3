@@ -66,7 +66,7 @@ export default function Valores() {
               texto:
                 "Brindamos un servicio transparente, honesto y personalizado para todos.",
               frase: "“Tu bienestar es nuestra prioridad.”",
-              imagen: "/atencion valores.png",
+              img: "/atencion valores.png",
             },
             {
               icon: "fa-lightbulb",
@@ -74,7 +74,7 @@ export default function Valores() {
               texto:
                 "Usamos tecnología para mejorar el acceso a servicios y productos de salud.",
               frase: "“La tecnología al servicio de tu bienestar.”",
-              imagen: "/reunion valores.png",
+              img: "/reunion valores.png",
             },
             {
               icon: "fa-hands-holding-child",
@@ -82,7 +82,7 @@ export default function Valores() {
               texto:
                 "Promovemos el uso responsable de medicamentos e información confiable.",
               frase: "“Cuidarte hoy es vivir mejor mañana.”",
-              imagen: "/productos valores.png",
+              img: "/productos valores.png",
             },
           ].map((p, i) => (
             <div
