@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 import "@fontawesome/fontawesome-free/css/all.min.css";
 import imagenes from "../json/img.json";
+=======
+// Imports (asegúrate de que las rutas existan en src/assets/img)
+import "@fortawesome/fontawesome-free/css/all.min.css"; 
+import fotoValores from "/src/assets/img/fotovalores.jpg"; 
+import descuValores from "/src/assets/img/descuvalores.png";
+import logo from "/src/assets/img/logo.png";
+>>>>>>> 65bbb66 (Cambios)
 
 export default function Valores() {
   return (
