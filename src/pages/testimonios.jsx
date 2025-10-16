@@ -1,23 +1,26 @@
-import React from "react"
+import React from "react";
+import "../App.css";
+import imgData from "../json/img2.json"; 
+
 export default function testimonios() {
   const testimonios = [
     {
       nombre: "María López",
       comentario:
         "Excelente servicio. Pedí mis medicamentos y llegaron en menos de una hora. ¡Muy recomendado!",
-      imagen: "images/testimonio1.jpg",
+      imagen: imgData.img2[0].cliente1, // 
     },
     {
       nombre: "Carlos Ramírez",
       comentario:
         "Los productos son de buena calidad y a muy buen precio. Me encantó la atención al cliente.",
-      imagen: "images/testimonio2.jpg",
+      imagen: imgData.img2[0].cliente2,
     },
     {
       nombre: "Ana Torres",
       comentario:
         "He comprado varias veces y siempre cumplen. El catálogo es claro y las promociones son geniales.",
-      imagen: "images/testimonio3.jpg",
+      imagen: imgData.img2[0].cliente3,
     },
   ];
 

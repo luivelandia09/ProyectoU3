@@ -10,14 +10,14 @@ import azitromicina from "../img/AZITROMICINA.png";
 import prom1 from "../img/prom1.png";
 import prom2 from "../img/prom2.png";
 import prom3 from "../img/prom3.png";
-import crema from "../assets/img/crema.jpg";
-import suero from "../assets/img/suero.jpg";
-import alcohol from "../assets/img/alcohol.jpg";
-import mascarillas from "../assets/img/mascarillas.jpg";
-import gel from "../assets/img/gel.jpg";
-import cliente1 from "../assets/img/cliente1.jpg";
-import cliente2 from "../assets/img/cliente2.jpg";
-import cliente3 from "../assets/img/cliente3.jpg";
+import crema from "../img/crema-antibiótica.png";
+import suero from "../img/suero-oral.png";
+import alcohol from "../img/alcohol70.png";
+import mascarillas from "../img/mascarillas.png";
+import gel from "../img/gel-antibacterial.png";
+import cliente1 from "../img/cliente1.jpg";
+import cliente2 from "../img/cliente2.jpg";
+import cliente3 from "../img/cliente3.jpg";
 
 const productosExtra = [
   {
@@ -485,87 +485,74 @@ export default function Inicio() {
         </div>
       </section>
 
-      {/* Footer existente debajo */}
-      <footer>...</footer>
+     {/* FOOTER */}
+      <footer className="bg-[#64bafb] text-black text-center pt-10">
+        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Logo */}
+          <div>
+            <img
+              src="/src/assets/img/logo.png"
+              alt="Logo FARMAVEN"
+              className="mx-auto mb-4 h-16"
+            />
+            <p className="text-sm">
+              FARMAVEN nació con la misión de ofrecer medicamentos y productos
+              de salud accesibles para todos, con un servicio humano y cercano.
+            </p>
+          </div>
 
-      <footer className="custom-footer text-dark pt-5">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-3 mb-4">
-              <img
-                src={logo}
-                alt="Logo FARMAVEN"
-                className="mb-3"
-                height="60"
-                width="150"
-              />
-              <p className="small">
-                FARMAVEN nació con la misión de ofrecer medicamentos y productos
-                de salud accesibles para todos, con un servicio humano y
-                cercano.
-              </p>
-            </div>
+          {/* Navegación */}
+          <div>
+            <h5 className="font-bold mb-2">FARMAVEN</h5>
+            <ul className="text-sm space-y-1">
+              <li>
+                <Link to="/catalogo" className="hover:underline">
+                  Catálogo del mes
+                </Link>
+              </li>
+              <li>
+                <Link to="/testimonios" className="hover:underline">
+                  Testimonios
+                </Link>
+              </li>
+              <li>
+                <Link to="/libroderecla" className="hover:underline">
+                  Libro de reclamaciones
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-            <div className="col-md-3 mb-4">
-              <h5 className="fw-bold">FARMAVEN</h5>
-              <ul className="list-unstyled">
-                <li>
-                  <a
-                    href="./catalogo.jsx"
-                    className="text-dark text-decoration-none"
-                  >
-                    Catálogo del mes
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="./libroderecla.jsx"
-                    className="text-dark text-decoration-none"
-                  >
-                    Libro de Reclamaciones
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="testimonios.jsx"
-                    className="text-dark text-decoration-none"
-                  >
-                    Testimonios
-                  </a>
-                </li>
-              </ul>
-            </div>
+          {/* Contacto */}
+          <div>
+            <h5 className="font-bold mb-2">Contáctanos</h5>
+            <ul className="text-sm space-y-1">
+              <li>
+                📧{" "}
+                <Link
+                  to="mailto:contacto@farmaven.com"
+                  className="hover:underline"
+                >
+                  contacto@farmaven.com
+                </Link>
+              </li>
+              <li>
+                📞{" "}
+                <Link to="tel:+51987654321" className="hover:underline">
+                  +51 987 654 321
+                </Link>
+              </li>
+              <li>Central Telefónica: (01) 612-5000</li>
+            </ul>
+          </div>
 
-            <div className="col-md-3 mb-4">
-              <h5 className="fw-bold">Contáctanos</h5>
-              <ul className="list-unstyled small">
-                <li>
-                  📧{" "}
-                  <a href="mailto:contacto@farmaven.com" className="text-dark">
-                    contacto@farmaven.com
-                  </a>
-                </li>
-                <li>
-                  📞{" "}
-                  <a href="tel:+51987654321" className="text-dark">
-                    +51 987 654 321
-                  </a>
-                </li>
-                <li>Central Telefónica: (01) 612-5000</li>
-                <li>
-                  <a href="#" className="text-dark text-decoration-none">
-                    Libro de reclamaciones
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="col-md-3 mb-4">
-              <h5 className="fw-bold">Suscríbete</h5>
-              <p className="small">
-                Recibe notificaciones de sorteos y promociones exclusivas 🎁
-              </p>
-              <form
+          {/* Suscripción */}
+          <div>
+            <h5 className="font-bold mb-2">Suscríbete</h5>
+            <p className="text-sm mb-2">
+              Recibe notificaciones de sorteos y promociones exclusivas 🎁
+            </p>
+            <form
                 className="d-flex mb-3"
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -587,25 +574,24 @@ export default function Inicio() {
                 </button>
               </form>
               <h6 className="fw-bold">Síguenos</h6>
-              <div>
-                <a href="#" className="text-dark me-3">
-                  <i className="fab fa-facebook fa-lg"></i>
-                </a>
-                <a href="#" className="text-dark me-3">
-                  <i className="fab fa-instagram fa-lg"></i>
-                </a>
-                <a href="#" className="text-dark">
-                  <i className="fab fa-tiktok fa-lg"></i>
-                </a>
-              </div>
+            <div className="flex justify-center space-x-4">
+              <Link  className="text-black text-xl">
+                <i className="fab fa-facebook"></i>
+              </Link>
+              <Link className="text-black text-xl">
+                <i className="fab fa-instagram"></i>
+              </Link>
+              <Link className="text-black text-xl">
+                <i className="fab fa-tiktok"></i>
+              </Link>
             </div>
           </div>
-
-          <hr />
-          <div className="text-center small py-3">
-            © 2025 FARMAVEN - Todos los derechos reservados
-          </div>
         </div>
+
+        <hr className="my-6 border-black/20" />
+        <p className="text-sm pb-4">
+          © 2025 FARMAVEN - Todos los derechos reservados
+        </p>
       </footer>
     </div>
   );

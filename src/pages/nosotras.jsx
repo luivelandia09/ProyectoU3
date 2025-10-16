@@ -1,6 +1,31 @@
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { Link } from "react-router-dom"
+import equipo from "../json/equipo.json"
 import { useState } from "react";
 
+const data = equipo.map(persona => ({
+  ...persona,
+  img: new URL(`../img/${persona.img}`, import.meta.url).href
+}));
+
+
 export default function Nosotras() {
+  const [formData, setFormData] = useState({
+    nombres: "",
+    correo: "",
+    experiencia: "",
+    sugerencias: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Gracias por compartir tu experiencia 💙");
+    setFormData({ nombres: "", correo: "", experiencia: "", sugerencias: "" });
+  }
   return (
     <div className="font-[Montserrat] text-[#495057] bg-[#f8f9fa] leading-relaxed">
       {/* HEADER */}
@@ -29,71 +54,26 @@ export default function Nosotras() {
 
       {/* TARJETAS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 mb-20">
-        {/* Tarjeta 1 */}
-        <div className="bg-[#e9f5ff] shadow-lg rounded-xl overflow-hidden hover:scale-105 hover:shadow-2xl transition-transform duration-300">
-          <img
-            src="/src/img/NIÑA1.jpg"
-            alt="Nayeli Mamani sonríe con calidez y confianza"
-            className="w-full h-64 object-cover"
-          />
-          <div className="p-5">
-            <h5 className="text-center text-2xl font-bold text-gray-800 mb-2">
-              Nayeli Mamani
-            </h5>
-            <p className="text-justify text-black text-base">
-              Soy Nayeli Mamani, especialista en Marketing Digital. Provengo del
-              mundo del diseño gráfico y el marketing, y me apasiona crear
-              campañas que conecten a las personas con productos que realmente
-              mejoren su calidad de vida. Domino áreas como la publicidad en
-              redes, el email marketing y el diseño de promociones. Mi mayor
-              fortaleza es transformar cada promoción en una historia
-              irresistible que los clientes quieren compartir.
-            </p>
+        {data.map((persona, idx) => (
+          <div
+            key={idx}
+            className="bg-[#e9f5ff] shadow-lg rounded-xl overflow-hidden hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+          >
+            <img
+              src={persona.img}
+              alt={persona.alt}
+              className="w-full h-64 object-cover"
+            />
+            <div className="p-5">
+              <h5 className="text-center text-2xl font-bold text-gray-800 mb-2">
+                {persona.nombre}
+              </h5>
+              <p className="text-justify text-black text-base">
+                {persona.descripcion}
+              </p>
+            </div>
           </div>
-        </div>
-
-        {/* Tarjeta 2 */}
-        <div className="bg-[#e9f5ff] shadow-lg rounded-xl overflow-hidden hover:scale-105 hover:shadow-2xl transition-transform duration-300">
-          <img
-            src="/src/img/NIÑA2.jpg"
-            alt="Luisana Velandia sonríe cálidamente"
-            className="w-full h-64 object-cover"
-          />
-          <div className="p-5">
-            <h5 className="text-center text-2xl font-bold text-gray-800 mb-2">
-              Luisana Velandia
-            </h5>
-            <p className="text-justify text-black text-base">
-              Soy Luisana Velandia, especialista en ventas de Farmaven. Tengo un
-              fuerte compromiso hacia el bienestar de los clientes y cuento con
-              más de 5 años de experiencia en ventas y atención. Mi misión es
-              escuchar y comprender las necesidades de cada persona para ofrecer
-              soluciones que mejoren su calidad de vida.
-            </p>
-          </div>
-        </div>
-
-        {/* Tarjeta 3 */}
-        <div className="bg-[#e9f5ff] shadow-lg rounded-xl overflow-hidden hover:scale-105 hover:shadow-2xl transition-transform duration-300">
-          <img
-            src="/src/img/NIÑA3.png"
-            alt="Mikela Mora sonríe con amabilidad y confianza"
-            className="w-full h-64 object-cover"
-          />
-          <div className="p-5">
-            <h5 className="text-center text-2xl font-bold text-gray-800 mb-2">
-              Mikela Mora
-            </h5>
-            <p className="text-justify text-black text-base">
-              Soy Mikela Mora, una apasionada por conectar las necesidades de
-              cada persona con soluciones de salud efectivas. En Farmaven,
-              combino mi conocimiento farmacéutico con estrategias de
-              orientación al cliente para garantizar que cada recomendación sea
-              clara, segura y adaptada. Mi objetivo es que cada cliente reciba
-              confianza y acompañamiento en su bienestar.
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
 
       {/* FORMULARIO */}
@@ -192,19 +172,19 @@ export default function Nosotras() {
             <h5 className="font-bold mb-2">FARMAVEN</h5>
             <ul className="text-sm space-y-1">
               <li>
-                <a href="../catalogo.jsx" className="hover:underline">
+                <Link to="/catalogo" className="hover:underline">
                   Catálogo del mes
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="../testimonios.jsx" className="hover:underline">
+                <Link to="/testimonios" className="hover:underline">
                   Testimonios
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="../libroderecla.jsx" className="hover:underline">
+                <Link to="/libroderecla" className="hover:underline">
                   Libro de reclamaciones
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -215,18 +195,18 @@ export default function Nosotras() {
             <ul className="text-sm space-y-1">
               <li>
                 📧{" "}
-                <a
-                  href="mailto:contacto@farmaven.com"
+                <Link
+                  to="mailto:contacto@farmaven.com"
                   className="hover:underline"
                 >
                   contacto@farmaven.com
-                </a>
+                </Link>
               </li>
               <li>
                 📞{" "}
-                <a href="tel:+51987654321" className="hover:underline">
+                <Link to="tel:+51987654321" className="hover:underline">
                   +51 987 654 321
-                </a>
+                </Link>
               </li>
               <li>Central Telefónica: (01) 612-5000</li>
             </ul>
@@ -238,26 +218,38 @@ export default function Nosotras() {
             <p className="text-sm mb-2">
               Recibe notificaciones de sorteos y promociones exclusivas 🎁
             </p>
-            <form className="flex items-center justify-center mb-3">
-              <input
-                type="email"
-                className="border rounded-l-md p-2 w-2/3 text-sm"
-                placeholder="Tu correo"
-              />
-              <button className="bg-blue-700 text-white p-2 rounded-r-md text-sm hover:bg-blue-800">
-                Enviar
-              </button>
-            </form>
+            <form
+                className="d-flex mb-3"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const email = e.target.email.value;
+                  console.log("Email suscrito:", email);
+                  alert("¡Gracias por suscribirte!");
+                  e.target.reset();
+                }}
+              >
+                <input
+                  type="email"
+                  name="email"
+                  className="form-control form-control-sm me-2"
+                  placeholder="Tu correo"
+                  required
+                />
+                <button type="submit" className="btn btn-primary btn-sm">
+                  Enviar
+                </button>
+              </form>
+              <h6 className="fw-bold">Síguenos</h6>
             <div className="flex justify-center space-x-4">
-              <a href="#" className="text-black text-xl">
+              <Link  className="text-black text-xl">
                 <i className="fab fa-facebook"></i>
-              </a>
-              <a href="#" className="text-black text-xl">
+              </Link>
+              <Link className="text-black text-xl">
                 <i className="fab fa-instagram"></i>
-              </a>
-              <a href="#" className="text-black text-xl">
+              </Link>
+              <Link className="text-black text-xl">
                 <i className="fab fa-tiktok"></i>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

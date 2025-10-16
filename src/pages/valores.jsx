@@ -214,64 +214,110 @@ export default function valores() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#64bafb] text-black py-10 mt-10 border-t-4 border-[#0056b3]">
-        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <footer className="bg-[#64bafb] text-black text-center pt-10">
+        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Logo */}
           <div>
-            <img src={logo} alt="Logo FARMAVEN" className="h-20 mb-3" />
+            <img
+              src="/src/assets/img/logo.png"
+              alt="Logo FARMAVEN"
+              className="mx-auto mb-4 h-16"
+            />
             <p className="text-sm">
-              FARMAVEN nació con la misión de ofrecer medicamentos accesibles
-              para todos, con un servicio humano y cercano.
+              FARMAVEN nació con la misión de ofrecer medicamentos y productos
+              de salud accesibles para todos, con un servicio humano y cercano.
             </p>
           </div>
 
+          {/* Navegación */}
           <div>
             <h5 className="font-bold mb-2">FARMAVEN</h5>
-            <ul className="space-y-1 text-sm">
+            <ul className="text-sm space-y-1">
               <li>
-                <a href="#" className="hover:underline">
+                <Link to="/catalogo" className="hover:underline">
                   Catálogo del mes
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <Link to="/testimonios" className="hover:underline">
                   Testimonios
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <Link to="/libroderecla" className="hover:underline">
                   Libro de reclamaciones
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
+          {/* Contacto */}
           <div>
             <h5 className="font-bold mb-2">Contáctanos</h5>
-            <ul className="space-y-1 text-sm">
-              <li>📧 contacto@farmaven.com</li>
-              <li>📞 +51 987 654 321</li>
+            <ul className="text-sm space-y-1">
+              <li>
+                📧{" "}
+                <Link
+                  to="mailto:contacto@farmaven.com"
+                  className="hover:underline"
+                >
+                  contacto@farmaven.com
+                </Link>
+              </li>
+              <li>
+                📞{" "}
+                <Link to="tel:+51987654321" className="hover:underline">
+                  +51 987 654 321
+                </Link>
+              </li>
               <li>Central Telefónica: (01) 612-5000</li>
             </ul>
           </div>
 
+          {/* Suscripción */}
           <div>
             <h5 className="font-bold mb-2">Suscríbete</h5>
-            <input
-              type="email"
-              placeholder="Tu correo"
-              className="w-full border border-gray-300 rounded-lg px-3 py-1 mb-2"
-            />
-            <button className="bg-[#0056b3] text-white px-4 py-1 rounded-lg w-full mb-3">
-              Enviar
-            </button>
-            <div className="flex justify-center gap-3 text-lg">
-              <i className="fab fa-facebook"></i>
-              <i className="fab fa-instagram"></i>
-              <i className="fab fa-tiktok"></i>
+            <p className="text-sm mb-2">
+              Recibe notificaciones de sorteos y promociones exclusivas 🎁
+            </p>
+            <form
+                className="d-flex mb-3"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const email = e.target.email.value;
+                  console.log("Email suscrito:", email);
+                  alert("¡Gracias por suscribirte!");
+                  e.target.reset();
+                }}
+              >
+                <input
+                  type="email"
+                  name="email"
+                  className="form-control form-control-sm me-2"
+                  placeholder="Tu correo"
+                  required
+                />
+                <button type="submit" className="btn btn-primary btn-sm">
+                  Enviar
+                </button>
+              </form>
+              <h6 className="fw-bold">Síguenos</h6>
+            <div className="flex justify-center space-x-4">
+              <Link  className="text-black text-xl">
+                <i className="fab fa-facebook"></i>
+              </Link>
+              <Link className="text-black text-xl">
+                <i className="fab fa-instagram"></i>
+              </Link>
+              <Link className="text-black text-xl">
+                <i className="fab fa-tiktok"></i>
+              </Link>
             </div>
           </div>
         </div>
-        <p className="text-center text-sm mt-6">
+
+        <hr className="my-6 border-black/20" />
+        <p className="text-sm pb-4">
           © 2025 FARMAVEN - Todos los derechos reservados
         </p>
       </footer>
