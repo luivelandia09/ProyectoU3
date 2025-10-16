@@ -77,12 +77,12 @@ export default function Catalogo() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Header con carrito */}
-      <div className="bg-blue-700 text-black p-4 sticky top-0 z-40 shadow-lg">
+      <div className="bg-primary-700 text-white p-4 sticky top-0 z-40 shadow-lg">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold">🩺 Catálogo Farmaven</h1>
           <button
             onClick={() => setMostrarCarrito(!mostrarCarrito)}
-            className="relative bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition"
+            className="relative bg-primary-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition"
           >
             🛒 Carrito:
             {cantidadTotal > 0 && (
@@ -185,7 +185,7 @@ export default function Catalogo() {
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-start justify-end p-4">
           <div className="bg-white w-full max-w-md h-full rounded-lg shadow-2xl overflow-hidden flex flex-col">
             {/* Header del carrito */}
-            <div className="bg-blue-700 text-white p-4 flex justify-between items-center">
+            <div className="bg-primary-700 text-white p-4 flex justify-between items-center">
               <h2 className="text-xl font-bold">🛒 Tu Carrito</h2>
               <button
                 onClick={() => setMostrarCarrito(false)}
@@ -260,7 +260,7 @@ export default function Catalogo() {
                     S/ {total.toFixed(2)}
                   </span>
                 </div>
-                <button className="w-full bg-blue-700 text-white py-3 rounded-lg font-bold hover:bg-blue-800 transition">
+                <button className="w-full bg-primary-700 text-white py-3 rounded-lg font-bold hover:bg-blue-800 transition">
                   Proceder al pago
                 </button>
               </div>

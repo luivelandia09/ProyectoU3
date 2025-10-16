@@ -309,7 +309,7 @@ export default function Valores() {
         </section>
 
         {/* === FOOTER === */}
-        <footer className="bg-[#64bafb] text-black text-center pt-10">
+        <footer className="bg-primary text-black text-center pt-10">
           <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Logo */}
             <div>
@@ -331,17 +331,20 @@ export default function Valores() {
               <h5 className="font-bold mb-2">FARMAVEN</h5>
               <ul className="text-sm space-y-1">
                 <li>
-                  <Link to="/catalogo" className="hover:underline">
+                  <Link to="/catalogo" className="font-bold hover:underline">
                     Catálogo del mes
                   </Link>
                 </li>
                 <li>
-                  <Link to="/testimonios" className="hover:underline">
+                  <Link to="/testimonios" className="font-bold hover:underline">
                     Testimonios
                   </Link>
                 </li>
                 <li>
-                  <Link to="/libroderecla" className="hover:underline">
+                  <Link
+                    to="/libroderecla"
+                    className="font-bold hover:underline"
+                  >
                     Libro de reclamaciones
                   </Link>
                 </li>
@@ -352,8 +355,24 @@ export default function Valores() {
             <div>
               <h5 className="font-bold mb-2">Contáctanos</h5>
               <ul className="text-sm space-y-1">
-                <li>📧 contacto@farmaven.com</li>
-                <li>📞 +51 987 654 321</li>
+                <li>
+                  📧{" "}
+                  <Link
+                    to="mailto:contacto@farmaven.com"
+                    className=" font-bold hover:underline"
+                  >
+                    contacto@farmaven.com
+                  </Link>
+                </li>
+                <li>
+                  📞{" "}
+                  <Link
+                    to="tel:+51987654321"
+                    className="font-bold hover:underline"
+                  >
+                    +51 987 654 321
+                  </Link>
+                </li>
                 <li>Central Telefónica: (01) 612-5000</li>
               </ul>
             </div>

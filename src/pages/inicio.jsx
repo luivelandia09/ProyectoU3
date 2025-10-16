@@ -198,17 +198,17 @@ export default function Inicio() {
             <h5 className="font-bold mb-2">FARMAVEN</h5>
             <ul className="text-sm space-y-1">
               <li>
-                <Link to="/catalogo" className="hover:underline">
+                <Link to="/catalogo" className="font-bold hover:underline">
                   Catálogo del mes
                 </Link>
               </li>
               <li>
-                <Link to="/testimonios" className="hover:underline">
+                <Link to="/testimonios" className="font-bold hover:underline">
                   Testimonios
                 </Link>
               </li>
               <li>
-                <Link to="/libroderecla" className="hover:underline">
+                <Link to="/libroderecla" className="font-bold hover:underline">
                   Libro de reclamaciones
                 </Link>
               </li>
@@ -223,7 +223,7 @@ export default function Inicio() {
                 📧{" "}
                 <Link
                   to="mailto:contacto@farmaven.com"
-                  className="hover:underline"
+                  className="font-bold hover:underline"
                 >
                   contacto@farmaven.com
                 </Link>
