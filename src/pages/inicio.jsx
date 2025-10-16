@@ -14,7 +14,6 @@ import suero from "../assets/img/suero.jpg";
 import alcohol from "../assets/img/alcohol.jpg";
 import mascarillas from "../assets/img/mascarillas.jpg";
 import gel from "../assets/img/gel.jpg";
-
 import cliente1 from "../assets/img/cliente1.jpg";
 import cliente2 from "../assets/img/cliente2.jpg";
 import cliente3 from "../assets/img/cliente3.jpg";
@@ -284,6 +283,66 @@ export default function Inicio() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      {/* Testimonios */}
+      <section className="py-5 bg-light testimonios">
+        <div className="container">
+          <h2 className="text-center mb-5">Testimonios de Nuestros Clientes</h2>
+          <div className="row g-4">
+
+            <div className="col-md-4">
+              <div className="card border-0 shadow-lg p-4 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <img
+                  src={cliente1}
+                  alt="Cliente 1"
+                  className="rounded-circle mx-auto mb-3"
+                  width="120"
+                  height="120"
+                />
+                <h5 className="fw-bold">María López</h5>
+                <p className="text-muted fst-italic">
+                  “Farmaven siempre tiene los medicamentos que necesito. El servicio es rápido y confiable.”
+                </p>
+                <div className="text-warning fs-5">★★★★★</div>
+              </div>
+            </div>
+
+            <div className="col-md-4">
+              <div className="card border-0 shadow-lg p-4 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <img
+                  src={cliente2}
+                  alt="Cliente 2"
+                  className="rounded-circle mx-auto mb-3"
+                  width="120"
+                  height="120"
+                />
+                <h5 className="fw-bold">Carlos Ramírez</h5>
+                <p className="text-muted fst-italic">
+                  “Excelente atención y precios accesibles. Recomiendo Farmaven a todos mis amigos.”
+                </p>
+                <div className="text-warning fs-5">★★★★★</div>
+              </div>
+            </div>
+
+            <div className="col-md-4">
+              <div className="card border-0 shadow-lg p-4 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <img
+                  src={cliente3}
+                  alt="Cliente 3"
+                  className="rounded-circle mx-auto mb-3"
+                  width="120"
+                  height="120"
+                />
+                <h5 className="fw-bold">Lucía Fernández</h5>
+                <p className="text-muted fst-italic">
+                  “Me encanta la presentación del sitio y la variedad de productos. ¡Muy recomendable!”
+                </p>
+                <div className="text-warning fs-5">★★★★★</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
