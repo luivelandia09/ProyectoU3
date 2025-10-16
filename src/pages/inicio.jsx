@@ -358,6 +358,95 @@ export default function Inicio() {
           </div>
         </div>
       </section>
+      {/* 🔥 SECCIÓN DE PROMOCIONES 🔥 */}
+      <section className="relative bg-gradient-to-r from-blue-500 via-cyan-400 to-green-400 text-white py-16 mt-10 overflow-hidden">
+        {/* Fondo animado */}
+        <div className="absolute inset-0 animate-pulse opacity-20 bg-[radial-gradient(circle_at_center,white,transparent_70%)]"></div>
+
+        <div className="relative container mx-auto px-6 text-center">
+          {/* Icono del carrito */}
+          <div className="flex justify-center mb-6 animate-bounce">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-20 h-20 text-yellow-300 drop-shadow-lg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.435m0 0L6.75 14.25A2.25 2.25 0 009 16.5h9.75a2.25 2.25 0 002.19-1.757l1.5-6.75A1.125 1.125 0 0021.375 6H5.121m0 0L4.5 3.75M9 21a.75.75 0 100-1.5.75.75 0 000 1.5zm9 0a.75.75 0 100-1.5.75.75 0 000 1.5z"
+              />
+            </svg>
+          </div>
+
+          {/* Texto principal */}
+          <h2 className="text-5xl font-extrabold mb-4 drop-shadow-lg animate-fade-in">
+            🔥 ¡Promoción de la Semana! 🔥
+          </h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto animate-fade-in-delayed">
+            Aprovecha descuentos exclusivos en productos esenciales de salud y
+            bienestar. Solo por tiempo limitado 🕒
+          </p>
+
+          {/* Botón animado */}
+          <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold text-lg px-8 py-3 rounded-full shadow-lg transform hover:scale-110 transition duration-300 animate-bounce">
+            🛒 Ver ofertas exclusivas
+          </button>
+        </div>
+      </section>
+
+      {/* Sección de Testimonios */}
+      <section id="testimonios" className="bg-gray-100 py-16">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-8 text-gray-800">
+            Testimonios de Clientes
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                nombre: "María López",
+                opinion:
+                  "El servicio fue excelente, el equipo siempre atento y profesional.",
+                foto: cliente1,
+              },
+              {
+                nombre: "Carlos Pérez",
+                opinion:
+                  "Me encantó el diseño final, captaron exactamente lo que quería.",
+                foto: cliente2,
+              },
+              {
+                nombre: "Lucía Fernández",
+                opinion:
+                  "Muy buen trabajo, cumplieron con todo en el tiempo acordado.",
+                foto: cliente3,
+              },
+            ].map((cliente, index) => (
+              <div
+                key={index}
+                className="bg-white shadow-lg rounded-2xl p-6 hover:scale-105 hover:shadow-2xl transition-transform duration-500"
+              >
+                <img
+                  src={cliente.foto}
+                  alt={cliente.nombre}
+                  className="w-24 h-24 mx-auto rounded-full mb-4 object-cover border-4 border-blue-500"
+                />
+                <h3 className="text-xl font-semibold text-gray-700">
+                  {cliente.nombre}
+                </h3>
+                <p className="text-gray-600 italic mt-2">"{cliente.opinion}"</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer existente debajo */}
+      <footer>...</footer>
 
       <footer className="custom-footer text-dark pt-5">
         <div className="container">
