@@ -5,6 +5,7 @@ import Nosotras from "./pages/nosotras";
 import Valores from "./pages/valores";
 import Catalogo from "./pages/catalogo";
 import Testimonios from "./pages/testimonios";
+import Libro from "./pages/libroderecla";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";     
@@ -17,11 +18,12 @@ function App() {
       <Navbar />
       <main className="p-8">
         <Routes>
-          <Route path="/" element={<Inicio />} />
-          <Route path="/nosotras" element={<Nosotras />} />
-          <Route path="/valores" element={<Valores />} />
-          <Route path="/catalogo" element={<Catalogo />} />
-          <Route path="/testimonios" element={<Testimonios />} />
+          <Route path="/" element={<Inicio/>} />
+          <Route path="/nosotras" element={<Nosotras/>} />
+          <Route path="/valores" element={<Valores/>} />
+          <Route path="/catalogo" element={<Catalogo/>} />
+          <Route path="/testimonios" element={<Testimonios/>} />
+          <Route path="/libroderecla" element={<Libro/>} />
         </Routes>
       </main>
     </div>
