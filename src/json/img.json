@@ -1,0 +1,9 @@
+{
+  "img": [
+    {
+      "imagenfoto": "/src/img/fotovalores.jpg",
+      "imagendes": "/src/img/descuvalores.png",
+      "img3": "/src/img/logo.png"
+    }
+  ]
+}
