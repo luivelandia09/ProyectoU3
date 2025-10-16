@@ -82,7 +82,7 @@ export default function Catalogo() {
           <h1 className="text-2xl font-bold">🩺 Catálogo Farmaven</h1>
           <button
             onClick={() => setMostrarCarrito(!mostrarCarrito)}
-            className="relative bg-blue text-black-700 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition"
+            className="relative bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition"
           >
             🛒 Carrito:
             {cantidadTotal > 0 && (
@@ -96,7 +96,7 @@ export default function Catalogo() {
 
       {/* Filtros y búsqueda */}
       <div className="container mx-auto p-6">
-        <div className="bg-gray p-4 rounded-lg shadow-md mb-6">
+        <div className="bg-gray-50 p-4 rounded-lg shadow-md mb-6">
           <div className="flex flex-col md:flex-row gap-4">
             {/* Búsqueda */}
             <input
