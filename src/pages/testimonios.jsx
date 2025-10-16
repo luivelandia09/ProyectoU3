@@ -1,7 +1,5 @@
-import React from "react";
-import "./App.css"; // Para usar tus estilos globales
-
-export default function Testimonios() {
+import React from "react"
+export default function testimonios() {
   const testimonios = [
     {
       nombre: "María López",

@@ -1,7 +1,7 @@
-import "@fontawesome/fontawesome-free/css/all.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import imagenes from "../json/img.json";
 
-export default function Valores() {
+export default function valores() {
   return (
     <div className="font-[Montserrat] text-[#495057] bg-[#f8f9fa] leading-relaxed">
       {/* SECCIÓN PRINCIPAL */}
