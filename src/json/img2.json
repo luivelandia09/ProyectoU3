@@ -1,0 +1,12 @@
+{
+  "img2": [
+    { "nombre": "cliente1", "ruta": "/images/cliente1.jpg" },
+    { "nombre": "cliente2", "ruta": "/images/cliente2.jpg" },
+    { "nombre": "cliente3", "ruta": "/images/cliente3.jpg" },
+    { "nombre": "gel-antibacterial", "ruta": "/images/gel-antibacterial.png" },
+    { "nombre": "mascarillas", "ruta": "/images/mascarillas.png" },
+    { "nombre": "alcohol70", "ruta": "/images/alcohol70.png" },
+    { "nombre": "suero-oral", "ruta": "/images/suero-oral.png" },
+    { "nombre": "crema-antibiotica", "ruta": "/images/crema-antibiotica.png" }
+  ]
+}
