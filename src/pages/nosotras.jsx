@@ -74,11 +74,11 @@ export default function Nosotras() {
 
       <div className="font-[Montserrat] text-[#495057] bg-gradient-to-b from-primary-50 via-primary-100 to-blue-200 leading-relaxed min-h-screen">
         {/* HEADER */}
-        <header className="bg-gradient-to-r from-primary-600 to-primary-700 shadow-xl mx-auto mt-10 mb-20 p-8 text-center rounded-xl max-w-4xl">
-          <h1 className="text-4xl font-extrabold bg-gradient-to-r from-white via-sky-300 to-primary-200 bg-clip-text text-transparent animate-pulse mb-6">
+        <header className="bg-primary  shadow-xl mx-auto mt-10 mb-20 p-8 text-center rounded-xl max-w-4xl">
+          <h1 className="text-4xl font-extrabold bg-primary bg-clip-text text-transparent animate-pulse mb-6">
             Conócenos
           </h1>
-          <p className="text-white text-center text-lg mt-4 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-black text-center text-lg mt-4 max-w-3xl mx-auto leading-relaxed">
             Somos tres mentes creativas y poderosas, que juntas decidimos formar
             esta empresa como una forma de poder ayudar a las personas con
             nuestros conocimientos en salud y atención personalizada. Nos
@@ -129,7 +129,7 @@ export default function Nosotras() {
 
         {/* FORMULARIO */}
         <section className="grid-container max-w-2xl mx-auto px-8 py-12 bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-xl mb-20">
-          <div className="bg-gradient-to-r from-primary-600 to-primary-700 -mt-20 mb-10 px-8 py-6 rounded-xl shadow-lg mx-auto max-w-fit transform hover:scale-105 transition-transform duration-300">
+          <div className="bg-primary mt-20 mb-10 px-8 py-6 rounded-xl shadow-lg mx-auto max-w-fit transform hover:scale-105 transition-transform duration-300">
             <h2 className="text-center text-white text-2xl font-bold uppercase tracking-wider">
               Cuéntanos tu experiencia
             </h2>
@@ -142,7 +142,7 @@ export default function Nosotras() {
             <div className="space-y-2">
               <label
                 htmlFor="nombres"
-                className="font-semibold text-primary-500 block"
+                className="font-semibold text-primary block"
               >
                 Nombres y Apellidos:
               </label>
@@ -217,7 +217,7 @@ export default function Nosotras() {
 
             <button
               type="submit"
-              className="mt-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-4 px-8 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl active:scale-95"
+              className="mt-6 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-bold py-4 px-8 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl active:scale-95"
             >
               Enviar
             </button>
@@ -246,20 +246,29 @@ export default function Nosotras() {
               <h5 className="font-bold mb-2">FARMAVEN</h5>
               <ul className=" text-sm space-y-1">
                 <li>
-                  <Link to="/catalogo" className="font-bold
-                  hover:underline">
+                  <Link
+                    to="/catalogo"
+                    className="font-bold
+                  hover:underline"
+                  >
                     Catálogo del mes
                   </Link>
                 </li>
                 <li>
-                  <Link to="/testimonios" className="font-bold
-                  hover:underline">
+                  <Link
+                    to="/testimonios"
+                    className="font-bold
+                  hover:underline"
+                  >
                     Testimonios
                   </Link>
                 </li>
                 <li>
-                  <Link to="/libroderecla" className="font-bold
-                  hover:underline">
+                  <Link
+                    to="/libroderecla"
+                    className="font-bold
+                  hover:underline"
+                  >
                     Libro de reclamaciones
                   </Link>
                 </li>
@@ -281,7 +290,10 @@ export default function Nosotras() {
                 </li>
                 <li>
                   📞{" "}
-                  <Link to="tel:+51987654321" className="font-bold hover:underline">
+                  <Link
+                    to="tel:+51987654321"
+                    className="font-bold hover:underline"
+                  >
                     +51 987 654 321
                   </Link>
                 </li>

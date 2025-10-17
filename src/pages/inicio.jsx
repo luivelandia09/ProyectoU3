@@ -178,7 +178,7 @@ export default function Inicio() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-blue-500 text-black text-center pt-10">
+      <footer className="bg-primary-500 text-black text-center pt-10">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo */}
           <div>

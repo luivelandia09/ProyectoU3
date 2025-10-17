@@ -77,12 +77,12 @@ export default function Catalogo() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Header con carrito */}
-      <div className="bg-primary-700 text-white p-4 sticky top-0 z-40 shadow-lg">
+      <div className="bg-primary text-black p-4 sticky top-0 z-40 shadow-lg">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold">🩺 Catálogo Farmaven</h1>
           <button
             onClick={() => setMostrarCarrito(!mostrarCarrito)}
-            className="relative bg-primary-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition"
+            className="relative bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition"
           >
             🛒 Carrito:
             {cantidadTotal > 0 && (
@@ -158,13 +158,13 @@ export default function Catalogo() {
                   <span className="text-2xl font-bold text-blue-700">
                     S/ {p.precio.toFixed(2)}
                   </span>
-                  <span className="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">
+                  <span className="text-sm bg-primary text-black-800 px-2 py-1 rounded">
                     Stock: {p.stock}
                   </span>
                 </div>
                 <button
                   onClick={() => agregarAlCarrito(p)}
-                  className="w-full mt-3 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-800 transition active:scale-95"
+                  className="w-full mt-3 bg-primary text-white py-2 rounded-lg font-semibold hover:bg-blue-800 transition active:scale-95"
                 >
                   Agregar al carrito
                 </button>
