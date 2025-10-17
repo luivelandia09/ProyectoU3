@@ -1,9 +1,9 @@
 {
   "img2": [
     {
-      "cliente1": "/img/cliente1.jpg",
-      "cliente2": "/img/cliente2.jpg",
-      "cliente3": "/img/cliente3.jpg",
+      "cliente1": "/assets/img/cliente1.jpg",
+      "cliente2": "/assets/img/cliente2.jpg",
+      "cliente3": "/assets/img/cliente3.jpg",
       "gel": "/img/gel-antibacterial.png",
       "mascarillas": "/img/mascarillas.png",
       "alcohol70": "/img/alcohol70.png",
@@ -14,7 +14,7 @@
       "azitromicina": "/img/AZITROMICINA.png",
       "ibuprofeno": "/img/IBUPROFENO.png",
       "diclofenaco": "/img/DICLOFENACO.png",
-      "prom1": "/img/prom1.jpg",
+      "promi": "/img/prom1.jpg",
       "prom2": "/img/prom2.jpg",
       "prom3": "/img/prom3.jpg"
     }
