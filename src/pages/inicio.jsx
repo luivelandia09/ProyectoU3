@@ -185,7 +185,7 @@ export default function Inicio() {
             <img
               src="/src/assets/img/logo.png"
               alt="Logo FARMAVEN"
-              className="mx-auto mb-4 h-16"
+              className="mx-auto mb-4 h-10"
             />
             <p className="text-sm">
               FARMAVEN nació con la misión de ofrecer medicamentos y productos
