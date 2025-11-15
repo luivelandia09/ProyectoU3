@@ -224,7 +224,7 @@ export default function Catalogo() {
                             onClick={() =>
                               cambiarCantidad(item.id, item.cantidad - 1)
                             }
-                            className="bg-gray-300 w-6 h-6 rounded hover:bg-gray-400"
+                            className="bg-gray-500 w-6 h-6 rounded hover:bg-gray-800"
                           >
                             -
                           </button>

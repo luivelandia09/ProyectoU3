@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/navbar";
 import Inicio from "./pages/inicio";
 import Nosotras from "./pages/nosotras";
@@ -25,14 +27,14 @@ function App() {
           <Route path="/testimonios" element={<Testimonios />} />
           <Route path="/libro" element={<Libro />} />
           {/*Ruta PROTEGIDA*/ }
-          <Routepath="/dashboard"
+          <Route path="/dashboard"
           element={
             <ProtectedRoute>
               <h1>Panel del usuario</h1>
             </ProtectedRoute>
           }
           />
-          
+
           {/*Ruta SOLO admin */}
           <Route
           path="/admin"
