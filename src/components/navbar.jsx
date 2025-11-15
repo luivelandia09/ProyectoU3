@@ -16,23 +16,22 @@ export default function Navbar() {
           <Link to="/nosotras" className="hover:text-black-600 transition">
             Nosotras
           </Link>
-          
+
           <Link to="/valores" className="hover:text-black-600 transition">
             Valores
           </Link>
-          
+
           <Link to="/catalogo" className="hover:text-black-600 transition">
             Catálogo
           </Link>
-          
+
           <Link to="/testimonios" className="hover:text-black-600 transition">
             Testimonios
           </Link>
-          
-           <Link to="/libro" className="hover:text-black-600 transition">
+
+          <Link to="/libro" className="hover:text-black-600 transition">
             Libro
           </Link>
-          
         </div>
       </div>
     </nav>
