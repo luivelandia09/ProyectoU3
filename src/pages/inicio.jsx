@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../index.css";
+//import "../index.css";
 import img2 from "../json/img2.json";
-
 
 // Accede a las imágenes desde el JSON
 const images = img2.img2?.[0] ?? {};
@@ -12,7 +11,7 @@ export default function Inicio() {
     cliente1,
     cliente2,
     cliente3,
-    prom1,   // <- asegúrate de corregirlo en el JSON (antes tenías promi)
+    prom1, // <- asegúrate de corregirlo en el JSON (antes tenías promi)
     prom2,
     prom3,
     ibuprofeno,
@@ -22,7 +21,7 @@ export default function Inicio() {
     suero,
     alcohol70,
     mascarillas,
-    gel
+    gel,
   } = images;
 
   return (
@@ -53,13 +52,19 @@ export default function Inicio() {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <Link to="/" className="nav-link active">INICIO</Link>
+                  <Link to="/" className="nav-link active">
+                    INICIO
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/nosotras" className="nav-link active">SOBRE NOSOTRAS</Link>
+                  <Link to="/nosotras" className="nav-link active">
+                    SOBRE NOSOTRAS
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/valores" className="nav-link active">VALORES</Link>
+                  <Link to="/valores" className="nav-link active">
+                    VALORES
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -78,7 +83,7 @@ export default function Inicio() {
           <div className="row g-4">
             {[
               {
-                img: ibuprofeno,   // p.ej. "/img/IBUPROFENO.png" -> debe existir en public/img/IBUPROFENO.png
+                img: ibuprofeno, // p.ej. "/img/IBUPROFENO.png" -> debe existir en public/img/IBUPROFENO.png
                 nombre: "Ibuprofeno",
                 precio: 12.0,
                 desc: "Analgésico y antiinflamatorio.",
@@ -107,7 +112,9 @@ export default function Inicio() {
                     <h5 className="card-title">{producto.nombre}</h5>
                     <p className="card-text">{producto.desc}</p>
                     <p className="precio">S/ {producto.precio.toFixed(2)}</p>
-                    <Link to="/catalogo" className="btn btn-primary">Comprar</Link>
+                    <Link to="/catalogo" className="btn btn-primary">
+                      Comprar
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -132,7 +139,9 @@ export default function Inicio() {
                   <div className="card-body text-center">
                     <h5 className="card-title">Promoción {i + 1}</h5>
                     <p className="precio">Descuento especial</p>
-                    <Link to="/catalogo" className="btn btn-primary">Ver más</Link>
+                    <Link to="/catalogo" className="btn btn-primary">
+                      Ver más
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -169,12 +178,12 @@ export default function Inicio() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-primary-500 text-black text-center pt-10">
+      <footer className="bg-primary-600 text-black text-center pt-10">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo */}
           <div>
             <img
-              src="/assets/img/logo.png"
+              src="/src/assets/img/logo.png"
               alt="Logo FARMAVEN"
               className="mx-auto mb-4 h-16"
             />
@@ -187,10 +196,34 @@ export default function Inicio() {
           {/* Navegación */}
           <div>
             <h5 className="font-bold mb-2">FARMAVEN</h5>
-            <ul className="text-sm space-y-1">
-              <li><Link to="/catalogo" className="font-bold hover:underline">Catálogo del mes</Link></li>
-              <li><Link to="/testimonios" className="font-bold hover:underline">Testimonios</Link></li>
-              <li><Link to="/libroderecla" className="font-bold hover:underline">Libro de reclamaciones</Link></li>
+            <ul className=" text-sm space-y-1">
+              <li>
+                <Link
+                  to="/catalogo"
+                  className="font-bold
+                        hover:underline"
+                >
+                  Catálogo del mes
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/testimonios"
+                  className="font-bold
+                        hover:underline"
+                >
+                  Testimonios
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/libroderecla"
+                  className="font-bold
+                        hover:underline"
+                >
+                  Libro de reclamaciones
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -198,8 +231,24 @@ export default function Inicio() {
           <div>
             <h5 className="font-bold mb-2">Contáctanos</h5>
             <ul className="text-sm space-y-1">
-              <li>📧 <Link to="mailto:contacto@farmaven.com" className="font-bold hover:underline">contacto@farmaven.com</Link></li>
-              <li>📞 <Link to="tel:+51987654321" className="hover:underline">+51 987 654 321</Link></li>
+              <li>
+                📧{" "}
+                <Link
+                  to="mailto:contacto@farmaven.com"
+                  className=" font-bold hover:underline"
+                >
+                  contacto@farmaven.com
+                </Link>
+              </li>
+              <li>
+                📞{" "}
+                <Link
+                  to="tel:+51987654321"
+                  className="font-bold hover:underline"
+                >
+                  +51 987 654 321
+                </Link>
+              </li>
               <li>Central Telefónica: (01) 612-5000</li>
             </ul>
           </div>
@@ -207,12 +256,15 @@ export default function Inicio() {
           {/* Suscripción */}
           <div>
             <h5 className="font-bold mb-2">Suscríbete</h5>
-            <p className="text-sm mb-2">Recibe notificaciones de sorteos y promociones exclusivas 🎁</p>
+            <p className="text-sm mb-2">
+              Recibe notificaciones de sorteos y promociones exclusivas 🎁
+            </p>
             <form
               className="flex gap-2 mb-3"
               onSubmit={(e) => {
                 e.preventDefault();
                 const email = e.target.email.value;
+                console.log("Email suscrito:", email);
                 alert("¡Gracias por suscribirte!");
                 e.target.reset();
               }}
@@ -224,20 +276,31 @@ export default function Inicio() {
                 placeholder="Tu correo"
                 required
               />
-              <button type="submit" className="bg-blue-700 text-white text-sm font-semibold px-4 py-1 rounded hover:bg-blue-800 transition-all">
+              <button
+                type="submit"
+                className="bg-blue-700 text-white text-sm font-semibold px-4 py-1 rounded hover:bg-blue-800 transition-all"
+              >
                 Enviar
               </button>
             </form>
             <h6 className="font-bold mb-2">Síguenos</h6>
             <div className="flex justify-center space-x-4">
-              <Link className="text-black text-xl hover:text-blue-700 transition-colors"><i className="fab fa-facebook"></i></Link>
-              <Link className="text-black text-xl hover:text-pink-600 transition-colors"><i className="fab fa-instagram"></i></Link>
-              <Link className="text-black text-xl hover:text-gray-800 transition-colors"><i className="fab fa-tiktok"></i></Link>
+              <Link className="text-black text-xl hover:text-blue-700 transition-colors">
+                <i className="fab fa-facebook"></i>
+              </Link>
+              <Link className="text-black text-xl hover:text-pink-600 transition-colors">
+                <i className="fab fa-instagram"></i>
+              </Link>
+              <Link className="text-black text-xl hover:text-gray-800 transition-colors">
+                <i className="fab fa-tiktok"></i>
+              </Link>
             </div>
           </div>
 
           <hr className="my-6 border-black/20" />
-          <p className="text-sm pb-4">© 2025 FARMAVEN - Todos los derechos reservados</p>
+          <p className="text-sm pb-4">
+            © 2025 FARMAVEN - Todos los derechos reservados
+          </p>
         </div>
       </footer>
     </div>

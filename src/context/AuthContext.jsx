@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../services/firebase";
-import ProtectedRoute from  "../components/ProtectedRoute";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 const AuthContext = createContext();
 
@@ -37,8 +37,20 @@ export const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
+  if (loading) {
+    return null;
+  }
+
   return (
-    <AuthContext.Provider value={{ user, role, loading }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        role,
+        loading,
+        email: user?.email || null,
+        uid: user?.uid || null,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

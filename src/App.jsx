@@ -16,37 +16,38 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 function App() {
   return (
     <AuthProvider>
-    <div className="min-h-screen bg-gray-50 text-gray-800">
-      <Navbar />
-      <main className="p-8">
-        <Routes>
-          <Route path="/" element={<Inicio />} />
-          <Route path="/nosotras" element={<Nosotras />} />
-          <Route path="/valores" element={<Valores />} />
-          <Route path="/catalogo" element={<Catalogo />} />
-          <Route path="/testimonios" element={<Testimonios />} />
-          <Route path="/libro" element={<Libro />} />
-          {/*Ruta PROTEGIDA*/ }
-          <Route path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <h1>Panel del usuario</h1>
-            </ProtectedRoute>
-          }
-          />
+      <div className="min-h-screen bg-gray-50 text-gray-800">
+        <Navbar />
+        <main className="p-8">
+          <Routes>
+            <Route path="/" element={<Inicio />} />
+            <Route path="/nosotras" element={<Nosotras />} />
+            <Route path="/valores" element={<Valores />} />
+            <Route path="/catalogo" element={<Catalogo />} />
+            <Route path="/testimonios" element={<Testimonios />} />
+            <Route path="/libro" element={<Libro />} />
+            {/*Ruta PROTEGIDA*/}
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <h1>Panel del usuario</h1>
+                </ProtectedRoute>
+              }
+            />
 
-          {/*Ruta SOLO admin */}
-          <Route
-          path="/admin"
-          element={
-            <ProtectedRoute role="admin">
-              <h1>Zona del Admin </h1>
-              </ProtectedRoute>
-          }
-          />
-        </Routes>
-      </main>
-    </div>
+            {/*Ruta SOLO admin */}
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute requiredRole="admin">
+                  <h1>Zona del Admin </h1>
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </main>
+      </div>
     </AuthProvider>
   );
 }
