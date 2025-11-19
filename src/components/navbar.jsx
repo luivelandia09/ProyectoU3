@@ -14,27 +14,27 @@ export default function Navbar() {
         </Link>
 
         <div className="flex items-center gap-6">
-          <Link to="/" className="hover:text-black-200 transition">
+          <Link to="/" className="hover:text-black-800 transition">
             Inicio
           </Link>
 
-          <Link to="/nosotras" className="hover:text-black-600 transition">
+          <Link to="/nosotras" className="hover:text-black-800 transition">
             Nosotras
           </Link>
 
-          <Link to="/valores" className="hover:text-black-600 transition">
+          <Link to="/valores" className="hover:text-black-800 transition">
             Valores
           </Link>
 
-          <Link to="/catalogo" className="hover:text-black-600 transition">
+          <Link to="/catalogo" className="hover:text-black-800 transition">
             Catálogo
           </Link>
 
-          <Link to="/testimonios" className="hover:text-black-600 transition">
+          <Link to="/testimonios" className="hover:text-black-800 transition">
             Testimonios
           </Link>
 
-          <Link to="/libro" className="hover:text-black-600 transition">
+          <Link to="/libro" className="hover:text-black-800 transition">
             Libro
           </Link>
 

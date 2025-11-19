@@ -17,7 +17,7 @@ const emptyForm = {
   description: "",
   price: "",
   category: "",
-  buyUrl: ""
+  buyUrl: "",
 };
 
 const Dashboard = () => {
@@ -68,7 +68,7 @@ const Dashboard = () => {
       price: Number(form.price),
       category: form.category.trim(),
       buyUrl: form.buyUrl.trim(),
-      createdAt: serverTimestamp()
+      createdAt: serverTimestamp(),
     };
 
     try {
@@ -95,7 +95,7 @@ const Dashboard = () => {
       description: p.description || "",
       price: p.price ?? "",
       category: p.category || "",
-      buyUrl: p.buyUrl || ""
+      buyUrl: p.buyUrl || "",
     });
     setOkMsg("");
     setErrorMsg("");
@@ -135,10 +135,19 @@ const Dashboard = () => {
         </div>
       )}
 
-      <form className="bg-white shadow rounded p-4 mb-6 grid gap-3" onSubmit={handleSubmit}>
+      <form
+        className="bg-white shadow rounded p-4 mb-6 grid gap-3"
+        onSubmit={handleSubmit}
+      >
         <div>
           <label className="text-sm font-semibold">Nombre del producto</label>
-          <input name="name" value={form.name} onChange={handleChange} className="w-full border rounded px-2 py-1" required />
+          <input
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            className="w-full border rounded px-2 py-1"
+            required
+          />
         </div>
 
         <div>
@@ -161,22 +170,48 @@ const Dashboard = () => {
 
         <div>
           <label className="text-sm font-semibold">Imagen (URL)</label>
-          <input name="imageUrl" value={form.imageUrl} onChange={handleChange} className="w-full border rounded px-2 py-1" required />
+          <input
+            name="imageUrl"
+            value={form.imageUrl}
+            onChange={handleChange}
+            className="w-full border rounded px-2 py-1"
+            required
+          />
         </div>
 
         <div>
           <label className="text-sm font-semibold">Descripción</label>
-          <textarea name="description" value={form.description} onChange={handleChange} className="w-full border rounded px-2 py-1" required />
+          <textarea
+            name="description"
+            value={form.description}
+            onChange={handleChange}
+            className="w-full border rounded px-2 py-1"
+            required
+          />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label className="text-sm font-semibold">Precio</label>
-            <input type="number" step="0.01" name="price" value={form.price} onChange={handleChange} className="w-full border rounded px-2 py-1" required />
+            <input
+              type="number"
+              step="0.01"
+              name="price"
+              value={form.price}
+              onChange={handleChange}
+              className="w-full border rounded px-2 py-1"
+              required
+            />
           </div>
           <div>
             <label className="text-sm font-semibold">Enlace de compra</label>
-            <input name="buyUrl" value={form.buyUrl} onChange={handleChange} className="w-full border rounded px-2 py-1" required />
+            <input
+              name="buyUrl"
+              value={form.buyUrl}
+              onChange={handleChange}
+              className="w-full border rounded px-2 py-1"
+              required
+            />
           </div>
         </div>
 
@@ -185,7 +220,11 @@ const Dashboard = () => {
             {editingId ? "Guardar cambios" : "Crear producto"}
           </button>
           {editingId && (
-            <button type="button" onClick={handleCancel} className="px-4 py-2 bg-gray-200 rounded">
+            <button
+              type="button"
+              onClick={handleCancel}
+              className="px-4 py-2 bg-gray-200 rounded"
+            >
               Cancelar
             </button>
           )}
@@ -201,11 +240,16 @@ const Dashboard = () => {
               <div className="min-w-0">
                 <h3 className="font-semibold truncate">{p.name}</h3>
                 <p className="text-xs text-gray-500 truncate">{p.category}</p>
-                <p className="text-xs text-gray-500 truncate">{p.description}</p>
+                <p className="text-xs text-gray-500 truncate">
+                  {p.description}
+                </p>
                 <p className="text-sm font-bold text-blue-600">${p.price}</p>
               </div>
               <div className="flex flex-col gap-1 items-end">
-                <button onClick={() => handleEdit(p)} className="px-2 py-1 text-xs bg-yellow-400 text-black rounded">
+                <button
+                  onClick={() => handleEdit(p)}
+                  className="px-2 py-1 text-xs bg-yellow-400 text-black rounded"
+                >
                   Editar
                 </button>
                 <button onClick={() => handleDelete(p.id)} className="px-2 py-1 text-xs bg-red-500 text-black rounded">
