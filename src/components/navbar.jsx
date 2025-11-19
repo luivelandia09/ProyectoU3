@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
+  const { user } = useAuth();
+
+  const allowedEmail = "luivelandiabaez@crackthecode.la";
+
   return (
     <nav className="bg-blue-700 text-black shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -32,6 +37,17 @@ export default function Navbar() {
           <Link to="/libro" className="hover:text-black-600 transition">
             Libro
           </Link>
+
+          {/* 🔹 Dashboard solo visible para el email permitido */}
+          {user?.email === allowedEmail && (
+            <Link to="/dashboard" className="hover:text-black-600 transition">
+              Dashboard
+            </Link>
+          )}
+
+         <Link to="/AuthPage" className="hover:text-black-600 transition">
+         Acceder
+        </Link>
         </div>
       </div>
     </nav>

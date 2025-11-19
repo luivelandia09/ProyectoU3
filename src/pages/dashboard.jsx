@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { db } from "../firebase";
+import { db } from "../services/firebase";
 import {
   collection,
   addDoc,
@@ -8,8 +8,7 @@ import {
   doc,
   serverTimestamp,
   onSnapshot,
-  query,
-  orderBy
+  query
 } from "firebase/firestore";
 
 const emptyForm = {
@@ -21,7 +20,8 @@ const emptyForm = {
   buyUrl: ""
 };
 
-const DashboardPage = () => {
+const Dashboard = () => {
+  
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);
@@ -29,8 +29,10 @@ const DashboardPage = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [okMsg, setOkMsg] = useState("");
 
+  // 🔥 AHORA LA QUERY NO ORDENA POR createdAt → así ya carga todo
   useEffect(() => {
-    const q = query(collection(db, "products"), orderBy("createdAt", "desc"));
+    const q = query(collection(db, "products"));
+
     const unsub = onSnapshot(
       q,
       (snap) => {
@@ -44,6 +46,8 @@ const DashboardPage = () => {
         setLoading(false);
       }
     );
+
+    
     return () => unsub();
   }, []);
 
@@ -118,7 +122,7 @@ const DashboardPage = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4">
-      <h1 className="text-2xl font-bold mb-4">Dashboard - Farmacia Digital</h1>
+      <h1 className="text-2xl font-bold mb-4">Bienvenido a Dashboard - Farmacia Digital</h1>
 
       {errorMsg && (
         <div className="mb-3 p-2 rounded bg-red-100 text-red-700 text-sm">
@@ -177,7 +181,7 @@ const DashboardPage = () => {
         </div>
 
         <div className="flex gap-2 mt-2">
-          <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">
+          <button type="submit" className="px-4 py-2 bg-blue-500 text-black rounded">
             {editingId ? "Guardar cambios" : "Crear producto"}
           </button>
           {editingId && (
@@ -193,7 +197,7 @@ const DashboardPage = () => {
       {!loading && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {products.map((p) => (
-            <div key={p.id} className="bg-white rounded shadow p-3 flex justify-between gap-2">
+            <div key={p.id} className="bg-black rounded shadow p-3 flex justify-between gap-2">
               <div className="min-w-0">
                 <h3 className="font-semibold truncate">{p.name}</h3>
                 <p className="text-xs text-gray-500 truncate">{p.category}</p>
@@ -204,7 +208,7 @@ const DashboardPage = () => {
                 <button onClick={() => handleEdit(p)} className="px-2 py-1 text-xs bg-yellow-400 text-black rounded">
                   Editar
                 </button>
-                <button onClick={() => handleDelete(p.id)} className="px-2 py-1 text-xs bg-red-500 text-white rounded">
+                <button onClick={() => handleDelete(p.id)} className="px-2 py-1 text-xs bg-red-500 text-black rounded">
                   Eliminar
                 </button>
               </div>
@@ -216,4 +220,4 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default Dashboard;

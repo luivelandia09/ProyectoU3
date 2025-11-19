@@ -1,22 +1,24 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
-const ProtectedRoute = ({ children, requiredRole }) => {
-  const { user, role: userRole, loading } = useAuth();
+export default function ProtectedRoute({ children }) {
+  const { user } = useAuth();
 
-  // Esperar a que Firebase termine de verificar si hay usuario
-  if (loading) return <p>Cargando...</p>;
+  // correo permitido
+  const allowedEmail = "luivelandiabaez@crackthecode.la";
 
-  // Si no hay sesión → mandar al inicio
-  if (!user) return <Navigate to="/" replace />;
-
-  // Si la ruta exige un rol y el usuario no lo cumple → bloquear
-  if (requiredRole && userRole !== requiredRole) {
-    return <Navigate to="/" replace />;
+  // 1. si no hay usuario → redirigir a registro
+  if (!user) {
+    return <Navigate to="/registro" replace />;
   }
 
-  // Si todo ok → mostrar contenido
-  return children;
-};
+  // 2. si el usuario existe pero NO es el permitido → bloquear
+  if (user.email !== allowedEmail) {
+    return <h1 className="text-center mt-10 text-red-600 text-xl">
+      ❌ No tienes permiso para ver esta página.
+    </h1>;
+  }
 
-export default ProtectedRoute;
+  // 3. acceso autorizado
+  return children;
+}

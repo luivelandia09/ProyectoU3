@@ -8,10 +8,14 @@ import Valores from "./pages/valores";
 import Catalogo from "./pages/catalogo";
 import Testimonios from "./pages/testimonios";
 import Libro from "./pages/libro";
+import Dashboard from "./pages/dashboard";
+import Acceder from "./context/AuthPage";
+
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+
 
 function App() {
   return (
@@ -26,15 +30,18 @@ function App() {
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/testimonios" element={<Testimonios />} />
             <Route path="/libro" element={<Libro />} />
-            {/*Ruta PROTEGIDA*/}
-            <Route
-              path="/dashboard"
-              element={
-                <ProtectedRoute>
-                  <h1>Panel del usuario</h1>
-                </ProtectedRoute>
-              }
-            />
+             <Route path="/AuthPage" element={<Acceder/>} />
+            
+
+              {/*Ruta PROTEGIDA*/}
+              <Route
+               path="/dashboard"
+               element={
+             <ProtectedRoute>
+             <Dashboard />
+             </ProtectedRoute>
+                }
+                 />
 
             {/*Ruta SOLO admin */}
             <Route

@@ -2,30 +2,38 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../services/firebase";
-import ProtectedRoute from "../components/ProtectedRoute";
 
 const AuthContext = createContext();
+
+async function getUserRole(uid) {
+  try {
+    const ref = doc(db, "users", uid);
+    const snap = await getDoc(ref);
+
+    if (snap.exists()) {
+      return snap.data().role || null;
+    } else {
+      console.warn("⚠️ No existe documento de usuario en Firestore");
+      return null;
+    }
+  } catch (error) {
+    console.error("❌ Error al obtener rol:", error);
+    return null;
+  }
+}
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [role, setRole] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Escuchar cambios de usuario (login / logout)
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
 
-        // Buscar el rol en Firestore
-        const docRef = doc(db, "users", currentUser.uid);
-        const snap = await getDoc(docRef);
-
-        if (snap.exists()) {
-          setRole(snap.data().role);
-        } else {
-          setRole(null);
-        }
+        const roleFromDb = await getUserRole(currentUser.uid);
+        setRole(roleFromDb);
       } else {
         setUser(null);
         setRole(null);
@@ -37,9 +45,7 @@ export const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-  if (loading) {
-    return null;
-  }
+  if (loading) return null;
 
   return (
     <AuthContext.Provider
