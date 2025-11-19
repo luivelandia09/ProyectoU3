@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
 @import "tailwindcss";
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -34,6 +35,12 @@ body {
 /* Force a consistent global font across all pages (matches Inicio) */
 html, body {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Titulos y textos grandes usan Montserrat */
+h1, h2, h3, h4, h5, h6,
+.text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl {
+  font-family: 'Montserrat', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 h1 {
