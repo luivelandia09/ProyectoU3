@@ -12,7 +12,7 @@ import Testimonios from "./pages/testimonios";
 import Libro from "./pages/libro";
 
 // Dashboard
-import DashboardPage from "./pages/DashboardPage";
+import DashboardPage from "./pages/dashboard";
 
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
