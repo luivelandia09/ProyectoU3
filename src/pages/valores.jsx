@@ -74,7 +74,7 @@ export default function Valores() {
         </nav>
       </header>
 
-      <div className="font-[Montserrat] text-[#495057] bg-[#f8f9fa] leading-relaxed">
+      <div className="text-[#495057] bg-[#f8f9fa] leading-relaxed">
         {/* === SECCIÓN PRINCIPAL === */}
         <section className="py-16 bg-gradient-to-br from-[#e6f2ff] to-white border-b border-gray-200">
           <div className="max-w-6xl mx-auto px-4 text-center">

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { db } from "../firebase";
+import { db } from "../services/firebase";
 import {
   collection,
   addDoc,
@@ -9,7 +9,7 @@ import {
   serverTimestamp,
   onSnapshot,
   query,
-  orderBy
+  orderBy,
 } from "firebase/firestore";
 
 const emptyForm = {
@@ -18,7 +18,7 @@ const emptyForm = {
   description: "",
   price: "",
   category: "",
-  buyUrl: ""
+  buyUrl: "",
 };
 
 const DashboardPage = () => {
@@ -64,7 +64,7 @@ const DashboardPage = () => {
       price: Number(form.price),
       category: form.category.trim(),
       buyUrl: form.buyUrl.trim(),
-      createdAt: serverTimestamp()
+      createdAt: serverTimestamp(),
     };
 
     try {
@@ -91,7 +91,7 @@ const DashboardPage = () => {
       description: p.description || "",
       price: p.price ?? "",
       category: p.category || "",
-      buyUrl: p.buyUrl || ""
+      buyUrl: p.buyUrl || "",
     });
     setOkMsg("");
     setErrorMsg("");
@@ -131,10 +131,19 @@ const DashboardPage = () => {
         </div>
       )}
 
-      <form className="bg-white shadow rounded p-4 mb-6 grid gap-3" onSubmit={handleSubmit}>
+      <form
+        className="bg-white shadow rounded p-4 mb-6 grid gap-3"
+        onSubmit={handleSubmit}
+      >
         <div>
           <label className="text-sm font-semibold">Nombre del producto</label>
-          <input name="name" value={form.name} onChange={handleChange} className="w-full border rounded px-2 py-1" required />
+          <input
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            className="w-full border rounded px-2 py-1"
+            required
+          />
         </div>
 
         <div>
@@ -157,31 +166,64 @@ const DashboardPage = () => {
 
         <div>
           <label className="text-sm font-semibold">Imagen (URL)</label>
-          <input name="imageUrl" value={form.imageUrl} onChange={handleChange} className="w-full border rounded px-2 py-1" required />
+          <input
+            name="imageUrl"
+            value={form.imageUrl}
+            onChange={handleChange}
+            className="w-full border rounded px-2 py-1"
+            required
+          />
         </div>
 
         <div>
           <label className="text-sm font-semibold">Descripción</label>
-          <textarea name="description" value={form.description} onChange={handleChange} className="w-full border rounded px-2 py-1" required />
+          <textarea
+            name="description"
+            value={form.description}
+            onChange={handleChange}
+            className="w-full border rounded px-2 py-1"
+            required
+          />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label className="text-sm font-semibold">Precio</label>
-            <input type="number" step="0.01" name="price" value={form.price} onChange={handleChange} className="w-full border rounded px-2 py-1" required />
+            <input
+              type="number"
+              step="0.01"
+              name="price"
+              value={form.price}
+              onChange={handleChange}
+              className="w-full border rounded px-2 py-1"
+              required
+            />
           </div>
           <div>
             <label className="text-sm font-semibold">Enlace de compra</label>
-            <input name="buyUrl" value={form.buyUrl} onChange={handleChange} className="w-full border rounded px-2 py-1" required />
+            <input
+              name="buyUrl"
+              value={form.buyUrl}
+              onChange={handleChange}
+              className="w-full border rounded px-2 py-1"
+              required
+            />
           </div>
         </div>
 
         <div className="flex gap-2 mt-2">
-          <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">
+          <button
+            type="submit"
+            className="px-4 py-2 bg-blue-500 text-white rounded"
+          >
             {editingId ? "Guardar cambios" : "Crear producto"}
           </button>
           {editingId && (
-            <button type="button" onClick={handleCancel} className="px-4 py-2 bg-gray-200 rounded">
+            <button
+              type="button"
+              onClick={handleCancel}
+              className="px-4 py-2 bg-gray-200 rounded"
+            >
               Cancelar
             </button>
           )}
@@ -193,18 +235,29 @@ const DashboardPage = () => {
       {!loading && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {products.map((p) => (
-            <div key={p.id} className="bg-white rounded shadow p-3 flex justify-between gap-2">
+            <div
+              key={p.id}
+              className="bg-white rounded shadow p-3 flex justify-between gap-2"
+            >
               <div className="min-w-0">
                 <h3 className="font-semibold truncate">{p.name}</h3>
                 <p className="text-xs text-gray-500 truncate">{p.category}</p>
-                <p className="text-xs text-gray-500 truncate">{p.description}</p>
+                <p className="text-xs text-gray-500 truncate">
+                  {p.description}
+                </p>
                 <p className="text-sm font-bold text-blue-600">${p.price}</p>
               </div>
               <div className="flex flex-col gap-1 items-end">
-                <button onClick={() => handleEdit(p)} className="px-2 py-1 text-xs bg-yellow-400 text-black rounded">
+                <button
+                  onClick={() => handleEdit(p)}
+                  className="px-2 py-1 text-xs bg-yellow-400 text-black rounded"
+                >
                   Editar
                 </button>
-                <button onClick={() => handleDelete(p.id)} className="px-2 py-1 text-xs bg-red-500 text-white rounded">
+                <button
+                  onClick={() => handleDelete(p.id)}
+                  className="px-2 py-1 text-xs bg-red-500 text-white rounded"
+                >
                   Eliminar
                 </button>
               </div>

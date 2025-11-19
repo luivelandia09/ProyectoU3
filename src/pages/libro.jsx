@@ -37,7 +37,7 @@ export default function Libro() {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen font-[Montserrat] text-gray-800">
+    <div className="bg-gray-50 min-h-screen text-gray-800">
       {/* ENCABEZADO */}
       <header className="bg-blue-700 text-white py-6 shadow-lg">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 gap-3">

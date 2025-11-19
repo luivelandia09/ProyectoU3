@@ -72,7 +72,7 @@ export default function Nosotras() {
         </nav>
       </header>
 
-      <div className="font-[Montserrat] text-[#495057] bg-gradient-to-b from-primary-50 via-primary-100 to-blue-200 leading-relaxed min-h-screen">
+      <div className="text-[#495057] bg-gradient-to-b from-primary-50 via-primary-100 to-blue-200 leading-relaxed min-h-screen">
         {/* HEADER */}
         <header className="bg-primary  shadow-xl mx-auto mt-10 mb-20 p-8 text-center rounded-xl max-w-4xl">
           <h1 className="text-4xl font-extrabold bg-primary bg-clip-text text-transparent animate-pulse mb-6">
