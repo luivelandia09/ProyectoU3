@@ -10,20 +10,16 @@ import Valores from "./pages/valores";
 import Catalogo from "./pages/catalogo";
 import Testimonios from "./pages/testimonios";
 import Libro from "./pages/libro";
-<<<<<<< HEAD
 import Dashboard from "./pages/dashboard";
 import Acceder from "./context/AuthPage";
-=======
 
 // Dashboard
 import DashboardPage from "./pages/dashboard";
->>>>>>> db0b4dccc79a6c6b9e64f679f1974eca14ff7881
 
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
 
 function App() {
   return (
@@ -38,20 +34,17 @@ function App() {
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/testimonios" element={<Testimonios />} />
             <Route path="/libro" element={<Libro />} />
-<<<<<<< HEAD
-             <Route path="/AuthPage" element={<Acceder/>} />
-            
+            <Route path="/AuthPage" element={<Acceder />} />
 
-              {/*Ruta PROTEGIDA*/}
-              <Route
-               path="/dashboard"
-               element={
-             <ProtectedRoute>
-             <Dashboard />
-             </ProtectedRoute>
-                }
-                 />
-=======
+            {/*Ruta PROTEGIDA*/}
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
 
             {/* Ruta PROTEGIDA: Dashboard */}
             <Route
@@ -62,7 +55,6 @@ function App() {
                 </ProtectedRoute>
               }
             />
->>>>>>> db0b4dccc79a6c6b9e64f679f1974eca14ff7881
 
             {/* Ruta SOLO admin */}
             <Route

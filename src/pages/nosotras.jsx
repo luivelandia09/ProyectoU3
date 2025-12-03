@@ -72,7 +72,7 @@ export default function Nosotras() {
         </nav>
       </header>
 
-      <div className="text-[#495057] bg-gradient-to-b from-primary-50 via-primary-100 to-blue-200 leading-relaxed min-h-screen">
+      <div className="font-[Montserrat] text-[#495057] bg-gradient-to-b from-primary-50 via-primary-100 to-blue-200 leading-relaxed min-h-screen">
         {/* HEADER */}
         <header className="bg-primary  shadow-xl mx-auto mt-10 mb-20 p-8 text-center rounded-xl max-w-4xl">
           <h1 className="text-4xl font-extrabold bg-primary bg-clip-text text-transparent animate-pulse mb-6">
@@ -142,7 +142,7 @@ export default function Nosotras() {
             <div className="space-y-2">
               <label
                 htmlFor="nombres"
-                className="font-semibold text-blue-800 block"
+                className="font-semibold text-primary block"
               >
                 Nombres y Apellidos:
               </label>
@@ -225,126 +225,131 @@ export default function Nosotras() {
         </section>
 
         {/* FOOTER */}
-        {/* === FOOTER AJUSTADO (Azul 700 + imagen más grande) === */}
-        <footer className="text-white pt-10 bg-blue-700">
-          <div className="container mx-auto px-4 flex flex-col md:flex-row flex-wrap justify-around gap-10 text-center">
-            {/* === COLUMNA 1: Logo + Navegación === */}
-            <div className="flex flex-col md:flex-row gap-10 justify-center md:justify-start w-full md:w-1/2">
-              {/* Logo + Descripción */}
-              <div className="w-auto">
-                <img
-                  src={new URL("../img/logo.png", import.meta.url).href}
-                  alt="Logo FARMAVEN"
-                  className="w-60 h-auto mx-auto md:mx-0" // Imagen más grande
-                />
-
-                <p className="text-sm mt-4 text-white max-w-xs mx-auto md:mx-0 md:text-left">
-                  FARMAVEN nació con la misión de ofrecer medicamentos y
-                  productos de salud accesibles para todos, con un servicio
-                  humano y cercano.
-                </p>
-              </div>
-
-              {/* Enlaces */}
-              <div className="w-auto md:text-left">
-                <h5 className="font-bold mb-2 text-white">FARMAVEN</h5>
-                <ul className="text-sm space-y-1">
-                  <li>
-                    <Link
-                      to="/catalogo"
-                      className="hover:underline text-blue-200"
-                    >
-                      Catálogo del mes
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/testimonios"
-                      className="hover:underline text-blue-200"
-                    >
-                      Testimonios
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/libroderecla"
-                      className="hover:underline text-blue-200"
-                    >
-                      Libro de reclamaciones
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+        <footer className="bg-primary text-black text-center pt-10">
+          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Logo */}
+            <div>
+              <img
+                src="/src/assets/img/logo.png"
+                alt="Logo FARMAVEN"
+                className="mx-auto mb-4 h-16"
+              />
+              <p className="text-sm">
+                FARMAVEN nació con la misión de ofrecer medicamentos y productos
+                de salud accesibles para todos, con un servicio humano y
+                cercano.
+              </p>
             </div>
 
-            {/* === COLUMNA 2: Contacto + Suscripción === */}
-            <div className="flex flex-col md:flex-row gap-10 justify-center md:justify-start w-full md:w-1/2">
-              {/* Contacto */}
-              <div className="w-auto md:text-left">
-                <h5 className="font-bold mb-2 text-white">Contáctanos</h5>
-                <ul className="text-sm space-y-1">
-                  <li className="text-white">
-                    📧{" "}
-                    <Link
-                      to="mailto:contacto@farmaven.com"
-                      className="hover:underline text-blue-200"
-                    >
-                      contacto@farmaven.com
-                    </Link>
-                  </li>
-                  <li className="text-white">
-                    📞{" "}
-                    <Link
-                      to="tel:+51987654321"
-                      className="hover:underline text-blue-200"
-                    >
-                      +51 987 654 321
-                    </Link>
-                  </li>
-                  <li className="text-white">
-                    Central Telefónica: (01) 612-5000
-                  </li>
-                </ul>
-              </div>
-
-              {/* Suscripción */}
-              <div className="w-auto md:text-left">
-                <h5 className="font-bold mb-2 text-white">Suscríbete</h5>
-                <p className="text-sm mb-3 text-white">
-                  Recibe notificaciones de sorteos y promociones exclusivas 🎁
-                </p>
-
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    alert("¡Gracias por suscribirte!");
-                    e.target.reset();
-                  }}
-                  className="flex flex-col sm:flex-row items-center md:items-start gap-2"
-                >
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Tu correo"
-                    required
-                    className="border rounded px-2 py-1 bg-gray-800 text-white placeholder-gray-400 w-full sm:w-auto"
-                  />
-                  <button
-                    type="submit"
-                    className="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1 rounded w-full sm:w-auto"
+            {/* Navegación */}
+            <div>
+              <h5 className="font-bold mb-2">FARMAVEN</h5>
+              <ul className=" text-sm space-y-1">
+                <li>
+                  <Link
+                    to="/catalogo"
+                    className="font-bold
+                  hover:underline"
                   >
-                    Enviar
-                  </button>
-                </form>
+                    Catálogo del mes
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/testimonios"
+                    className="font-bold
+                  hover:underline"
+                  >
+                    Testimonios
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/libroderecla"
+                    className="font-bold
+                  hover:underline"
+                  >
+                    Libro de reclamaciones
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contacto */}
+            <div>
+              <h5 className="font-bold mb-2">Contáctanos</h5>
+              <ul className="text-sm space-y-1">
+                <li>
+                  📧{" "}
+                  <Link
+                    to="mailto:contacto@farmaven.com"
+                    className=" font-bold hover:underline"
+                  >
+                    contacto@farmaven.com
+                  </Link>
+                </li>
+                <li>
+                  📞{" "}
+                  <Link
+                    to="tel:+51987654321"
+                    className="font-bold hover:underline"
+                  >
+                    +51 987 654 321
+                  </Link>
+                </li>
+                <li>Central Telefónica: (01) 612-5000</li>
+              </ul>
+            </div>
+
+            {/* Suscripción */}
+            <div>
+              <h5 className="font-bold mb-2">Suscríbete</h5>
+              <p className="text-sm mb-2">
+                Recibe notificaciones de sorteos y promociones exclusivas 🎁
+              </p>
+              <form
+                className="flex gap-2 mb-3"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const email = e.target.email.value;
+                  console.log("Email suscrito:", email);
+                  alert("¡Gracias por suscribirte!");
+                  e.target.reset();
+                }}
+              >
+                <input
+                  type="email"
+                  name="email"
+                  className="flex-1 px-3 py-1 text-sm border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Tu correo"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="bg-blue-700 text-white text-sm font-semibold px-4 py-1 rounded hover:bg-blue-800 transition-all"
+                >
+                  Enviar
+                </button>
+              </form>
+              <h6 className="font-bold mb-2">Síguenos</h6>
+              <div className="flex justify-center space-x-4">
+                <Link className="text-black text-xl hover:text-blue-700 transition-colors">
+                  <i className="fab fa-facebook"></i>
+                </Link>
+                <Link className="text-black text-xl hover:text-pink-600 transition-colors">
+                  <i className="fab fa-instagram"></i>
+                </Link>
+                <Link className="text-black text-xl hover:text-gray-800 transition-colors">
+                  <i className="fab fa-tiktok"></i>
+                </Link>
               </div>
             </div>
+
+            <hr className="my-6 border-black/20" />
+            <p className="text-sm pb-4">
+              © 2025 FARMAVEN - Todos los derechos reservados
+            </p>
           </div>
-
-          <hr className="my-6 border-white/20" />
-
-          <p className="text-sm pb-4 text-center text-white">
-            © 2025 FARMAVEN - Todos los derechos reservados
-          </p>
         </footer>
       </div>
     </div>

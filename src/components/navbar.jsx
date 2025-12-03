@@ -38,6 +38,10 @@ export default function Navbar() {
             Libro
           </Link>
 
+          <Link to="/agregado" className="hover:text-black-800 transition">
+            Publicidad
+          </Link>
+
           {/* 🔹 Dashboard solo visible para el email permitido */}
           {user?.email === allowedEmail && (
             <Link to="/dashboard" className="hover:text-black-600 transition">
@@ -45,9 +49,9 @@ export default function Navbar() {
             </Link>
           )}
 
-         <Link to="/AuthPage" className="hover:text-black-600 transition">
-         Acceder
-        </Link>
+          <Link to="/AuthPage" className="hover:text-black-600 transition">
+            Acceder
+          </Link>
         </div>
       </div>
     </nav>
