@@ -2,8 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/navbar";
-
-// Páginas normales
 import Inicio from "./pages/inicio";
 import Nosotras from "./pages/nosotras";
 import Valores from "./pages/valores";
@@ -36,6 +34,17 @@ function App() {
             <Route path="/libro" element={<Libro />} />
             <Route path="/AuthPage" element={<Acceder />} />
 
+            <Route path="/AuthPage" element={<Acceder />} />
+
+            {/*Ruta PROTEGIDA*/}
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
             {/*Ruta PROTEGIDA*/}
             <Route
               path="/dashboard"
@@ -56,12 +65,12 @@ function App() {
               }
             />
 
-            {/* Ruta SOLO admin */}
+            {/*Ruta SOLO admin */}
             <Route
               path="/admin"
               element={
                 <ProtectedRoute requiredRole="admin">
-                  <h1>Zona del Admin</h1>
+                  <h1>Zona del Admin </h1>
                 </ProtectedRoute>
               }
             />

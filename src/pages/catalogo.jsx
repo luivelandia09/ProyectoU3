@@ -251,7 +251,6 @@ export default function Catalogo() {
                 </div>
               )}
             </div>
-
             {/* Footer con total */}
             {carrito.length > 0 && (
               <div className="border-t p-4 bg-gray-50">
