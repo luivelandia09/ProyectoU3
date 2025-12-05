@@ -1,18 +1,15 @@
 import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
-import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/navbar";
 
-// Páginas normales
 import Inicio from "./pages/inicio";
 import Nosotras from "./pages/nosotras";
 import Valores from "./pages/valores";
 import Catalogo from "./pages/catalogo";
 import Testimonios from "./pages/testimonios";
 import Libro from "./pages/libro";
-
-// Dashboard
-import DashboardPage from "./pages/DashboardPage";
+import PreguntasFrecuentes from "./pages/preguntasFrecuentes";
+import DashboardPage from "./pages/dashboard";
 
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -32,26 +29,8 @@ function App() {
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/testimonios" element={<Testimonios />} />
             <Route path="/libro" element={<Libro />} />
-
-            {/* Ruta PROTEGIDA: Dashboard */}
-            <Route
-              path="/dashboard"
-              element={
-                <ProtectedRoute>
-                  <DashboardPage />
-                </ProtectedRoute>
-              }
-            />
-
-            {/* Ruta SOLO admin */}
-            <Route
-              path="/admin"
-              element={
-                <ProtectedRoute requiredRole="admin">
-                  <h1>Zona del Admin</h1>
-                </ProtectedRoute>
-              }
-            />
+            <Route path="/preguntas" element={<PreguntasFrecuentes />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
           </Routes>
         </main>
       </div>

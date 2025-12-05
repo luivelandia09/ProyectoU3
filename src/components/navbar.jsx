@@ -32,6 +32,10 @@ export default function Navbar() {
           <Link to="/libro" className="hover:text-black-800 transition">
             Libro
           </Link>
+
+          <Link to="/preguntas" className="hover:text-black-800 transition">
+            Preguntas
+          </Link>
         </div>
       </div>
     </nav>
