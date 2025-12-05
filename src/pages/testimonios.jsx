@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../App.css";
+//import "../App.css";
 import imgData from "../json/img2.json";
 
 export default function testimonios() {

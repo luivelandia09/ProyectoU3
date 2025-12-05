@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";  // ← AGREGADO, NADA MÁS
 import catalogoDataRaw from "../json/catalogo.json";
-import "../index.css";
+//import "../index.css";
 
 // Placeholder público para imágenes faltantes
 const PLACEHOLDER = "https://via.placeholder.com/300x300?text=Sin+imagen";
@@ -245,7 +245,11 @@ export default function Catalogo() {
                 </div>
               )}
             </div>
+<<<<<<< HEAD
 
+=======
+            {/* Footer con total */}
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
             {carrito.length > 0 && (
               <div className="border-t p-4 bg-gray-50">
                 <div className="flex justify-between items-center mb-4">
@@ -262,29 +266,58 @@ export default function Catalogo() {
           </div>
         </div>
       )}
+<<<<<<< HEAD
 
       {/* FOOTER */}
       <footer className="text-white pt-10 bg-blue-700">
         <div className="container mx-auto px-4 flex flex-col md:flex-row flex-wrap justify-around gap-10 text-center">
           <div className="flex flex-col md:flex-row gap-10 justify-center md:justify-start w-full md:w-1/2">
+=======
+      {/* === FOOTER AJUSTADO (Azul 700 + imagen más grande) === */}
+      <footer className="text-white pt-10 bg-blue-700">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row flex-wrap justify-around gap-10 text-center">
+          {/* === COLUMNA 1: Logo + Navegación === */}
+          <div className="flex flex-col md:flex-row gap-10 justify-center md:justify-start w-full md:w-1/2">
+            {/* Logo + Descripción */}
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
             <div className="w-auto">
               <img
                 src={new URL("../img/logo.png", import.meta.url).href}
                 alt="Logo FARMAVEN"
+<<<<<<< HEAD
                 className="w-60 h-auto mx-auto md:mx-0"
+=======
+                className="w-60 h-auto mx-auto md:mx-0" // Imagen más grande
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
               />
 
               <p className="text-sm mt-4 text-white max-w-xs mx-auto md:mx-0 md:text-left">
                 FARMAVEN nació con la misión de ofrecer medicamentos y productos
+<<<<<<< HEAD
                 de salud accesibles para todos, con un servicio humano y cercano.
               </p>
             </div>
 
+=======
+                de salud accesibles para todos, con un servicio humano y
+                cercano.
+              </p>
+            </div>
+
+            {/* Enlaces */}
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
             <div className="w-auto md:text-left">
               <h5 className="font-bold mb-2 text-white">FARMAVEN</h5>
               <ul className="text-sm space-y-1">
                 <li>
+<<<<<<< HEAD
                   <Link to="/catalogo" className="hover:underline text-blue-200">
+=======
+                  <Link
+                    to="/catalogo"
+                    className="hover:underline text-blue-200"
+                  >
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
                     Catálogo del mes
                   </Link>
                 </li>
@@ -308,7 +341,13 @@ export default function Catalogo() {
             </div>
           </div>
 
+<<<<<<< HEAD
           <div className="flex flex-col md:flex-row gap-10 justify-center md:justify-start w-full md:w-1/2">
+=======
+          {/* === COLUMNA 2: Contacto + Suscripción === */}
+          <div className="flex flex-col md:flex-row gap-10 justify-center md:justify-start w-full md:w-1/2">
+            {/* Contacto */}
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
             <div className="w-auto md:text-left">
               <h5 className="font-bold mb-2 text-white">Contáctanos</h5>
               <ul className="text-sm space-y-1">
@@ -336,6 +375,10 @@ export default function Catalogo() {
               </ul>
             </div>
 
+<<<<<<< HEAD
+=======
+            {/* Suscripción */}
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
             <div className="w-auto md:text-left">
               <h5 className="font-bold mb-2 text-white">Suscríbete</h5>
               <p className="text-sm mb-3 text-white">
@@ -371,7 +414,11 @@ export default function Catalogo() {
         <hr className="my-6 border-white/20" />
 
         <p className="text-sm pb-4 text-center text-white">
+<<<<<<< HEAD
           ©️ 2025 FARMAVEN - Todos los derechos reservados
+=======
+          © 2025 FARMAVEN - Todos los derechos reservados
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
         </p>
       </footer>
     </div>

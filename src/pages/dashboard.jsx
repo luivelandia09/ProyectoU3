@@ -1,4 +1,19 @@
+<<<<<<< HEAD
 import { useState } from "react";
+=======
+import { useEffect, useState } from "react";
+import { db } from "../services/firebase";
+import {
+  collection,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+  serverTimestamp,
+  onSnapshot,
+  query
+} from "firebase/firestore";
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
 
 const emptyForm = {
   name: "",
@@ -6,16 +21,46 @@ const emptyForm = {
   description: "",
   price: "",
   category: "",
-  buyUrl: ""
+  buyUrl: "",
 };
 
+<<<<<<< HEAD
 const DashboardPage = () => {
   // Ahora trabajamos sin Firebase; solo estado local
+=======
+const Dashboard = () => {
+  
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);
   const [okMsg, setOkMsg] = useState("");
+<<<<<<< HEAD
   const [errorMsg, setErrorMsg] = useState("");
+=======
+
+  // 🔥 AHORA LA QUERY NO ORDENA POR createdAt → así ya carga todo
+  useEffect(() => {
+    const q = query(collection(db, "products"));
+
+    const unsub = onSnapshot(
+      q,
+      (snap) => {
+        const list = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+        setProducts(list);
+        setLoading(false);
+      },
+      (err) => {
+        console.error("onSnapshot error:", err);
+        setErrorMsg(err.message || "Error al leer productos.");
+        setLoading(false);
+      }
+    );
+
+    
+    return () => unsub();
+  }, []);
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,6 +72,7 @@ const DashboardPage = () => {
     setErrorMsg("");
     setOkMsg("");
 
+<<<<<<< HEAD
     const newProduct = {
       id: editingId || Date.now(),
       name: form.name,
@@ -35,6 +81,16 @@ const DashboardPage = () => {
       price: form.price,
       category: form.category,
       buyUrl: form.buyUrl
+=======
+    const data = {
+      name: form.name.trim(),
+      imageUrl: form.imageUrl.trim(),
+      description: form.description.trim(),
+      price: Number(form.price),
+      category: form.category.trim(),
+      buyUrl: form.buyUrl.trim(),
+      createdAt: serverTimestamp(),
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
     };
 
     if (editingId) {
@@ -56,12 +112,21 @@ const DashboardPage = () => {
   const handleEdit = (p) => {
     setEditingId(p.id);
     setForm({
+<<<<<<< HEAD
       name: p.name,
       imageUrl: p.imageUrl,
       description: p.description,
       price: p.price,
       category: p.category,
       buyUrl: p.buyUrl
+=======
+      name: p.name || "",
+      imageUrl: p.imageUrl || "",
+      description: p.description || "",
+      price: p.price ?? "",
+      category: p.category || "",
+      buyUrl: p.buyUrl || "",
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
     });
   };
 
@@ -77,7 +142,7 @@ const DashboardPage = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4">
-      <h1 className="text-2xl font-bold mb-4">Dashboard - Farmacia Digital</h1>
+      <h1 className="text-2xl font-bold mb-4">Bienvenido a Dashboard - Farmacia Digital</h1>
 
       {errorMsg && (
         <div className="mb-3 p-2 rounded bg-red-100 text-red-700 text-sm">
@@ -171,7 +236,7 @@ const DashboardPage = () => {
         </div>
 
         <div className="flex gap-2 mt-2">
-          <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">
+          <button type="submit" className="px-4 py-2 bg-blue-500 text-black rounded">
             {editingId ? "Guardar cambios" : "Crear producto"}
           </button>
 
@@ -187,6 +252,7 @@ const DashboardPage = () => {
         </div>
       </form>
 
+<<<<<<< HEAD
       {/* LISTA DE PRODUCTOS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {products.map((p) => (
@@ -196,6 +262,33 @@ const DashboardPage = () => {
               <p className="text-xs text-gray-500 truncate">{p.category}</p>
               <p className="text-xs text-gray-500 truncate">{p.description}</p>
               <p className="text-sm font-bold text-blue-600">${p.price}</p>
+=======
+      {loading && <p>Cargando productos...</p>}
+
+      {!loading && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {products.map((p) => (
+            <div key={p.id} className="bg-black rounded shadow p-3 flex justify-between gap-2">
+              <div className="min-w-0">
+                <h3 className="font-semibold truncate">{p.name}</h3>
+                <p className="text-xs text-gray-500 truncate">{p.category}</p>
+                <p className="text-xs text-gray-500 truncate">
+                  {p.description}
+                </p>
+                <p className="text-sm font-bold text-blue-600">${p.price}</p>
+              </div>
+              <div className="flex flex-col gap-1 items-end">
+                <button
+                  onClick={() => handleEdit(p)}
+                  className="px-2 py-1 text-xs bg-yellow-400 text-black rounded"
+                >
+                  Editar
+                </button>
+                <button onClick={() => handleDelete(p.id)} className="px-2 py-1 text-xs bg-red-500 text-black rounded">
+                  Eliminar
+                </button>
+              </div>
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
             </div>
 
             <div className="flex flex-col gap-1 items-end">
@@ -219,4 +312,8 @@ const DashboardPage = () => {
   );
 };
 
+<<<<<<< HEAD
 export default DashboardPage;
+=======
+export default Dashboard;
+>>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa

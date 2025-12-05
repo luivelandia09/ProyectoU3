@@ -11,7 +11,7 @@ export default function Inicio() {
     cliente1,
     cliente2,
     cliente3,
-    prom1, // <- asegúrate de corregirlo en el JSON (antes tenías promi)
+    prom1,
     prom2,
     prom3,
     ibuprofeno,
