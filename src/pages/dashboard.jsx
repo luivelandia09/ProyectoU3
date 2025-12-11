@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-=======
 import { useEffect, useState } from "react";
 import { db } from "../services/firebase";
 import {
->>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
   collection,
   addDoc,
   updateDoc,
@@ -13,11 +10,6 @@ import {
   onSnapshot,
   query
 } from "firebase/firestore";
-<<<<<<< HEAD
-=======
-
->>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
-
 const emptyForm = {
   name: "",
   description: "",
@@ -32,11 +24,7 @@ const Dashboard = () => {
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);
   const [okMsg, setOkMsg] = useState("");
-<<<<<<< HEAD
-=======
-
   const [errorMsg, setErrorMsg] = useState("");
->>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
 
   // 🔥 AHORA LA QUERY NO ORDENA POR createdAt → así ya carga todo
     const unsub = onSnapshot(
@@ -66,8 +54,6 @@ const Dashboard = () => {
     setErrorMsg("");
     setOkMsg("");
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     const newProduct = {
       id: editingId || Date.now(),
       name: form.name,
@@ -76,9 +62,6 @@ const Dashboard = () => {
       price: form.price,
       category: form.category,
       buyUrl: form.buyUrl
-=======
->>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
-
     const data = {
       name: form.name.trim(),
       imageUrl: form.imageUrl.trim(),
@@ -87,10 +70,6 @@ const Dashboard = () => {
       category: form.category.trim(),
       buyUrl: form.buyUrl.trim(),
       createdAt: serverTimestamp(),
-<<<<<<< HEAD
-
-=======
->>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
     };
 
     if (editingId) {
@@ -112,14 +91,13 @@ const Dashboard = () => {
   const handleEdit = (p) => {
     setEditingId(p.id);
     setForm({
-<<<<<<< HEAD
+
       name: p.name || "",
       imageUrl: p.imageUrl || "",
       description: p.description || "",
       price: p.price ?? "",
       category: p.category || "",
       buyUrl: p.buyUrl || "",
-=======
       name: p.name,
       imageUrl: p.imageUrl,
       description: p.description,
@@ -127,7 +105,6 @@ const Dashboard = () => {
       category: p.category,
       buyUrl: p.buyUrl
 
->>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
     });
   };
 
@@ -253,7 +230,6 @@ const Dashboard = () => {
         </div>
       </form>
 
-<<<<<<< HEAD
       {/* LISTA DE PRODUCTOS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {products.map((p) => (
@@ -263,9 +239,6 @@ const Dashboard = () => {
               <p className="text-xs text-gray-500 truncate">{p.category}</p>
               <p className="text-xs text-gray-500 truncate">{p.description}</p>
               <p className="text-sm font-bold text-blue-600">${p.price}</p>
-=======
->>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
-
       {loading && <p>Cargando productos...</p>}
 
  !loading && (
@@ -301,8 +274,5 @@ const Dashboard = () => {
   );
 };
 
-<<<<<<< HEAD
 export default DashboardPage;
-=======
->>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
 export default Dashboard;

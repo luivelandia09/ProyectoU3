@@ -9,10 +9,7 @@ import Valores from "./pages/valores";
 import Catalogo from "./pages/catalogo";
 import Testimonios from "./pages/testimonios";
 import Libro from "./pages/libro";
-<<<<<<< HEAD
-=======
 import PreguntasFrecuentes from "./pages/preguntasFrecuentes";
->>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
 import Dashboard from "./pages/dashboard";
 import Acceder from "./context/AuthPage";
 // Dashboard
@@ -36,12 +33,9 @@ function App() {
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/testimonios" element={<Testimonios />} />
             <Route path="/libro" element={<Libro />} />
-<<<<<<< HEAD
-=======
 
             <Route path="/preguntas" element={<PreguntasFrecuentes />} />
            
->>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
             <Route path="/AuthPage" element={<Acceder />} />
             <Route path="/agregado" element={<Agregado />} />
 
@@ -64,10 +58,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
-<<<<<<< HEAD
-=======
 
->>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
           </Routes>
         </main>
       </div>
