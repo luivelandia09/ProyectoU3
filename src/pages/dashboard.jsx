@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import { useState } from "react";
-=======
-import { useEffect, useState } from "react";
-import { db } from "../services/firebase";
-import {
   collection,
   addDoc,
   updateDoc,
@@ -13,36 +7,23 @@ import {
   onSnapshot,
   query
 } from "firebase/firestore";
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
 
 const emptyForm = {
   name: "",
-  imageUrl: "",
   description: "",
   price: "",
   category: "",
   buyUrl: "",
 };
 
-<<<<<<< HEAD
-const DashboardPage = () => {
-  // Ahora trabajamos sin Firebase; solo estado local
-=======
 const Dashboard = () => {
   
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);
   const [okMsg, setOkMsg] = useState("");
-<<<<<<< HEAD
-  const [errorMsg, setErrorMsg] = useState("");
-=======
 
   // 🔥 AHORA LA QUERY NO ORDENA POR createdAt → así ya carga todo
-  useEffect(() => {
-    const q = query(collection(db, "products"));
-
     const unsub = onSnapshot(
       q,
       (snap) => {
@@ -60,12 +41,10 @@ const Dashboard = () => {
     
     return () => unsub();
   }, []);
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -81,7 +60,7 @@ const Dashboard = () => {
       price: form.price,
       category: form.category,
       buyUrl: form.buyUrl
-=======
+
     const data = {
       name: form.name.trim(),
       imageUrl: form.imageUrl.trim(),
@@ -90,7 +69,7 @@ const Dashboard = () => {
       category: form.category.trim(),
       buyUrl: form.buyUrl.trim(),
       createdAt: serverTimestamp(),
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
+
     };
 
     if (editingId) {
@@ -112,21 +91,12 @@ const Dashboard = () => {
   const handleEdit = (p) => {
     setEditingId(p.id);
     setForm({
-<<<<<<< HEAD
-      name: p.name,
-      imageUrl: p.imageUrl,
-      description: p.description,
-      price: p.price,
-      category: p.category,
-      buyUrl: p.buyUrl
-=======
       name: p.name || "",
       imageUrl: p.imageUrl || "",
       description: p.description || "",
       price: p.price ?? "",
       category: p.category || "",
       buyUrl: p.buyUrl || "",
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
     });
   };
 
@@ -252,7 +222,6 @@ const Dashboard = () => {
         </div>
       </form>
 
-<<<<<<< HEAD
       {/* LISTA DE PRODUCTOS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {products.map((p) => (
@@ -262,7 +231,7 @@ const Dashboard = () => {
               <p className="text-xs text-gray-500 truncate">{p.category}</p>
               <p className="text-xs text-gray-500 truncate">{p.description}</p>
               <p className="text-sm font-bold text-blue-600">${p.price}</p>
-=======
+
       {loading && <p>Cargando productos...</p>}
 
       {!loading && (
@@ -288,7 +257,6 @@ const Dashboard = () => {
                   Eliminar
                 </button>
               </div>
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
             </div>
 
             <div className="flex flex-col gap-1 items-end">
@@ -312,8 +280,5 @@ const Dashboard = () => {
   );
 };
 
-<<<<<<< HEAD
 export default DashboardPage;
-=======
 export default Dashboard;
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa

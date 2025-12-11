@@ -38,10 +38,6 @@ export default function Navbar() {
             Libro
           </Link>
 
-<<<<<<< HEAD
-          <Link to="/preguntas" className="hover:text-black-800 transition">
-            Preguntas
-=======
           <Link to="/agregado" className="hover:text-black-800 transition">
             Publicidad
           </Link>
@@ -55,7 +51,6 @@ export default function Navbar() {
 
           <Link to="/AuthPage" className="hover:text-black-600 transition">
             Acceder
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
           </Link>
         </div>
       </div>
