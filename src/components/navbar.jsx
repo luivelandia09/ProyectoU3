@@ -37,18 +37,14 @@ export default function Navbar() {
             Libro
           </Link>
 
-<<<<<<< HEAD
-=======
           <Link to="/preguntas" className="hover:text-black-800 transition">
             Preguntas
           </Link>
 
->>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
           <Link to="/agregado" className="hover:text-black-800 transition">
             Publicidad
           </Link>
 
-          {/* 🔹 Dashboard solo visible para el email permitido */}
           {user?.email === allowedEmail && (
             <Link to="/dashboard" className="hover:text-white-600 transition">
               Dashboard
