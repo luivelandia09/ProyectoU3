@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import { useState } from "react";
-=======
 import { useEffect, useState } from "react";
 import { db } from "../services/firebase";
 import {
@@ -13,7 +10,7 @@ import {
   onSnapshot,
   query
 } from "firebase/firestore";
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
+
 
 const emptyForm = {
   name: "",
@@ -24,20 +21,14 @@ const emptyForm = {
   buyUrl: "",
 };
 
-<<<<<<< HEAD
-const DashboardPage = () => {
-  // Ahora trabajamos sin Firebase; solo estado local
-=======
 const Dashboard = () => {
   
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);
   const [okMsg, setOkMsg] = useState("");
-<<<<<<< HEAD
+
   const [errorMsg, setErrorMsg] = useState("");
-=======
 
   // 🔥 AHORA LA QUERY NO ORDENA POR createdAt → así ya carga todo
   useEffect(() => {
@@ -60,7 +51,6 @@ const Dashboard = () => {
     
     return () => unsub();
   }, []);
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -72,16 +62,7 @@ const Dashboard = () => {
     setErrorMsg("");
     setOkMsg("");
 
-<<<<<<< HEAD
-    const newProduct = {
-      id: editingId || Date.now(),
-      name: form.name,
-      imageUrl: form.imageUrl,
-      description: form.description,
-      price: form.price,
-      category: form.category,
-      buyUrl: form.buyUrl
-=======
+
     const data = {
       name: form.name.trim(),
       imageUrl: form.imageUrl.trim(),
@@ -90,7 +71,6 @@ const Dashboard = () => {
       category: form.category.trim(),
       buyUrl: form.buyUrl.trim(),
       createdAt: serverTimestamp(),
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
     };
 
     if (editingId) {
@@ -112,21 +92,13 @@ const Dashboard = () => {
   const handleEdit = (p) => {
     setEditingId(p.id);
     setForm({
-<<<<<<< HEAD
       name: p.name,
       imageUrl: p.imageUrl,
       description: p.description,
       price: p.price,
       category: p.category,
       buyUrl: p.buyUrl
-=======
-      name: p.name || "",
-      imageUrl: p.imageUrl || "",
-      description: p.description || "",
-      price: p.price ?? "",
-      category: p.category || "",
-      buyUrl: p.buyUrl || "",
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
+
     });
   };
 
@@ -252,31 +224,20 @@ const Dashboard = () => {
         </div>
       </form>
 
-<<<<<<< HEAD
-      {/* LISTA DE PRODUCTOS */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        {products.map((p) => (
-          <div key={p.id} className="bg-white rounded shadow p-3 flex justify-between gap-2">
-            <div className="min-w-0">
-              <h3 className="font-semibold truncate">{p.name}</h3>
-              <p className="text-xs text-gray-500 truncate">{p.category}</p>
-              <p className="text-xs text-gray-500 truncate">{p.description}</p>
-              <p className="text-sm font-bold text-blue-600">${p.price}</p>
-=======
+
       {loading && <p>Cargando productos...</p>}
 
-      {!loading && (
+ !loading && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {products.map((p) => (
-            <div key={p.id} className="bg-black rounded shadow p-3 flex justify-between gap-2">
+            <div key={p.id} className="bg-white rounded shadow p-3 flex justify-between gap-2">
               <div className="min-w-0">
                 <h3 className="font-semibold truncate">{p.name}</h3>
                 <p className="text-xs text-gray-500 truncate">{p.category}</p>
-                <p className="text-xs text-gray-500 truncate">
-                  {p.description}
-                </p>
+                <p className="text-xs text-gray-500 truncate">{p.description}</p>
                 <p className="text-sm font-bold text-blue-600">${p.price}</p>
               </div>
+
               <div className="flex flex-col gap-1 items-end">
                 <button
                   onClick={() => handleEdit(p)}
@@ -284,36 +245,19 @@ const Dashboard = () => {
                 >
                   Editar
                 </button>
-                <button onClick={() => handleDelete(p.id)} className="px-2 py-1 text-xs bg-red-500 text-black rounded">
+                <button
+                  onClick={() => handleDelete(p.id)}
+                  className="px-2 py-1 text-xs bg-red-500 text-white rounded"
+                >
                   Eliminar
                 </button>
               </div>
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
             </div>
-
-            <div className="flex flex-col gap-1 items-end">
-              <button
-                onClick={() => handleEdit(p)}
-                className="px-2 py-1 text-xs bg-yellow-400 text-black rounded"
-              >
-                Editar
-              </button>
-              <button
-                onClick={() => handleDelete(p.id)}
-                className="px-2 py-1 text-xs bg-red-500 text-white rounded"
-              >
-                Eliminar
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )
     </div>
   );
 };
 
-<<<<<<< HEAD
-export default DashboardPage;
-=======
 export default Dashboard;
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa

@@ -118,7 +118,7 @@ export default function AuthPage() {
 
         <button
           type="submit"
-          className={`py-2 rounded-lg  text-blue-700 font-semibold transition ${
+          className={`py-2 rounded-lg  text-blue-700git  font-semibold transition ${
             mode === "login"
               ? "bg-blue-700 hover:bg-blue-800"
               : "bg-blue-500 hover:bg-blue-600"
