@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+import { useEffect, useState } from "react";
+import { db } from "../services/firebase";
+import {
+>>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
   collection,
   addDoc,
   updateDoc,
@@ -7,6 +13,10 @@
   onSnapshot,
   query
 } from "firebase/firestore";
+<<<<<<< HEAD
+=======
+
+>>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
 
 const emptyForm = {
   name: "",
@@ -22,6 +32,11 @@ const Dashboard = () => {
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);
   const [okMsg, setOkMsg] = useState("");
+<<<<<<< HEAD
+=======
+
+  const [errorMsg, setErrorMsg] = useState("");
+>>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
 
   // 🔥 AHORA LA QUERY NO ORDENA POR createdAt → así ya carga todo
     const unsub = onSnapshot(
@@ -52,6 +67,7 @@ const Dashboard = () => {
     setOkMsg("");
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     const newProduct = {
       id: editingId || Date.now(),
       name: form.name,
@@ -60,6 +76,8 @@ const Dashboard = () => {
       price: form.price,
       category: form.category,
       buyUrl: form.buyUrl
+=======
+>>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
 
     const data = {
       name: form.name.trim(),
@@ -69,7 +87,10 @@ const Dashboard = () => {
       category: form.category.trim(),
       buyUrl: form.buyUrl.trim(),
       createdAt: serverTimestamp(),
+<<<<<<< HEAD
 
+=======
+>>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
     };
 
     if (editingId) {
@@ -91,12 +112,22 @@ const Dashboard = () => {
   const handleEdit = (p) => {
     setEditingId(p.id);
     setForm({
+<<<<<<< HEAD
       name: p.name || "",
       imageUrl: p.imageUrl || "",
       description: p.description || "",
       price: p.price ?? "",
       category: p.category || "",
       buyUrl: p.buyUrl || "",
+=======
+      name: p.name,
+      imageUrl: p.imageUrl,
+      description: p.description,
+      price: p.price,
+      category: p.category,
+      buyUrl: p.buyUrl
+
+>>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
     });
   };
 
@@ -222,6 +253,7 @@ const Dashboard = () => {
         </div>
       </form>
 
+<<<<<<< HEAD
       {/* LISTA DE PRODUCTOS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {products.map((p) => (
@@ -231,21 +263,22 @@ const Dashboard = () => {
               <p className="text-xs text-gray-500 truncate">{p.category}</p>
               <p className="text-xs text-gray-500 truncate">{p.description}</p>
               <p className="text-sm font-bold text-blue-600">${p.price}</p>
+=======
+>>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
 
       {loading && <p>Cargando productos...</p>}
 
-      {!loading && (
+ !loading && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {products.map((p) => (
-            <div key={p.id} className="bg-black rounded shadow p-3 flex justify-between gap-2">
+            <div key={p.id} className="bg-white rounded shadow p-3 flex justify-between gap-2">
               <div className="min-w-0">
                 <h3 className="font-semibold truncate">{p.name}</h3>
                 <p className="text-xs text-gray-500 truncate">{p.category}</p>
-                <p className="text-xs text-gray-500 truncate">
-                  {p.description}
-                </p>
+                <p className="text-xs text-gray-500 truncate">{p.description}</p>
                 <p className="text-sm font-bold text-blue-600">${p.price}</p>
               </div>
+
               <div className="flex flex-col gap-1 items-end">
                 <button
                   onClick={() => handleEdit(p)}
@@ -253,32 +286,23 @@ const Dashboard = () => {
                 >
                   Editar
                 </button>
-                <button onClick={() => handleDelete(p.id)} className="px-2 py-1 text-xs bg-red-500 text-black rounded">
+                <button
+                  onClick={() => handleDelete(p.id)}
+                  className="px-2 py-1 text-xs bg-red-500 text-white rounded"
+                >
                   Eliminar
                 </button>
               </div>
             </div>
-
-            <div className="flex flex-col gap-1 items-end">
-              <button
-                onClick={() => handleEdit(p)}
-                className="px-2 py-1 text-xs bg-yellow-400 text-black rounded"
-              >
-                Editar
-              </button>
-              <button
-                onClick={() => handleDelete(p.id)}
-                className="px-2 py-1 text-xs bg-red-500 text-white rounded"
-              >
-                Eliminar
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )
     </div>
   );
 };
 
+<<<<<<< HEAD
 export default DashboardPage;
+=======
+>>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
 export default Dashboard;

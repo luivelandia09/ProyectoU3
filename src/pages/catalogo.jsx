@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";  // ← AGREGADO, NADA MÁS
+import { Link } from "react-router-dom";
 import catalogoDataRaw from "../json/catalogo.json";
-//import "../index.css";
 
-// Placeholder público para imágenes faltantes
 const PLACEHOLDER = "https://via.placeholder.com/300x300?text=Sin+imagen";
 
 // Procesar imágenes
@@ -65,13 +63,11 @@ export default function Catalogo() {
     (sum, item) => sum + item.precio * item.cantidad,
     0
   );
-  const cantidadTotal = carrito.reduce(
-    (sum, item) => sum + item.cantidad,
-    0
-  );
+  const cantidadTotal = carrito.reduce((sum, item) => sum + item.cantidad, 0);
 
   return (
     <div className="bg-gray-50 min-h-screen">
+      {/* NAVBAR */}
       <div className="bg-primary text-black p-4 sticky top-0 z-40 shadow-lg">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold">🩺 Catálogo Farmaven</h1>
@@ -79,7 +75,7 @@ export default function Catalogo() {
             onClick={() => setMostrarCarrito(!mostrarCarrito)}
             className="relative bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition"
           >
-            🛒 Carrito:
+            🛒 Carrito
             {cantidadTotal > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">
                 {cantidadTotal}
@@ -89,6 +85,7 @@ export default function Catalogo() {
         </div>
       </div>
 
+      {/* BUSCADOR / FILTROS */}
       <div className="container mx-auto p-6">
         <div className="bg-gray-50 p-4 rounded-lg shadow-md mb-6">
           <div className="flex flex-col md:flex-row gap-4">
@@ -99,7 +96,6 @@ export default function Catalogo() {
               onChange={(e) => setBusqueda(e.target.value)}
               className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-
             <select
               value={categoriaSeleccionada}
               onChange={(e) => setCategoriaSeleccionada(e.target.value)}
@@ -114,6 +110,7 @@ export default function Catalogo() {
           </div>
         </div>
 
+        {/* CATÁLOGO */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
           {productosFiltrados.map((p) => (
             <div
@@ -151,7 +148,7 @@ export default function Catalogo() {
                   <span className="text-2xl font-bold text-blue-700">
                     S/ {p.precio.toFixed(2)}
                   </span>
-                  <span className="text-sm bg-primary text-black-800 px-2 py-1 rounded">
+                  <span className="text-sm bg-primary text-black px-2 py-1 rounded">
                     Stock: {p.stock}
                   </span>
                 </div>
@@ -174,10 +171,11 @@ export default function Catalogo() {
         )}
       </div>
 
+      {/* CARRITO */}
       {mostrarCarrito && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-start justify-end p-4">
           <div className="bg-white w-full max-w-md h-full rounded-lg shadow-2xl overflow-hidden flex flex-col">
-            <div className="bg-primary-700 text-white p-4 flex justify-between items-center">
+            <div className="bg-primary text-white p-4 flex justify-between items-center">
               <h2 className="text-xl font-bold">🛒 Tu Carrito</h2>
               <button
                 onClick={() => setMostrarCarrito(false)}
@@ -240,16 +238,12 @@ export default function Catalogo() {
                           </button>
                         </div>
                       </div>
-                    </div>  
+                    </div>
                   ))}
                 </div>
               )}
             </div>
-<<<<<<< HEAD
 
-=======
-            {/* Footer con total */}
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
             {carrito.length > 0 && (
               <div className="border-t p-4 bg-gray-50">
                 <div className="flex justify-between items-center mb-4">
@@ -258,7 +252,7 @@ export default function Catalogo() {
                     S/ {total.toFixed(2)}
                   </span>
                 </div>
-                <button className="w-full bg-primary-700 text-white py-3 rounded-lg font-bold hover:bg-blue-800 transition">
+                <button className="w-full bg-primary text-white py-3 rounded-lg font-bold hover:bg-blue-800 transition">
                   Proceder al pago
                 </button>
               </div>
@@ -266,90 +260,53 @@ export default function Catalogo() {
           </div>
         </div>
       )}
-<<<<<<< HEAD
 
       {/* FOOTER */}
       <footer className="text-white pt-10 bg-blue-700">
         <div className="container mx-auto px-4 flex flex-col md:flex-row flex-wrap justify-around gap-10 text-center">
+
           <div className="flex flex-col md:flex-row gap-10 justify-center md:justify-start w-full md:w-1/2">
-=======
-      {/* === FOOTER AJUSTADO (Azul 700 + imagen más grande) === */}
-      <footer className="text-white pt-10 bg-blue-700">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row flex-wrap justify-around gap-10 text-center">
-          {/* === COLUMNA 1: Logo + Navegación === */}
-          <div className="flex flex-col md:flex-row gap-10 justify-center md:justify-start w-full md:w-1/2">
-            {/* Logo + Descripción */}
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
+
             <div className="w-auto">
               <img
                 src={new URL("../img/logo.png", import.meta.url).href}
                 alt="Logo FARMAVEN"
-<<<<<<< HEAD
                 className="w-60 h-auto mx-auto md:mx-0"
-=======
-                className="w-60 h-auto mx-auto md:mx-0" // Imagen más grande
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
               />
 
               <p className="text-sm mt-4 text-white max-w-xs mx-auto md:mx-0 md:text-left">
                 FARMAVEN nació con la misión de ofrecer medicamentos y productos
-<<<<<<< HEAD
                 de salud accesibles para todos, con un servicio humano y cercano.
               </p>
             </div>
 
-=======
-                de salud accesibles para todos, con un servicio humano y
-                cercano.
-              </p>
-            </div>
-
-            {/* Enlaces */}
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
             <div className="w-auto md:text-left">
-              <h5 className="font-bold mb-2 text-white">FARMAVEN</h5>
+              <h5 className="font-bold mb-2">FARMAVEN</h5>
               <ul className="text-sm space-y-1">
                 <li>
-<<<<<<< HEAD
                   <Link to="/catalogo" className="hover:underline text-blue-200">
-=======
-                  <Link
-                    to="/catalogo"
-                    className="hover:underline text-blue-200"
-                  >
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
                     Catálogo del mes
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/testimonios"
-                    className="hover:underline text-blue-200"
-                  >
+                  <Link to="/testimonios" className="hover:underline text-blue-200">
                     Testimonios
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/libroderecla"
-                    className="hover:underline text-blue-200"
-                  >
+                  <Link to="/libroderecla" className="hover:underline text-blue-200">
                     Libro de reclamaciones
                   </Link>
                 </li>
               </ul>
             </div>
+
           </div>
 
-<<<<<<< HEAD
           <div className="flex flex-col md:flex-row gap-10 justify-center md:justify-start w-full md:w-1/2">
-=======
-          {/* === COLUMNA 2: Contacto + Suscripción === */}
-          <div className="flex flex-col md:flex-row gap-10 justify-center md:justify-start w-full md:w-1/2">
-            {/* Contacto */}
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
+
             <div className="w-auto md:text-left">
-              <h5 className="font-bold mb-2 text-white">Contáctanos</h5>
+              <h5 className="font-bold mb-2">Contáctanos</h5>
               <ul className="text-sm space-y-1">
                 <li className="text-white">
                   📧{" "}
@@ -369,18 +326,12 @@ export default function Catalogo() {
                     +51 987 654 321
                   </Link>
                 </li>
-                <li className="text-white">
-                  Central Telefónica: (01) 612-5000
-                </li>
+                <li className="text-white">Central Telefónica: (01) 612-5000</li>
               </ul>
             </div>
 
-<<<<<<< HEAD
-=======
-            {/* Suscripción */}
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
             <div className="w-auto md:text-left">
-              <h5 className="font-bold mb-2 text-white">Suscríbete</h5>
+              <h5 className="font-bold mb-2">Suscríbete</h5>
               <p className="text-sm mb-3 text-white">
                 Recibe notificaciones de sorteos y promociones exclusivas 🎁
               </p>
@@ -408,17 +359,15 @@ export default function Catalogo() {
                 </button>
               </form>
             </div>
+
           </div>
+
         </div>
 
         <hr className="my-6 border-white/20" />
 
         <p className="text-sm pb-4 text-center text-white">
-<<<<<<< HEAD
-          ©️ 2025 FARMAVEN - Todos los derechos reservados
-=======
           © 2025 FARMAVEN - Todos los derechos reservados
->>>>>>> a79945dc3d61ea1e8ceabfbdc35970837bb0aaaa
         </p>
       </footer>
     </div>

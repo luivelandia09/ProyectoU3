@@ -3,7 +3,6 @@ import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
   const { user } = useAuth();
-
   const allowedEmail = "luivelandiabaez@crackthecode.la";
 
   return (
@@ -38,6 +37,13 @@ export default function Navbar() {
             Libro
           </Link>
 
+<<<<<<< HEAD
+=======
+          <Link to="/preguntas" className="hover:text-black-800 transition">
+            Preguntas
+          </Link>
+
+>>>>>>> d11d5839f015c99b2978ff382c82670788fe0409
           <Link to="/agregado" className="hover:text-black-800 transition">
             Publicidad
           </Link>

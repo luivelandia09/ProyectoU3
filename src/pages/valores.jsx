@@ -29,6 +29,7 @@ export default function Valores() {
 
   return (
     <div className="inicio-container">
+      {/* === HEADER === */}
       <header className="bg-primary text-white py-3">
         <nav className="navbar navbar-expand-lg navbar-dark">
           <div className="container">
@@ -74,7 +75,9 @@ export default function Valores() {
         </nav>
       </header>
 
+      {/* === CONTENIDO PRINCIPAL === */}
       <div className="font-[Montserrat] text-[#495057] bg-[#f8f9fa] leading-relaxed">
+
         {/* === IMÁGENES DESDE JSON === */}
         <div className="text-center py-8 bg-gradient-to-r from-[#dbeeff] to-[#f8f9fa]">
           {imagenes.img.map((item, i) => (
@@ -114,9 +117,9 @@ export default function Valores() {
             </p>
 
             <div className="flex flex-col md:flex-row items-center mt-12 gap-8">
-              {/* Misión y Visión */}
+              {/* Misión y visión */}
               <div className="flex flex-col gap-6 w-full md:w-1/2">
-                <div className="bg-[#e9f5ff] rounded-xl p-6 shadow-md hover:border-[#0056b3] border-2 border-transparent transition">
+                <div className="bg-[#e9f5ff] rounded-xl p-6 shadow-md hover:border-[#0056b3] border-2 transition">
                   <h3 className="text-xl font-semibold text-[#0e3b5c] mb-2">
                     NUESTRA MISIÓN
                   </h3>
@@ -126,7 +129,8 @@ export default function Valores() {
                     excepcional.
                   </p>
                 </div>
-                <div className="bg-[#e9f5ff] rounded-xl p-6 shadow-md hover:border-[#0056b3] border-2 border-transparent transition">
+
+                <div className="bg-[#e9f5ff] rounded-xl p-6 shadow-md hover:border-[#0056b3] border-2 transition">
                   <h3 className="text-xl font-semibold text-[#0e3b5c] mb-2">
                     NUESTRA VISIÓN
                   </h3>
@@ -151,7 +155,7 @@ export default function Valores() {
 
         {/* === PILARES === */}
         <section className="py-16 bg-white border-t border-gray-200">
-          <h2 className="text-2xl text-white font-bold bg-[#0056b3] w-fit px-6 py-3 mx-auto rounded-full uppercase tracking-wider shadow-md mb-8">
+          <h2 className="text-2xl text-white font-bold bg-[#0056b3] w-fit px-6 py-3 mx-auto rounded-full uppercase shadow-md mb-8">
             Nuestros pilares fundamentales
           </h2>
 
@@ -181,7 +185,7 @@ export default function Valores() {
             ].map((p, i) => (
               <div
                 key={i}
-                className="bg-[#e9f5ff] p-8 rounded-xl text-center shadow-lg max-w-sm border-2 border-transparent hover:border-[#0056b3] transition"
+                className="bg-[#e9f5ff] p-8 rounded-xl text-center shadow-lg max-w-sm border-2 hover:border-[#0056b3] transition"
               >
                 <i
                   className={`fa-solid ${p.icon} text-[#0056b3] text-4xl mb-3`}
@@ -202,61 +206,48 @@ export default function Valores() {
             </h2>
 
             <div className="flex flex-col md:flex-row items-stretch justify-center gap-10">
+              {/* formulario */}
               <form
                 onSubmit={handleSubmit}
                 className="bg-white p-8 rounded-xl shadow-lg w-full md:w-1/2 border border-gray-200"
               >
                 <div className="mb-4">
-                  <label
-                    htmlFor="nombre"
-                    className="block font-semibold text-[#003b73] mb-1"
-                  >
+                  <label className="block font-semibold text-[#003b73] mb-1">
                     Nombre:
                   </label>
                   <input
                     type="text"
-                    id="nombre"
                     name="nombre"
                     value={formData.nombre}
                     onChange={handleChange}
-                    placeholder="Tu nombre completo"
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#0056b3]"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2"
                     required
                   />
                 </div>
 
                 <div className="mb-4">
-                  <label
-                    htmlFor="correo"
-                    className="block font-semibold text-[#003b73] mb-1"
-                  >
+                  <label className="block font-semibold text-[#003b73] mb-1">
                     Correo electrónico:
                   </label>
                   <input
                     type="email"
-                    id="correo"
                     name="correo"
                     value={formData.correo}
                     onChange={handleChange}
-                    placeholder="tucorreo@example.com"
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#0056b3]"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2"
                     required
                   />
                 </div>
 
                 <div className="mb-4">
-                  <label
-                    htmlFor="valor"
-                    className="block font-semibold text-[#003b73] mb-1"
-                  >
+                  <label className="block font-semibold text-[#003b73] mb-1">
                     ¿Qué valor te representa más?
                   </label>
                   <select
-                    id="valor"
                     name="valor"
                     value={formData.valor}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#0056b3]"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2"
                     required
                   >
                     <option value="">Selecciona un valor</option>
@@ -264,29 +255,22 @@ export default function Valores() {
                     <option value="innovacion">
                       Innovación en salud digital
                     </option>
-                    <option value="compromiso">
-                      Compromiso con el cuidado
-                    </option>
+                    <option value="compromiso">Compromiso con el cuidado</option>
                   </select>
                 </div>
 
                 <div className="mb-4">
-                  <label
-                    htmlFor="comentarios"
-                    className="block font-semibold text-[#003b73] mb-1"
-                  >
+                  <label className="block font-semibold text-[#003b73] mb-1">
                     Comentarios:
                   </label>
                   <textarea
-                    id="comentarios"
                     name="comentarios"
+                    rows="3"
                     value={formData.comentarios}
                     onChange={handleChange}
-                    rows="3"
-                    placeholder="Cuéntanos tu experiencia..."
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#0056b3]"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2"
                     required
-                  />
+                  ></textarea>
                 </div>
 
                 <button
@@ -300,7 +284,7 @@ export default function Valores() {
               <div className="w-full md:w-1/2 text-center">
                 <img
                   src={new URL("../img/descuvalores.png", import.meta.url).href}
-                  alt="Promoción descuento"
+                  alt="Descuento"
                   className="rounded-xl shadow-lg max-w-full border-4 border-white"
                 />
               </div>
@@ -311,6 +295,7 @@ export default function Valores() {
         {/* === FOOTER === */}
         <footer className="bg-primary text-black text-center pt-10">
           <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            
             {/* Logo */}
             <div>
               <img
@@ -321,8 +306,7 @@ export default function Valores() {
 
               <p className="text-sm">
                 FARMAVEN nació con la misión de ofrecer medicamentos y productos
-                de salud accesibles para todos, con un servicio humano y
-                cercano.
+                de salud accesibles, con un servicio humano y cercano.
               </p>
             </div>
 
@@ -359,7 +343,7 @@ export default function Valores() {
                   📧{" "}
                   <Link
                     to="mailto:contacto@farmaven.com"
-                    className=" font-bold hover:underline"
+                    className="font-bold hover:underline"
                   >
                     contacto@farmaven.com
                   </Link>
@@ -392,9 +376,8 @@ export default function Valores() {
               >
                 <input
                   type="email"
-                  name="email"
-                  placeholder="Tu correo"
                   required
+                  placeholder="Tu correo"
                   className="border rounded px-2 py-1 mr-2"
                 />
                 <button
@@ -404,5 +387,13 @@ export default function Valores() {
                   Enviar
                 </button>
               </form>
-  
-    div<div></di  v>            
+            </div>
+          </div>
+
+          <p className="text-xs py-4">© 2025 FARMAVEN — Todos los derechos reservados</p>
+        </footer>
+
+      </div>
+    </div>
+  );
+}

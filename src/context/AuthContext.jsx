@@ -13,7 +13,7 @@ async function getUserRole(uid) {
     if (snap.exists()) {
       return snap.data().role || null;
     } else {
-      console.warn("⚠️ No existe documento de usuario en Firestore");
+      console.warn(" No existe documento de usuario en Firestore");
       return null;
     }
   } catch (error) {
