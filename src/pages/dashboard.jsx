@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 const emptyForm = {
   name: "",
+  imageUrl: "",
   description: "",
   price: "",
   category: "",
@@ -19,40 +20,48 @@ const emptyForm = {
 };
 
 const Dashboard = () => {
-  
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);
   const [okMsg, setOkMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
-  // 🔥 AHORA LA QUERY NO ORDENA POR createdAt → así ya carga todo
-    const unsub = onSnapshot(
-      q,
-      (snap) => {
-        const list = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-        setProducts(list);
-        setLoading(false);
-      },
-      (err) => {
-        console.error("onSnapshot error:", err);
-        setErrorMsg(err.message || "Error al leer productos.");
-        setLoading(false);
-      }
-    );
+  const [loading, setLoading] = useState(true);
 
-    
-    return () => unsub();
+  useEffect(() => {
+    try {
+      const ref = collection(db, "products");
+      const q = query(ref);
+
+      const unsub = onSnapshot(
+        q,
+        (snap) => {
+          const list = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+          setProducts(list);
+          setLoading(false);
+        },
+        (err) => {
+          setErrorMsg("Error al cargar productos");
+          setLoading(false);
+        }
+      );
+
+      return () => unsub();
+    } catch (err) {
+      setErrorMsg("Error interno");
+      setLoading(false);
+    }
   }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMsg("");
     setOkMsg("");
+<<<<<<< HEAD
 
     const newProduct = {
       id: editingId || Date.now(),
@@ -62,6 +71,10 @@ const Dashboard = () => {
       price: form.price,
       category: form.category,
       buyUrl: form.buyUrl
+=======
+    setErrorMsg("");
+
+>>>>>>> 30c97f81cf5dcff63e80bee7e246961fd45dfacc
     const data = {
       name: form.name.trim(),
       imageUrl: form.imageUrl.trim(),
@@ -72,26 +85,29 @@ const Dashboard = () => {
       createdAt: serverTimestamp(),
     };
 
-    if (editingId) {
-      // Actualizar producto
-      setProducts((prev) =>
-        prev.map((p) => (p.id === editingId ? newProduct : p))
-      );
-      setOkMsg("Producto actualizado.");
-    } else {
-      // Crear producto
-      setProducts((prev) => [newProduct, ...prev]);
-      setOkMsg("Producto creado.");
-    }
+    try {
+      if (editingId) {
+        await updateDoc(doc(db, "products", editingId), data);
+        setOkMsg("Producto actualizado.");
+      } else {
+        await addDoc(collection(db, "products"), data);
+        setOkMsg("Producto creado.");
+      }
 
-    setForm(emptyForm);
-    setEditingId(null);
+      setForm(emptyForm);
+      setEditingId(null);
+    } catch (err) {
+      setErrorMsg("Error al guardar el producto.");
+    }
   };
 
   const handleEdit = (p) => {
     setEditingId(p.id);
     setForm({
+<<<<<<< HEAD
 
+=======
+>>>>>>> 30c97f81cf5dcff63e80bee7e246961fd45dfacc
       name: p.name || "",
       imageUrl: p.imageUrl || "",
       description: p.description || "",
@@ -108,9 +124,13 @@ const Dashboard = () => {
     });
   };
 
-  const handleDelete = (id) => {
-    setProducts((prev) => prev.filter((p) => p.id !== id));
-    setOkMsg("Producto eliminado.");
+  const handleDelete = async (id) => {
+    try {
+      await deleteDoc(doc(db, "products", id));
+      setOkMsg("Producto eliminado.");
+    } catch (err) {
+      setErrorMsg("Error al eliminar.");
+    }
   };
 
   const handleCancel = () => {
@@ -120,25 +140,23 @@ const Dashboard = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4">
-      <h1 className="text-2xl font-bold mb-4">Bienvenido a Dashboard - Farmacia Digital</h1>
+      <h1 className="text-2xl font-bold mb-4">Dashboard - Farmaven</h1>
 
       {errorMsg && (
         <div className="mb-3 p-2 rounded bg-red-100 text-red-700 text-sm">
           {errorMsg}
         </div>
       )}
+
       {okMsg && (
         <div className="mb-3 p-2 rounded bg-green-100 text-green-700 text-sm">
           {okMsg}
         </div>
       )}
 
-      <form
-        className="bg-white shadow rounded p-4 mb-6 grid gap-3"
-        onSubmit={handleSubmit}
-      >
+      <form className="bg-white shadow rounded p-4 mb-6 grid gap-3" onSubmit={handleSubmit}>
         <div>
-          <label className="text-sm font-semibold">Nombre del producto</label>
+          <label className="text-sm font-semibold">Nombre</label>
           <input
             name="name"
             value={form.name}
@@ -214,16 +232,12 @@ const Dashboard = () => {
         </div>
 
         <div className="flex gap-2 mt-2">
-          <button type="submit" className="px-4 py-2 bg-blue-500 text-black rounded">
+          <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">
             {editingId ? "Guardar cambios" : "Crear producto"}
           </button>
 
           {editingId && (
-            <button
-              type="button"
-              onClick={handleCancel}
-              className="px-4 py-2 bg-gray-200 rounded"
-            >
+            <button type="button" onClick={handleCancel} className="px-4 py-2 bg-gray-200 rounded">
               Cancelar
             </button>
           )}
@@ -242,23 +256,27 @@ const Dashboard = () => {
       {loading && <p>Cargando productos...</p>}
 
  !loading && (
+      {loading ? (
+        <p>Cargando productos...</p>
+      ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {products.map((p) => (
             <div key={p.id} className="bg-white rounded shadow p-3 flex justify-between gap-2">
-              <div className="min-w-0">
-                <h3 className="font-semibold truncate">{p.name}</h3>
-                <p className="text-xs text-gray-500 truncate">{p.category}</p>
-                <p className="text-xs text-gray-500 truncate">{p.description}</p>
-                <p className="text-sm font-bold text-blue-600">${p.price}</p>
+              <div>
+                <h3 className="font-semibold">{p.name}</h3>
+                <p className="text-xs text-gray-500">{p.category}</p>
+                <p className="text-xs text-gray-500">{p.description}</p>
+                <p className="text-sm font-bold text-blue-600">S/. {p.price}</p>
               </div>
 
-              <div className="flex flex-col gap-1 items-end">
+              <div className="flex flex-col gap-1">
                 <button
                   onClick={() => handleEdit(p)}
                   className="px-2 py-1 text-xs bg-yellow-400 text-black rounded"
                 >
                   Editar
                 </button>
+
                 <button
                   onClick={() => handleDelete(p.id)}
                   className="px-2 py-1 text-xs bg-red-500 text-white rounded"
@@ -269,10 +287,11 @@ const Dashboard = () => {
             </div>
           ))}
         </div>
-      )
+      )}
     </div>
   );
 };
 
 export default DashboardPage;
+export default Dashboard;
 export default Dashboard;

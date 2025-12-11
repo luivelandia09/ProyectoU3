@@ -29,7 +29,6 @@ export default function Valores() {
 
   return (
     <div className="inicio-container">
-      {/* === HEADER === */}
       <header className="bg-primary text-white py-3">
         <nav className="navbar navbar-expand-lg navbar-dark">
           <div className="container">
@@ -75,12 +74,10 @@ export default function Valores() {
         </nav>
       </header>
 
-      {/* === CONTENIDO PRINCIPAL === */}
       <div className="font-[Montserrat] text-[#495057] bg-[#f8f9fa] leading-relaxed">
 
-        {/* === IMÁGENES DESDE JSON === */}
         <div className="text-center py-8 bg-gradient-to-r from-[#dbeeff] to-[#f8f9fa]">
-          {imagenes.img.map((item, i) => (
+          {imagenes.map((item, i) => (
             <div
               key={i}
               className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12"
@@ -104,7 +101,6 @@ export default function Valores() {
           ))}
         </div>
 
-        {/* === SECCIÓN PRINCIPAL === */}
         <section className="py-16 bg-gradient-to-br from-[#e6f2ff] to-white border-b border-gray-200">
           <div className="max-w-6xl mx-auto px-4 text-center">
             <h1 className="text-4xl font-bold text-[#003b73] uppercase tracking-wide mb-6">
@@ -117,9 +113,8 @@ export default function Valores() {
             </p>
 
             <div className="flex flex-col md:flex-row items-center mt-12 gap-8">
-              {/* Misión y visión */}
               <div className="flex flex-col gap-6 w-full md:w-1/2">
-                <div className="bg-[#e9f5ff] rounded-xl p-6 shadow-md hover:border-[#0056b3] border-2 transition">
+                <div className="bg-[#e9f5ff] rounded-xl p-6 shadow-md border-2 hover:border-[#0056b3] transition">
                   <h3 className="text-xl font-semibold text-[#0e3b5c] mb-2">
                     NUESTRA MISIÓN
                   </h3>
@@ -130,7 +125,7 @@ export default function Valores() {
                   </p>
                 </div>
 
-                <div className="bg-[#e9f5ff] rounded-xl p-6 shadow-md hover:border-[#0056b3] border-2 transition">
+                <div className="bg-[#e9f5ff] rounded-xl p-6 shadow-md border-2 hover:border-[#0056b3] transition">
                   <h3 className="text-xl font-semibold text-[#0e3b5c] mb-2">
                     NUESTRA VISIÓN
                   </h3>
@@ -153,7 +148,6 @@ export default function Valores() {
           </div>
         </section>
 
-        {/* === PILARES === */}
         <section className="py-16 bg-white border-t border-gray-200">
           <h2 className="text-2xl text-white font-bold bg-[#0056b3] w-fit px-6 py-3 mx-auto rounded-full uppercase shadow-md mb-8">
             Nuestros pilares fundamentales
@@ -198,7 +192,6 @@ export default function Valores() {
           </div>
         </section>
 
-        {/* === FORMULARIO === */}
         <section className="py-16 bg-gradient-to-br from-white to-[#e6f2ff] border-t border-gray-200">
           <div className="max-w-6xl mx-auto px-4">
             <h2 className="text-2xl text-center font-bold bg-[#0056b3] text-white px-6 py-3 rounded-full w-fit mx-auto mb-10 shadow-md">
@@ -206,7 +199,6 @@ export default function Valores() {
             </h2>
 
             <div className="flex flex-col md:flex-row items-stretch justify-center gap-10">
-              {/* formulario */}
               <form
                 onSubmit={handleSubmit}
                 className="bg-white p-8 rounded-xl shadow-lg w-full md:w-1/2 border border-gray-200"
@@ -292,11 +284,8 @@ export default function Valores() {
           </div>
         </section>
 
-        {/* === FOOTER === */}
         <footer className="bg-primary text-black text-center pt-10">
           <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-            
-            {/* Logo */}
             <div>
               <img
                 src={new URL("../img/logo.png", import.meta.url).href}
@@ -310,7 +299,6 @@ export default function Valores() {
               </p>
             </div>
 
-            {/* Navegación */}
             <div>
               <h5 className="font-bold mb-2">FARMAVEN</h5>
               <ul className="text-sm space-y-1">
@@ -335,7 +323,6 @@ export default function Valores() {
               </ul>
             </div>
 
-            {/* Contacto */}
             <div>
               <h5 className="font-bold mb-2">Contáctanos</h5>
               <ul className="text-sm space-y-1">
@@ -361,7 +348,6 @@ export default function Valores() {
               </ul>
             </div>
 
-            {/* Suscripción */}
             <div>
               <h5 className="font-bold mb-2">Suscríbete</h5>
               <p className="text-sm mb-2">
@@ -390,7 +376,7 @@ export default function Valores() {
             </div>
           </div>
 
-          <p className="text-xs py-4">© 2025 FARMAVEN — Todos los derechos reservados</p>
+          <p className="text-xs py-4">©️ 2025 FARMAVEN — Todos los derechos reservados</p>
         </footer>
 
       </div>

@@ -45,7 +45,6 @@ export default function Navbar() {
             Publicidad
           </Link>
 
-          {/* 🔹 Dashboard solo visible para el email permitido */}
           {user?.email === allowedEmail && (
             <Link to="/dashboard" className="hover:text-white-600 transition">
               Dashboard
