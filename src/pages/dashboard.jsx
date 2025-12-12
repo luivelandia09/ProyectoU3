@@ -61,7 +61,6 @@ const Dashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setOkMsg("");
-<<<<<<< HEAD
 
     const newProduct = {
       id: editingId || Date.now(),
@@ -71,10 +70,9 @@ const Dashboard = () => {
       price: form.price,
       category: form.category,
       buyUrl: form.buyUrl
-=======
+
     setErrorMsg("");
 
->>>>>>> 30c97f81cf5dcff63e80bee7e246961fd45dfacc
     const data = {
       name: form.name.trim(),
       imageUrl: form.imageUrl.trim(),
@@ -104,10 +102,6 @@ const Dashboard = () => {
   const handleEdit = (p) => {
     setEditingId(p.id);
     setForm({
-<<<<<<< HEAD
-
-=======
->>>>>>> 30c97f81cf5dcff63e80bee7e246961fd45dfacc
       name: p.name || "",
       imageUrl: p.imageUrl || "",
       description: p.description || "",

@@ -32,13 +32,8 @@ function App() {
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/testimonios" element={<Testimonios />} />
             <Route path="/libro" element={<Libro />} />
-<<<<<<< HEAD
-
             <Route path="/preguntas" element={<PreguntasFrecuentes />} />
-           
-=======
             <Route path="/preguntas" element={<PreguntasFrecuentes />} />
->>>>>>> 30c97f81cf5dcff63e80bee7e246961fd45dfacc
             <Route path="/AuthPage" element={<Acceder />} />
             <Route path="/agregado" element={<Agregado />} />
 
@@ -61,10 +56,6 @@ function App() {
                 </ProtectedRoute>
               }
             />
-<<<<<<< HEAD
-
-=======
->>>>>>> 30c97f81cf5dcff63e80bee7e246961fd45dfacc
           </Routes>
         </main>
       </div>
