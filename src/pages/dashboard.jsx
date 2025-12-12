@@ -10,6 +10,7 @@ import {
   onSnapshot,
   query
 } from "firebase/firestore";
+
 const emptyForm = {
   name: "",
   imageUrl: "",
@@ -25,7 +26,6 @@ const Dashboard = () => {
   const [editingId, setEditingId] = useState(null);
   const [okMsg, setOkMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -40,14 +40,14 @@ const Dashboard = () => {
           setProducts(list);
           setLoading(false);
         },
-        (err) => {
+        () => {
           setErrorMsg("Error al cargar productos");
           setLoading(false);
         }
       );
 
       return () => unsub();
-    } catch (err) {
+    } catch {
       setErrorMsg("Error interno");
       setLoading(false);
     }
@@ -61,20 +61,8 @@ const Dashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setOkMsg("");
-<<<<<<< HEAD
-
-    const newProduct = {
-      id: editingId || Date.now(),
-      name: form.name,
-      imageUrl: form.imageUrl,
-      description: form.description,
-      price: form.price,
-      category: form.category,
-      buyUrl: form.buyUrl
-=======
     setErrorMsg("");
 
->>>>>>> 30c97f81cf5dcff63e80bee7e246961fd45dfacc
     const data = {
       name: form.name.trim(),
       imageUrl: form.imageUrl.trim(),
@@ -96,7 +84,7 @@ const Dashboard = () => {
 
       setForm(emptyForm);
       setEditingId(null);
-    } catch (err) {
+    } catch {
       setErrorMsg("Error al guardar el producto.");
     }
   };
@@ -104,23 +92,12 @@ const Dashboard = () => {
   const handleEdit = (p) => {
     setEditingId(p.id);
     setForm({
-<<<<<<< HEAD
-
-=======
->>>>>>> 30c97f81cf5dcff63e80bee7e246961fd45dfacc
       name: p.name || "",
       imageUrl: p.imageUrl || "",
       description: p.description || "",
       price: p.price ?? "",
       category: p.category || "",
       buyUrl: p.buyUrl || "",
-      name: p.name,
-      imageUrl: p.imageUrl,
-      description: p.description,
-      price: p.price,
-      category: p.category,
-      buyUrl: p.buyUrl
-
     });
   };
 
@@ -128,7 +105,7 @@ const Dashboard = () => {
     try {
       await deleteDoc(doc(db, "products", id));
       setOkMsg("Producto eliminado.");
-    } catch (err) {
+    } catch {
       setErrorMsg("Error al eliminar.");
     }
   };
@@ -154,6 +131,7 @@ const Dashboard = () => {
         </div>
       )}
 
+      {/* FORMULARIO */}
       <form className="bg-white shadow rounded p-4 mb-6 grid gap-3" onSubmit={handleSubmit}>
         <div>
           <label className="text-sm font-semibold">Nombre</label>
@@ -244,28 +222,17 @@ const Dashboard = () => {
         </div>
       </form>
 
-      {/* LISTA DE PRODUCTOS */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        {products.map((p) => (
-          <div key={p.id} className="bg-white rounded shadow p-3 flex justify-between gap-2">
-            <div className="min-w-0">
-              <h3 className="font-semibold truncate">{p.name}</h3>
-              <p className="text-xs text-gray-500 truncate">{p.category}</p>
-              <p className="text-xs text-gray-500 truncate">{p.description}</p>
-              <p className="text-sm font-bold text-blue-600">${p.price}</p>
-      {loading && <p>Cargando productos...</p>}
-
- !loading && (
+      {/* LISTA */}
       {loading ? (
         <p>Cargando productos...</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {products.map((p) => (
             <div key={p.id} className="bg-white rounded shadow p-3 flex justify-between gap-2">
-              <div>
-                <h3 className="font-semibold">{p.name}</h3>
-                <p className="text-xs text-gray-500">{p.category}</p>
-                <p className="text-xs text-gray-500">{p.description}</p>
+              <div className="min-w-0">
+                <h3 className="font-semibold truncate">{p.name}</h3>
+                <p className="text-xs text-gray-500 truncate">{p.category}</p>
+                <p className="text-xs text-gray-500 truncate">{p.description}</p>
                 <p className="text-sm font-bold text-blue-600">S/. {p.price}</p>
               </div>
 
@@ -292,6 +259,4 @@ const Dashboard = () => {
   );
 };
 
-export default DashboardPage;
-export default Dashboard;
 export default Dashboard;
