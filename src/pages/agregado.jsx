@@ -191,6 +191,15 @@ export default function Recomendador() {
           </div>
         </div>
 
+        {/* 🔵 IMAGEN DE PUBLICIDAD AQUÍ */}
+        <div className="mt-8">
+          <img
+            src="/img/ONLINE farmacia.jpg"
+            alt="Publicidad"
+            className="w-full rounded-xl shadow-md"
+          />
+        </div>
+
         <footer className="mt-6 text-center text-xs text-blue-500">
           FarmaVen • Recomendaciones orientativas — consulta a un profesional de la salud cuando corresponda.
         </footer>
