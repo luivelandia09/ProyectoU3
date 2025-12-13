@@ -1,11 +1,97 @@
 import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import publicidad from "../json/publicidad.json";
+
+// Mapeo de recomendaciones usando IDs reales del catálogo
+const recomendacionesPorObjetivo = {
+  "Aumentar energía": [8, 9, 10], // Multivitamínico, Vitamina C, Vitamina D
+  "Reforzar defensas": [9, 8, 7], // Vitamina C, Multivitamínico, Loratadina
+  "Manejar estrés y dolores": [1, 2, 11], // Paracetamol, Ibuprofeno, Aspirina
+  "Mantener higiene": [7, 6, 9], // Loratadina, Jarabe para la Tos, Vitamina C
+  "Hidratación rápida": [8, 9, 10], // Multivitamínico, Vitamina C, Vitamina D
+};
+
+// Datos de productos del catálogo
+const catalogoProductos = {
+  1: {
+    nombre: "Paracetamol",
+    descripcion:
+      "Analgésico y antipirético eficaz para dolores leves a moderados y fiebre.",
+    precio: 12.0,
+  },
+  2: {
+    nombre: "Ibuprofeno",
+    descripcion:
+      "Antiinflamatorio no esteroideo (AINE) para dolor, inflamación y fiebre.",
+    precio: 15.0,
+  },
+  3: {
+    nombre: "Diclofenaco",
+    descripcion:
+      "Potente antiinflamatorio para dolores musculares y articulares.",
+    precio: 18.0,
+  },
+  4: {
+    nombre: "Azitromicina",
+    descripcion: "Antibiótico de amplio espectro para infecciones bacterianas.",
+    precio: 25.0,
+  },
+  5: {
+    nombre: "Amoxicilina",
+    descripcion:
+      "Antibiótico penicilínico para diversas infecciones bacterianas.",
+    precio: 22.0,
+  },
+  6: {
+    nombre: "Jarabe para la Tos",
+    descripcion:
+      "Jarabe expectorante y antitusivo para aliviar la tos seca y productiva.",
+    precio: 28.0,
+  },
+  7: {
+    nombre: "Loratadina",
+    descripcion:
+      "Antihistamínico para aliviar síntomas de alergias como congestión nasal y estornudos.",
+    precio: 15.5,
+  },
+  8: {
+    nombre: "Multivitamínico",
+    descripcion:
+      "Suplemento completo con vitaminas y minerales esenciales para el bienestar general.",
+    precio: 35.0,
+  },
+  9: {
+    nombre: "Vitamina C",
+    descripcion:
+      "Suplemento de vitamina C para fortalecer el sistema inmunológico.",
+    precio: 25.0,
+  },
+  10: {
+    nombre: "Vitamina D",
+    descripcion:
+      "Suplemento de vitamina D para la salud ósea y el sistema inmunológico.",
+    precio: 28.5,
+  },
+  11: {
+    nombre: "Aspirina",
+    descripcion:
+      "Analgésico, antipirético y antiinflamatorio. También usado como antiagregante plaquetario.",
+    precio: 14.5,
+  },
+  12: {
+    nombre: "Omeprazol",
+    descripcion:
+      "Inhibidor de la bomba de protones para reducir la producción de ácido estomacal.",
+    precio: 24.0,
+  },
+};
 
 export default function Recomendador() {
   const [objetivo, setObjetivo] = useState("Aumentar energía");
   const [usuario, setUsuario] = useState("Estudiante");
   const [velocidad, setVelocidad] = useState("Inmediato");
   const resultadoRef = useRef(null);
+  const navigate = useNavigate();
 
   const generarRecomendacion = () => {
     if (resultadoRef.current) {
@@ -16,110 +102,11 @@ export default function Recomendador() {
     }
   };
 
-  const ProductosPorObjetivo = ({ objetivo }) => {
-    switch (objetivo) {
-      case "Aumentar energía":
-        return (
-          <>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">Vital+ Multivitamínico</h4>
-              <p className="text-sm">
-                Energía diaria para estudiar o trabajar con ritmo.
-              </p>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">FocusUp B-Complex</h4>
-              <p className="text-sm">
-                Mejora concentración y reduce cansancio mental.
-              </p>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">NeutroLife Suero Hidratante</h4>
-              <p className="text-sm">
-                Hidratación rápida para mantenerte activo.
-              </p>
-            </div>
-          </>
-        );
-
-      case "Reforzar defensas":
-        return (
-          <>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">Vitamina C C-Protect</h4>
-              <p className="text-sm">Refuerza el sistema inmune.</p>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">Zinc ImmuneShield</h4>
-              <p className="text-sm">Apoyo inmunológico constante.</p>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">Defensa Natural (infusión)</h4>
-              <p className="text-sm">Refuerzo suave y natural.</p>
-            </div>
-          </>
-        );
-
-      case "Manejar estrés y dolores":
-        return (
-          <>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">SoftDol 400mg</h4>
-              <p className="text-sm">Alivio suave para dolores comunes.</p>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">MagRelax</h4>
-              <p className="text-sm">Magnesio para relajar cuerpo y mente.</p>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">CalmHerbal</h4>
-              <p className="text-sm">Infusión relajante de uso diario.</p>
-            </div>
-          </>
-        );
-
-      case "Mantener higiene":
-        return (
-          <>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">Dermoclean Gel 99.9%</h4>
-              <p className="text-sm">Protección inmediata y portátil.</p>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">FreshClean Spray</h4>
-              <p className="text-sm">Alcohol en spray para uso rápido.</p>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">CareWipes Toallitas</h4>
-              <p className="text-sm">Perfectas para rutinas diarias.</p>
-            </div>
-          </>
-        );
-
-      case "Hidratación rápida":
-        return (
-          <>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">NeutroLife Strong</h4>
-              <p className="text-sm">Rehidratación rápida post ejercicio.</p>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">ReHydraSport</h4>
-              <p className="text-sm">Bebida isotónica para atletas.</p>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-              <h4 className="font-semibold">ElectroMix</h4>
-              <p className="text-sm">
-                Sales rehidratantes de acción inmediata.
-              </p>
-            </div>
-          </>
-        );
-
-      default:
-        return null;
-    }
+  const irACatalogo = () => {
+    navigate("/catalogo");
   };
+
+  const productosRecomendados = recomendacionesPorObjetivo[objetivo] || [];
 
   return (
     <section className="min-h-screen p-6 bg-blue-50 text-blue-900">
@@ -209,8 +196,36 @@ export default function Recomendador() {
               🌟 Productos recomendados para ti
             </h3>
 
-            <div className="space-y-3">
-              <ProductosPorObjetivo objetivo={objetivo} />
+            <div className="space-y-4">
+              {productosRecomendados.map((productoId) => {
+                const producto = catalogoProductos[productoId];
+                if (!producto) return null;
+
+                return (
+                  <div
+                    key={productoId}
+                    className="bg-blue-50 p-4 rounded-lg border border-blue-100 flex justify-between items-center"
+                  >
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-blue-900">
+                        {producto.nombre}
+                      </h4>
+                      <p className="text-sm text-blue-700">
+                        {producto.descripcion}
+                      </p>
+                      <p className="text-sm font-bold text-blue-600 mt-1">
+                        ${producto.precio.toFixed(2)}
+                      </p>
+                    </div>
+                    <button
+                      onClick={irACatalogo}
+                      className="mt-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-4 px-8 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl active:scale-95"
+                    >
+                      Comprar
+                    </button>
+                  </div>
+                );
+              })}
             </div>
 
             <div className="mt-6 border-t pt-4 flex items-center justify-between">
@@ -225,22 +240,21 @@ export default function Recomendador() {
         </div>
 
         {publicidad.activo && (
-  <div className="mt-16 mb-10 px-4 flex justify-center">
-    <a
-      href={publicidad.enlace}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block max-w-3xl"
-    >
-      <img
-        src={publicidad.imagen}
-        alt={publicidad.alt}
-        className="w-full rounded-2xl shadow-lg"
-      />
-    </a>
-  </div>
-)}
-
+          <div className="mt-16 mb-10 px-4 flex justify-center">
+            <a
+              href={publicidad.enlace}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block max-w-3xl"
+            >
+              <img
+                src={publicidad.imagen}
+                alt={publicidad.alt}
+                className="w-full rounded-2xl shadow-lg"
+              />
+            </a>
+          </div>
+        )}
 
         <footer className="mt-6 text-center text-xs text-blue-500">
           FarmaVen • Recomendaciones orientativas — consulta a un profesional de
