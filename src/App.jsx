@@ -10,7 +10,9 @@ import Catalogo from "./pages/catalogo";
 import Testimonios from "./pages/testimonios";
 import Libro from "./pages/libro";
 import PreguntasFrecuentes from "./pages/preguntasFrecuentes";
+import Dashboard from "./pages/dashboard";
 import Acceder from "./context/AuthPage";
+// Dashboard
 import DashboardPage from "./pages/dashboard";
 
 import "./index.css";
@@ -31,19 +33,26 @@ function App() {
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/testimonios" element={<Testimonios />} />
             <Route path="/libro" element={<Libro />} />
-
-            {/* RUTA DE PREGUNTAS */}
-            <Route path="/preguntas" element={<PreguntasFrecuentes />} />
-
+            <Route path="/preguntas" element={<PreguntasFrecuentes />}/>
             <Route path="/AuthPage" element={<Acceder />} />
             <Route path="/agregado" element={<Agregado />} />
 
-            {/* RUTA PROTEGIDA: Dashboard */}
+             {/* Ruta PROTEGIDA: Dashboard */}
             <Route
               path="/dashboard"
               element={
                 <ProtectedRoute>
                   <DashboardPage />
+                </ProtectedRoute>
+              }
+            />
+
+            {/*Ruta SOLO admin */}
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute requiredRole="admin">
+                  <h1>Zona del Admin </h1>
                 </ProtectedRoute>
               }
             />

@@ -1,7 +1,8 @@
+ [
   {
     "id": 1,
     "activo": true,
     "imagen": "/src/img/libro.png",
-    "alt": "Libro de Reclamaciones FarmaVen",
-    "descripcion": "Libro de Reclamaciones FarmaVen"
+    "alt": "Libro de Reclamaciones FarmaVen"
   }
+]
