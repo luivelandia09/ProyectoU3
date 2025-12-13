@@ -3,21 +3,21 @@
     "nombre": "Nayeli Mamani",
     "especialidad": "Marketing Digital",
     "descripcion": "Soy Nayeli Mamani, especialista en Marketing Digital. Provengo del mundo del diseño gráfico y el marketing, y me apasiona crear campañas que conecten a las personas con productos que realmente mejoren su calidad de vida. Domino áreas como la publicidad en redes, el email marketing y el diseño de promociones. Mi mayor fortaleza es transformar cada promoción en una historia irresistible que los clientes quieren compartir.",
-    "img": "NIÑA1.jpg",
+    "img": "/img/NIÑA1.jpg",
     "alt": "Nayeli Mamani sonríe con calidez y confianza"
   },
   {
     "nombre": "Luisana Velandia",
     "especialidad": "Ventas",
-    "descripcion": "Soy Luisana Velandia, especialista en ventas de Farmaven. Tengo un fuerte compromiso hacia el bienestar de los clientes y cuento con más de 5 años de experiencia en ventas y atención personalizada. Mi misión es escuchar y comprender las necesidades de cada persona para ofrecer soluciones que mejoren su calidad de vida. Creo en un servicio humano y empático, buscando que cada interacción aporte valor y genere bienestar real.",
-    "img": "NIÑA2.jpg",
+    "descripcion": "Soy Luisana Velandia, especialista en ventas de Farmaven. Tengo un fuerte compromiso hacia el bienestar de los clientes y cuento con más de 5 años de experiencia en ventas y atención. Mi misión es escuchar y comprender las necesidades de cada persona para ofrecer soluciones que mejoren su calidad de vida.",
+    "img": "/img/NIÑA2.jpg",
     "alt": "Luisana Velandia sonríe cálidamente"
   },
   {
     "nombre": "Mikela Mora",
     "especialidad": "Farmacéutica",
-    "descripcion": "Soy Mikela Mora, una apasionada por conectar las necesidades de cada persona con soluciones de salud efectivas. En Farmaven, combino mi conocimiento farmacéutico con estrategias de orientación al cliente para garantizar que cada recomendación sea clara, segura y adaptada. Mi objetivo es que cada cliente reciba la confianza y el acompañamiento continuos en su bienestar y el de su familia.",
-    "img": "NIÑA3.png",
+    "descripcion": "Soy Mikela Mora, una apasionada por conectar las necesidades de cada persona con soluciones de salud efectivas. En Farmaven, combino mi conocimiento farmacéutico con estrategias de orientación al cliente para garantizar que cada recomendación sea clara, segura y adaptada. Mi objetivo es que cada cliente reciba confianza y acompañamiento en su bienestar.",
+    "img": "/img/NIÑA3.png",
     "alt": "Mikela Mora sonríe con amabilidad y confianza"
   }
 ]
