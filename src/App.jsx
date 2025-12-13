@@ -32,10 +32,7 @@ function App() {
             <Route path="/testimonios" element={<Testimonios />} />
             <Route path="/libro" element={<Libro />} />
             <Route path="/preguntas" element={<PreguntasFrecuentes />} />
-<<<<<<< HEAD
             <Route path="/preguntas" element={<PreguntasFrecuentes />} />
-=======
->>>>>>> refs/remotes/origin/main
             <Route path="/AuthPage" element={<Acceder />} />
             <Route path="/agregado" element={<Agregado />} />
 

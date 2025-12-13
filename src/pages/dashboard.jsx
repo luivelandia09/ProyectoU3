@@ -61,19 +61,6 @@ const Dashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setOkMsg("");
-<<<<<<< HEAD
-
-    const newProduct = {
-      id: editingId || Date.now(),
-      name: form.name,
-      imageUrl: form.imageUrl,
-      description: form.description,
-      price: form.price,
-      category: form.category,
-      buyUrl: form.buyUrl
-
-=======
->>>>>>> refs/remotes/origin/main
     setErrorMsg("");
 
     const data = {
