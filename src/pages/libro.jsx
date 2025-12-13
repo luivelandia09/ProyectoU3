@@ -30,14 +30,21 @@ export default function Libro() {
   const [index, setIndex] = useState(0);
 
   const next = () => setIndex((prev) => (prev + 1) % asistentes.length);
-  const prev = () => setIndex((prev) => (prev - 1 + asistentes.length) % asistentes.length);
+  const prev = () =>
+    setIndex((prev) => (prev - 1 + asistentes.length) % asistentes.length);
 
   return (
     <div className="bg-gray-50 min-h-screen font-[Montserrat] text-gray-800">
       {/* ENCABEZADO */}
       <header className="bg-blue-700 text-white py-6 shadow-lg">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 gap-3">
-          <h1 className="text-2xl font-bold uppercase tracking-wide">
+          <h1
+            className="text-5xl text-center mb-3 tracking-wide drop-shadow-sm"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontWeight: 800,
+            }}
+          >
             Libro de Reclamaciones
           </h1>
           <p className="text-sm md:text-base italic">
@@ -52,7 +59,10 @@ export default function Libro() {
           Atención y Soporte al Cliente
         </h2>
 
-        <p className="text-lg text-gray-700 text-center mb-10">
+        <p
+          className="text-24px text-gray-600 text-center mb-12 max-w-2xl mx-auto font-light italic"
+          style={{ fontFamily: "'Poppins', sans-serif" }}
+        >
           En <span className="font-bold text-blue-700">FARMAVEN</span> valoramos
           la transparencia y la confianza. Si tienes una queja, reclamo o
           sugerencia, te ofrecemos distintos medios para comunicarte con
@@ -81,10 +91,16 @@ export default function Libro() {
           </div>
 
           <div className="flex gap-6 mt-6">
-            <button onClick={prev} className="px-4 py-2 bg-gray-200 rounded-full text-xl">
+            <button
+              onClick={prev}
+              className="px-4 py-2 bg-gray-200 rounded-full text-xl"
+            >
               ⬅
             </button>
-            <button onClick={next} className="px-4 py-2 bg-gray-200 rounded-full text-xl">
+            <button
+              onClick={next}
+              className="px-4 py-2 bg-gray-200 rounded-full text-xl"
+            >
               ➡
             </button>
           </div>
@@ -105,9 +121,7 @@ export default function Libro() {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-gray-700 mb-4">
-            También puedes escribirnos a:
-          </p>
+          <p className="text-gray-700 mb-4">También puedes escribirnos a:</p>
           <p className="text-lg font-semibold text-blue-700">
             📧 reclamos@farmaven.com
           </p>
@@ -134,7 +148,10 @@ export default function Libro() {
                 </Link>
               </li>
               <li>
-                <Link to="/testimonios" className="hover:underline text-blue-200">
+                <Link
+                  to="/testimonios"
+                  className="hover:underline text-blue-200"
+                >
                   Testimonios
                 </Link>
               </li>
