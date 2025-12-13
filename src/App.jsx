@@ -33,16 +33,14 @@ function App() {
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/testimonios" element={<Testimonios />} />
             <Route path="/libro" element={<Libro />} />
-<<<<<<< HEAD
-            <Route path="/preguntas" element={<PreguntasFrecuentes />} />
-            <Route path="/preguntas" element={<PreguntasFrecuentes />} />
-=======
-            <Route path="/preguntasFrecuentes" element={<PreguntasFrecuentes />} />
->>>>>>> 6d430f104bd7c40d822f746b7d133f5e869654e8
+            <Route
+              path="/preguntasFrecuentes"
+              element={<PreguntasFrecuentes />}
+            />
             <Route path="/AuthPage" element={<Acceder />} />
             <Route path="/agregado" element={<Agregado />} />
 
-             {/* Ruta PROTEGIDA: Dashboard */}
+            {/* Ruta PROTEGIDA: Dashboard */}
             <Route
               path="/dashboard"
               element={

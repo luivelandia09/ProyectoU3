@@ -56,10 +56,6 @@ const Dashboard = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
-    setOkMsg("");
-=======
->>>>>>> 6d430f104bd7c40d822f746b7d133f5e869654e8
     setErrorMsg("");
     setOkMsg("");
 
@@ -124,9 +120,7 @@ const Dashboard = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4">
-      <h1 className="text-2xl font-bold mb-4">
-        Dashboard - Farmacia Digital
-      </h1>
+      <h1 className="text-2xl font-bold mb-4">Dashboard - Farmacia Digital</h1>
 
       {errorMsg && (
         <div className="mb-3 p-2 rounded bg-red-100 text-red-700 text-sm">
@@ -145,9 +139,7 @@ const Dashboard = () => {
         onSubmit={handleSubmit}
       >
         <div>
-          <label className="text-sm font-semibold">
-            Nombre del producto
-          </label>
+          <label className="text-sm font-semibold">Nombre del producto</label>
           <input
             name="name"
             value={form.name}
@@ -211,9 +203,7 @@ const Dashboard = () => {
             />
           </div>
           <div>
-            <label className="text-sm font-semibold">
-              Enlace de compra
-            </label>
+            <label className="text-sm font-semibold">Enlace de compra</label>
             <input
               name="buyUrl"
               value={form.buyUrl}
@@ -255,15 +245,11 @@ const Dashboard = () => {
             >
               <div className="min-w-0">
                 <h3 className="font-semibold truncate">{p.name}</h3>
-                <p className="text-xs text-gray-500 truncate">
-                  {p.category}
-                </p>
+                <p className="text-xs text-gray-500 truncate">{p.category}</p>
                 <p className="text-xs text-gray-500 truncate">
                   {p.description}
                 </p>
-                <p className="text-sm font-bold text-blue-600">
-                  ${p.price}
-                </p>
+                <p className="text-sm font-bold text-blue-600">${p.price}</p>
               </div>
               <div className="flex flex-col gap-1 items-end">
                 <button
