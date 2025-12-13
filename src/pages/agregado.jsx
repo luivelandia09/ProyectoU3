@@ -256,7 +256,7 @@ export default function Recomendador() {
           </div>
         )}
 
-        <footer className="mt-6 text-center text-xs text-blue-500">
+        <footer className="mt-6 text-center text-25px text-blue-500">
           FarmaVen • Recomendaciones orientativas — consulta a un profesional de
           la salud cuando corresponda.
         </footer>
