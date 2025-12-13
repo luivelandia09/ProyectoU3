@@ -226,7 +226,7 @@ const Dashboard = () => {
             <button
               type="button"
               onClick={handleCancel}
-              className="px-4 py-2 bg-gray-200 rounded"
+              className="mt-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-4 px-8 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl active:scale-95"
             >
               Cancelar
             </button>

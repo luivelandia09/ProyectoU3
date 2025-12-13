@@ -239,29 +239,22 @@ export default function Recomendador() {
           </div>
         </div>
 
-{Array.isArray(publicidad) &&
-  publicidad
-    .filter((item) => item.activo)
-            .map((item) => (
-              <div
-                key={item.id}
-                style={{
-          marginTop: "60px",
-          display: "flex",
-                  justifyContent: "center"
-                }}
-              >
-                <img
-                  src={item.imagen}
-                  alt={item.alt}
-                  style={{
-            maxWidth: "90%",
-            borderRadius: "20px",
-            boxShadow: "0 12px 30px rgba(0,0,0,0.18)"
-                  }}
-                />
-              </div>
-            ))}
+        {publicidad.activo && (
+          <div className="mt-16 mb-10 px-4 flex justify-center">
+            <a
+              href={publicidad.enlace}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block max-w-3xl"
+            >
+              <img
+                src={publicidad.imagen}
+                alt={publicidad.alt}
+                className="w-full rounded-2xl shadow-lg"
+              />
+            </a>
+          </div>
+        )}
 
         <footer className="mt-6 text-center text-25px text-blue-500">
           FarmaVen • Recomendaciones orientativas — consulta a un profesional de
