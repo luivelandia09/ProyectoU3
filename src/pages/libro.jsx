@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../index.css";
+import libro from "../json/libro.json";
+
 
 export default function Libro() {
+ 
   const asistentes = [
     {
       nombre: "Rocío Valverde",
@@ -70,6 +73,16 @@ export default function Libro() {
         </p>
 
         {/* CARRUSEL */}
+        {libro.activo && (
+  <div className="flex justify-center mt-10 mb-14 px-4">
+    <img
+      src={libro.imagen}
+      alt={libro.alt}
+      className="w-full max-w-4xl rounded-2xl shadow-lg"
+    />
+  </div>
+)}
+
         <div className="w-full flex flex-col items-center mb-16">
           <div
             className={`bg-white shadow-xl p-10 rounded-2xl border-t-4 ${asistentes[index].color} max-w-xl w-full`}
