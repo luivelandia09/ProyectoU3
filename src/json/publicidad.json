@@ -1,6 +1,16 @@
-{
-  "activo": true,
-  "imagen": "/src/img/BANNER.jpg",
-  "alt": "Publicidad FarmaVen",
-  "descripcion": "Descubre FarmaVen: tu farmacia en línea confiable."
-}
+[
+  {
+    "id": 1,
+    "activo": true,
+    "imagen": "/src/img/BANNER.jpg",
+    "alt": "Publicidad FarmaVen",
+    "descripcion": "Descubre FarmaVen: tu farmacia en línea confiable."
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "imagen": "/src/img/publicidad2.png",
+    "alt": "Ofertas Navideñas FarmaVen",
+    "descripcion": "Delivery GRATIS todo diciembre en compras mayores a S/ 50"
+  }
+]
