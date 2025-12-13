@@ -9,7 +9,10 @@ export default function Recomendador() {
 
   const generarRecomendacion = () => {
     if (resultadoRef.current) {
-      resultadoRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      resultadoRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
 
@@ -20,15 +23,21 @@ export default function Recomendador() {
           <>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
               <h4 className="font-semibold">Vital+ Multivitamínico</h4>
-              <p className="text-sm">Energía diaria para estudiar o trabajar con ritmo.</p>
+              <p className="text-sm">
+                Energía diaria para estudiar o trabajar con ritmo.
+              </p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
               <h4 className="font-semibold">FocusUp B-Complex</h4>
-              <p className="text-sm">Mejora concentración y reduce cansancio mental.</p>
+              <p className="text-sm">
+                Mejora concentración y reduce cansancio mental.
+              </p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
               <h4 className="font-semibold">NeutroLife Suero Hidratante</h4>
-              <p className="text-sm">Hidratación rápida para mantenerte activo.</p>
+              <p className="text-sm">
+                Hidratación rápida para mantenerte activo.
+              </p>
             </div>
           </>
         );
@@ -100,7 +109,9 @@ export default function Recomendador() {
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
               <h4 className="font-semibold">ElectroMix</h4>
-              <p className="text-sm">Sales rehidratantes de acción inmediata.</p>
+              <p className="text-sm">
+                Sales rehidratantes de acción inmediata.
+              </p>
             </div>
           </>
         );
@@ -114,13 +125,30 @@ export default function Recomendador() {
     <section className="min-h-screen p-6 bg-blue-50 text-blue-900">
       <div className="max-w-3xl mx-auto">
         <header className="text-center mb-6">
-          <h2 className="text-2xl font-extrabold">✨ Recomendado para ti – FarmaVen ✨</h2>
-          <p className="mt-2 text-sm opacity-80">Respuestas rápidas, seguras y en tonos azules.</p>
+          <h1
+            className="text-5xl text-center mb-3 tracking-wide drop-shadow-sm"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontWeight: 800,
+              color: "#003b73",
+            }}
+          >
+            ✨ Recomendado para ti ✨
+          </h1>
+          <p
+            className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto font-light italic"
+            style={{ fontFamily: "'Poppins', sans-serif" }}
+          >
+            Respuestas que suman valor, te ahorran tiempo y te acompaña en cada
+            paso.
+          </p>
         </header>
 
         <div className="bg-white rounded-2xl shadow-md p-6 space-y-4">
           <div>
-            <label className="block font-semibold text-sm mb-2">1. ¿Cuál es tu objetivo principal de bienestar?</label>
+            <label className="block font-semibold text-sm mb-2">
+              1. ¿Cuál es tu objetivo principal de bienestar?
+            </label>
             <select
               value={objetivo}
               onChange={(e) => setObjetivo(e.target.value)}
@@ -135,7 +163,9 @@ export default function Recomendador() {
           </div>
 
           <div>
-            <label className="block font-semibold text-sm mb-2">2. ¿Quién usará los productos?</label>
+            <label className="block font-semibold text-sm mb-2">
+              2. ¿Quién usará los productos?
+            </label>
             <select
               value={usuario}
               onChange={(e) => setUsuario(e.target.value)}
@@ -150,7 +180,9 @@ export default function Recomendador() {
           </div>
 
           <div>
-            <label className="block font-semibold text-sm mb-2">3. ¿Qué tan rápido necesitas resultados?</label>
+            <label className="block font-semibold text-sm mb-2">
+              3. ¿Qué tan rápido necesitas resultados?
+            </label>
             <select
               value={velocidad}
               onChange={(e) => setVelocidad(e.target.value)}
@@ -211,7 +243,8 @@ export default function Recomendador() {
 
 
         <footer className="mt-6 text-center text-xs text-blue-500">
-          FarmaVen • Recomendaciones orientativas — consulta a un profesional de la salud cuando corresponda.
+          FarmaVen • Recomendaciones orientativas — consulta a un profesional de
+          la salud cuando corresponda.
         </footer>
       </div>
     </section>

@@ -28,7 +28,7 @@ const Dashboard = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [okMsg, setOkMsg] = useState("");
 
-  // 🔥 Lectura de productos (sin orderBy para evitar problemas de índice)
+  // 🔥 Lectura de productos
   useEffect(() => {
     const q = query(collection(db, "products"));
 
