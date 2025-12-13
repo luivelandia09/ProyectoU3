@@ -10,8 +10,10 @@ import Catalogo from "./pages/catalogo";
 import Testimonios from "./pages/testimonios";
 import Libro from "./pages/libro";
 import PreguntasFrecuentes from "./pages/preguntasFrecuentes";
-import DashboardPage from "./pages/dashboard";
+import Dashboard from "./pages/dashboard";
 import Acceder from "./context/AuthPage";
+// Dashboard
+import DashboardPage from "./pages/dashboard";
 
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -31,15 +33,11 @@ function App() {
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/testimonios" element={<Testimonios />} />
             <Route path="/libro" element={<Libro />} />
-            <Route path="/preguntas" element={<PreguntasFrecuentes />} />
-<<<<<<< HEAD
-            <Route path="/preguntas" element={<PreguntasFrecuentes />} />
-=======
->>>>>>> refs/remotes/origin/main
+            <Route path="/preguntasFrecuentes" element={<PreguntasFrecuentes />} />
             <Route path="/AuthPage" element={<Acceder />} />
             <Route path="/agregado" element={<Agregado />} />
 
-            {/* Ruta PROTEGIDA: Dashboard */}
+             {/* Ruta PROTEGIDA: Dashboard */}
             <Route
               path="/dashboard"
               element={
@@ -49,12 +47,12 @@ function App() {
               }
             />
 
-            {/* Ruta SOLO admin */}
+            {/*Ruta SOLO admin */}
             <Route
               path="/admin"
               element={
                 <ProtectedRoute requiredRole="admin">
-                  <h1>Zona del Admin</h1>
+                  <h1>Zona del Admin </h1>
                 </ProtectedRoute>
               }
             />

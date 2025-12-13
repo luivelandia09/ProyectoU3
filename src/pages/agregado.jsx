@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import publicidad from "../json/publicidad.json";
 
 export default function Recomendador() {
   const [objetivo, setObjetivo] = useState("Aumentar energía");
@@ -191,14 +192,23 @@ export default function Recomendador() {
           </div>
         </div>
 
-        {/* 🔵 IMAGEN DE PUBLICIDAD AQUÍ */}
-        <div className="mt-8">
-          <img
-            src="/img/ONLINE farmacia.jpg"
-            alt="Publicidad"
-            className="w-full rounded-xl shadow-md"
-          />
-        </div>
+        {publicidad.activo && (
+  <div className="mt-16 mb-10 px-4 flex justify-center">
+    <a
+      href={publicidad.enlace}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block max-w-3xl"
+    >
+      <img
+        src={publicidad.imagen}
+        alt={publicidad.alt}
+        className="w-full rounded-2xl shadow-lg"
+      />
+    </a>
+  </div>
+)}
+
 
         <footer className="mt-6 text-center text-xs text-blue-500">
           FarmaVen • Recomendaciones orientativas — consulta a un profesional de la salud cuando corresponda.
