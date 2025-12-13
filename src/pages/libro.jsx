@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../index.css";
-import libro from "../json/libro.json";
-
 
 export default function Libro() {
- 
   const asistentes = [
     {
       nombre: "Rocío Valverde",
@@ -56,7 +53,7 @@ export default function Libro() {
         </div>
       </header>
 
-      {/* SECCIÓN DE INFORMACIÓN */}
+      {/* CONTENIDO */}
       <section className="max-w-5xl mx-auto py-12 px-6">
         <h2 className="text-3xl font-bold text-blue-700 mb-6 text-center">
           Atención y Soporte al Cliente
@@ -67,22 +64,10 @@ export default function Libro() {
           style={{ fontFamily: "'Poppins', sans-serif" }}
         >
           En <span className="font-bold text-blue-700">FARMAVEN</span> valoramos
-          la transparencia y la confianza. Si tienes una queja, reclamo o
-          sugerencia, te ofrecemos distintos medios para comunicarte con
-          nosotros.
+          la transparencia y la confianza.
         </p>
 
         {/* CARRUSEL */}
-        {libro.activo && (
-  <div className="flex justify-center mt-10 mb-14 px-4">
-    <img
-      src={libro.imagen}
-      alt={libro.alt}
-      className="w-full max-w-4xl rounded-2xl shadow-lg"
-    />
-  </div>
-)}
-
         <div className="w-full flex flex-col items-center mb-16">
           <div
             className={`bg-white shadow-xl p-10 rounded-2xl border-t-4 ${asistentes[index].color} max-w-xl w-full`}
@@ -104,16 +89,10 @@ export default function Libro() {
           </div>
 
           <div className="flex gap-6 mt-6">
-            <button
-              onClick={prev}
-              className="px-4 py-2 bg-gray-200 rounded-full text-xl"
-            >
+            <button onClick={prev} className="px-4 py-2 bg-gray-200 rounded-full text-xl">
               ⬅
             </button>
-            <button
-              onClick={next}
-              className="px-4 py-2 bg-gray-200 rounded-full text-xl"
-            >
+            <button onClick={next} className="px-4 py-2 bg-gray-200 rounded-full text-xl">
               ➡
             </button>
           </div>
@@ -141,45 +120,81 @@ export default function Libro() {
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* === FOOTER (IGUAL AL DE INICIO) === */}
       <footer className="text-white pt-10 bg-blue-700">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-around gap-10 text-center">
-          <div>
-            <img
-              src={new URL("../img/logo.png", import.meta.url).href}
-              alt="Logo"
-              className="w-60 mx-auto"
-            />
+        <div className="container mx-auto px-4 flex flex-col md:flex-row flex-wrap justify-around gap-10 text-center">
+          <div className="flex flex-col md:flex-row gap-10 w-full md:w-1/2">
+            <div>
+              <img
+                src={new URL("../img/logo.png", import.meta.url).href}
+                alt="Logo FARMAVEN"
+                className="w-60 mx-auto md:mx-0"
+              />
+              <p className="text-sm mt-4 max-w-xs mx-auto md:mx-0 md:text-left">
+                FARMAVEN nació con la misión de ofrecer medicamentos y productos
+                de salud accesibles para todos.
+              </p>
+            </div>
+
+            <div className="md:text-left">
+              <h5 className="font-bold mb-2">FARMAVEN</h5>
+              <ul className="text-sm space-y-1">
+                <li>
+                  <Link to="/catalogo" className="hover:underline text-blue-200">
+                    Catálogo del mes
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/testimonios" className="hover:underline text-blue-200">
+                    Testimonios
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/libroderecla" className="hover:underline text-blue-200">
+                    Libro de reclamaciones
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          <div>
-            <h5 className="font-bold mb-2 text-white">FARMAVEN</h5>
-            <ul className="text-sm space-y-1">
-              <li>
-                <Link to="/catalogo" className="hover:underline text-blue-200">
-                  Catálogo del mes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/testimonios"
-                  className="hover:underline text-blue-200"
+          <div className="flex flex-col md:flex-row gap-10 w-full md:w-1/2">
+            <div className="md:text-left">
+              <h5 className="font-bold mb-2">Contáctanos</h5>
+              <p className="text-sm">📧 contacto@farmaven.com</p>
+              <p className="text-sm">📞 +51 987 654 321</p>
+              <p className="text-sm">Central: (01) 612-5000</p>
+            </div>
+
+            <div className="md:text-left">
+              <h5 className="font-bold mb-2">Suscríbete</h5>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  alert("¡Gracias por suscribirte!");
+                  e.target.reset();
+                }}
+                className="flex flex-col sm:flex-row gap-2"
+              >
+                <input
+                  type="email"
+                  required
+                  placeholder="Tu correo"
+                  className="border rounded px-2 py-1 text-black"
+                />
+                <button
+                  type="submit"
+                  className="bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded"
                 >
-                  Testimonios
-                </Link>
-              </li>
-              <li>
-                <Link to="/libro" className="hover:underline text-blue-200">
-                  Libro de reclamaciones
-                </Link>
-              </li>
-            </ul>
+                  Enviar
+                </button>
+              </form>
+            </div>
           </div>
         </div>
 
         <hr className="my-6 border-white/20" />
-
-        <p className="text-sm pb-4 text-center text-white">
+        <p className="text-sm pb-4 text-center">
           ©️ 2025 FARMAVEN - Todos los derechos reservados
         </p>
       </footer>
