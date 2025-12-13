@@ -284,7 +284,7 @@ export default function Inicio() {
                 />
                 <button
                   type="submit"
-                  className="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1 rounded w-full sm:w-auto"
+                  className="bg-blue-600 hover:bg-blue-500 text-black px-3 py-1 rounded w-full sm:w-auto"
                 >
                   Enviar
                 </button>

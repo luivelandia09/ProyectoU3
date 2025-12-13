@@ -142,7 +142,7 @@ export default function Nosotras() {
             <div className="space-y-2">
               <label
                 htmlFor="nombres"
-                className="font-semibold text-primary block"
+                className="font-semibold text-blue-800 block"
               >
                 Nombres y Apellidos:
               </label>
@@ -217,7 +217,7 @@ export default function Nosotras() {
 
             <button
               type="submit"
-              className="mt-6 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-bold py-4 px-8 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl active:scale-95"
+              className="mt-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-4 px-8 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl active:scale-95"
             >
               Enviar
             </button>
@@ -326,7 +326,7 @@ export default function Nosotras() {
                 />
                 <button
                   type="submit"
-                  className="bg-blue-700 text-white text-sm font-semibold px-4 py-1 rounded hover:bg-blue-800 transition-all"
+                  className="bg-blue-700 text-black text-sm font-semibold px-4 py-1 rounded hover:bg-blue-800 transition-all"
                 >
                   Enviar
                 </button>

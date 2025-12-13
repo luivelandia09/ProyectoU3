@@ -33,11 +33,14 @@ function App() {
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/testimonios" element={<Testimonios />} />
             <Route path="/libro" element={<Libro />} />
-            <Route path="/preguntasFrecuentes" element={<PreguntasFrecuentes />} />
+            <Route
+              path="/preguntasFrecuentes"
+              element={<PreguntasFrecuentes />}
+            />
             <Route path="/AuthPage" element={<Acceder />} />
             <Route path="/agregado" element={<Agregado />} />
 
-             {/* Ruta PROTEGIDA: Dashboard */}
+            {/* Ruta PROTEGIDA: Dashboard */}
             <Route
               path="/dashboard"
               element={
