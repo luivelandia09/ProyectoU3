@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../services/firebase";
 import { Link } from "react-router-dom";
+import catalogoData from "../json/catalogo.json";
+
 
 const PLACEHOLDER = "https://via.placeholder.com/300x300?text=Sin+imagen";
 
@@ -13,16 +15,9 @@ export default function Catalogo() {
   const [mostrarCarrito, setMostrarCarrito] = useState(false);
 
   // 🔥 LEER PRODUCTOS DESDE FIRESTORE (DASHBOARD)
-  useEffect(() => {
-    const unsub = onSnapshot(collection(db, "products"), (snap) => {
-      const data = snap.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setProductos(data);
-    });
-    return () => unsub();
-  }, []);
+useEffect(() => {
+  setProductos(catalogoData);
+}, []);
 
   const categorias = [
     "Todas",
@@ -133,7 +128,7 @@ export default function Catalogo() {
             <div key={p.id} className="bg-white rounded-xl shadow-md overflow-hidden">
               <div className="relative bg-gray-50 flex items-center justify-center h-32">
                 <img
-                  src={p.imageUrl || PLACEHOLDER}
+                src={p.imageURL || p.imageUrl || PLACEHOLDER} 
                   alt={p.name}
                   onError={(e) => (e.currentTarget.src = PLACEHOLDER)}
                   className="max-h-24 object-contain"
@@ -150,6 +145,13 @@ export default function Catalogo() {
                 <div className="flex justify-between items-center mt-3">
                   <span className="text-2xl font-bold text-blue-700">
                     S/ {Number(p.price).toFixed(2)}
+                    <p
+  className={`mt-1 text-sm font-semibold ${
+    p.stock > 0 ? "text-green-600" : "text-red-600"
+  }`}
+>
+  {p.stock > 0 ? `Stock: ${p.stock} unidades` : "Sin stock"}
+</p>   
                   </span>
                 </div>
 

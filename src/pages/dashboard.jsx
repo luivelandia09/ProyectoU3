@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../services/firebase";
 
 export default function Dashboard() {
   const [form, setForm] = useState({
@@ -17,11 +19,35 @@ export default function Dashboard() {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Producto:", form);
-    alert("Producto registrado correctamente ✅");
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    await addDoc(collection(db, "products"), {
+      name: form.name,
+      category: form.category,
+      price: Number(form.price),
+      link: form.link,
+      imageUrl: form.imageUrl,
+      createdAt: new Date(),
+    });
+
+    alert("Producto guardado en Firestore ✅");
+
+    setForm({
+      name: "",
+      category: "",
+      price: "",
+      link: "",
+      imageUrl: "",
+    });
+  } catch (error) {
+    console.error("Error al guardar:", error);
+    alert("❌ Error al guardar el producto");
+  }
+};
+
+
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
