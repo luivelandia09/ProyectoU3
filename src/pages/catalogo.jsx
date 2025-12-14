@@ -16,8 +16,24 @@ export default function Catalogo() {
 
   // 🔥 LEER PRODUCTOS DESDE FIRESTORE (DASHBOARD)
 useEffect(() => {
-  setProductos(catalogoData);
+  const unsub = onSnapshot(collection(db, "products"), (snap) => {
+    const firestoreProducts = snap.docs.map((doc) => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        ...data,
+        // 🔥 NORMALIZAMOS
+        description: data.description || data.descripcion || "",
+        imageURL: data.imageURL || data.imageUrl || "",
+      };
+    });
+
+    setProductos([...catalogoData, ...firestoreProducts]);
+  });
+
+  return () => unsub();
 }, []);
+
 
   const categorias = [
     "Todas",
@@ -25,9 +41,9 @@ useEffect(() => {
   ];
 
   const productosFiltrados = productos.filter((p) => {
-    const matchBusqueda =
-      p.name?.toLowerCase().includes(busqueda.toLowerCase()) ||
-      p.description?.toLowerCase().includes(busqueda.toLowerCase());
+    const texto = `${p.name ?? ""} ${p.description ?? ""}`.toLowerCase();
+const matchBusqueda = texto.includes(busqueda.toLowerCase());
+
 
     const matchCategoria =
       categoriaSeleccionada === "Todas" ||
@@ -140,7 +156,9 @@ useEffect(() => {
 
               <div className="p-4">
                 <h3 className="text-lg font-bold">{p.name}</h3>
-                <p className="text-sm text-gray-600">{p.description}</p>
+                <p className="text-sm text-gray-600">
+                {p.description || "Sin descripción disponible"}
+                 </p>
 
                 <div className="flex justify-between items-center mt-3">
                   <span className="text-2xl font-bold text-blue-700">

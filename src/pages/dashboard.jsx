@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../services/firebase";
 
 export default function Dashboard() {
@@ -8,7 +8,9 @@ export default function Dashboard() {
     category: "",
     price: "",
     link: "",
+    stock: "",
     imageUrl: "",
+    description: "",
   });
 
   const handleChange = (e) => {
@@ -23,26 +25,29 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    await addDoc(collection(db, "products"), {
-      name: form.name,
-      category: form.category,
-      price: Number(form.price),
-      link: form.link,
-      imageUrl: form.imageUrl,
-      createdAt: new Date(),
-    });
+      await addDoc(collection(db, "products"), {
+        name: form.name,
+        category: form.category,
+        price: Number(form.price),
+        stock: Number(form.stock),
+        imageURL: form.imageUrl,
+        description: form.description,
+        createdAt: serverTimestamp(),
+      });
 
-    alert("Producto guardado en Firestore ✅");
+
+    alert("Producto guardado  ✅");
 
     setForm({
       name: "",
       category: "",
       price: "",
-      link: "",
+      stock: "",
       imageUrl: "",
+      description: "",
     });
   } catch (error) {
-    console.error("Error al guardar:", error);
+    console.error( error);
     alert("❌ Error al guardar el producto");
   }
 };
@@ -59,11 +64,9 @@ const handleSubmit = async (e) => {
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-lg shadow-md max-w-xl space-y-4"
       >
-        {/* NOMBRE */}
+         {/* NOMBRE */}
         <div>
-          <label className="block font-semibold mb-1">
-            Nombre del producto
-          </label>
+          <label className="block font-semibold mb-1">Nombre</label>
           <input
             type="text"
             name="name"
@@ -113,18 +116,17 @@ const handleSubmit = async (e) => {
             required
           />
         </div>
-
-        {/* ENLACE */}
+        
+        {/* STOCK */}
         <div>
-          <label className="block font-semibold mb-1">
-            Enlace de compra
-          </label>
+          <label className="block font-semibold mb-1">Stock</label>
           <input
-            type="url"
-            name="link"
-            value={form.link}
+            type="number"
+            name="stock"
+            value={form.stock}
             onChange={handleChange}
             className="w-full border rounded px-3 py-2"
+            required
           />
         </div>
 
@@ -141,20 +143,58 @@ const handleSubmit = async (e) => {
             className="w-full border rounded px-3 py-2"
           />
         </div>
+           
+        {/* DESCRIPCIÓN */}
+        <div>
+          <label className="block font-semibold mb-1">Descripción</label>
+          <textarea
+            name="description"
+            value={form.description}
+            onChange={handleChange}
+            className="w-full border rounded px-3 py-2"
+          />
+        </div> 
 
         {/* BOTÓN */}
-        <button
-          type="submit"
-          className="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition"
-        >
-          Guardar producto
-        </button>
-
-        {/* DEBUG (puedes borrar luego) */}
-        <pre className="text-xs bg-gray-100 p-2 rounded">
-          {JSON.stringify(form, null, 2)}
-        </pre>
+       <button
+  type="submit"
+  className="w-full mt-4 px-6 py-3 
+             bg-blue-600 hover:bg-blue-800 
+             text-black text-lg font-bold 
+             rounded-lg shadow-md transition"
+>
+  Guardar producto
+</button> 
       </form>
+      {form.name && (
+  <div className="mt-6 bg-white p-4 rounded-lg shadow-md max-w-xl">
+    <h2 className="text-xl font-bold mb-3 text-blue-700">
+      Vista previa del producto
+    </h2>
+
+    <div className="flex gap-4">
+      <img
+        src={form.imageUrl || "https://via.placeholder.com/150"}
+        alt="Vista previa"
+        className="w-32 h-32 object-contain border rounded"
+      />
+
+      <div>
+        <p className="font-bold text-lg">{form.name}</p>
+        <p className="text-sm text-gray-500">{form.category}</p>
+          <p className="text-sm text-gray-600 mt-2">
+    {form.description || "Sin descripción"}
+  </p>
+        <p className="text-blue-700 font-bold text-xl">
+          S/ {form.price || "0.00"}
+        </p>
+        <p className="text-sm">
+          Stock: {form.stock || 0}
+        </p>
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 }
