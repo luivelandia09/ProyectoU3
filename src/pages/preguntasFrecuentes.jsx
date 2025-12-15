@@ -4,20 +4,20 @@ export default function PreguntasFrecuentes() {
   const preguntas = [
     {
       pregunta: "¿Cuánto demoran los envíos?",
-      respuesta: "Los envíos llegan entre 30 minutos y 2 horas, según la zona."
+      respuesta: "Los envíos llegan entre 30 minutos y 2 horas, según la zona.",
     },
     {
       pregunta: "¿Los productos son originales?",
-      respuesta: "Sí, trabajamos solo con proveedores certificados."
+      respuesta: "Sí, trabajamos solo con proveedores certificados.",
     },
     {
       pregunta: "¿Cómo puedo ver el catálogo?",
-      respuesta: "En la sección Catálogo dentro del menú principal."
+      respuesta: "En la sección Catálogo dentro del menú principal.",
     },
     {
       pregunta: "¿Tienen promociones?",
-      respuesta: "Sí, publicamos promociones nuevas cada mes."
-    }
+      respuesta: "Sí, publicamos promociones nuevas cada mes.",
+    },
   ];
 
   const [abierta, setAbierta] = useState(null);
@@ -28,14 +28,13 @@ export default function PreguntasFrecuentes() {
 
   return (
     <div className="inicio-container px-6 py-10">
-
       {/* 🔥 TÍTULO CON TIPOGRAFÍA COMPLETAMENTE NUEVA */}
       <h1
         className="text-5xl text-center mb-3 tracking-wide drop-shadow-sm"
         style={{
           fontFamily: "'Playfair Display', serif",
           fontWeight: 800,
-          color: "#003b73"
+          color: "#003b73",
         }}
       >
         Preguntas Frecuentes
@@ -46,8 +45,8 @@ export default function PreguntasFrecuentes() {
         className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto font-light italic"
         style={{ fontFamily: "'Poppins', sans-serif" }}
       >
-        🌟 Tu tranquilidad es nuestra prioridad.  
-        Estamos aquí para ayudarte con todas tus dudas 💙✨
+        🌟 Tu tranquilidad es nuestra prioridad. Estamos aquí para ayudarte con
+        todas tus dudas 💙✨
       </p>
 
       {/* LISTA DE PREGUNTAS */}
@@ -62,13 +61,13 @@ export default function PreguntasFrecuentes() {
               onClick={() => toggle(index)}
             >
               <span
-                className="text-lg font-semibold text-[#0056b3]"
+                className="text-lg font-semibold text-white"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
               >
                 {item.pregunta}
               </span>
 
-              <span className="text-xl text-gray-500">
+              <span className="text-xl text-white">
                 {abierta === index ? "−" : "+"}
               </span>
             </button>
@@ -84,7 +83,6 @@ export default function PreguntasFrecuentes() {
           </div>
         ))}
       </div>
-
     </div>
   );
 }
