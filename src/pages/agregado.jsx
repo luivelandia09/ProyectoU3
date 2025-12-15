@@ -1,6 +1,19 @@
 import React, { useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import publicidad from "../json/publicidad.json";
+import catalogoDataRaw from "../json/catalogo.json";
+
+// Crear un mapa de productos por ID para búsquedas rápidas
+// Asegurarse de que catalogoDataRaw sea un array antes de procesarlo
+const catalogoProductos = (() => {
+  try {
+    const data = Array.isArray(catalogoDataRaw) ? catalogoDataRaw : [];
+    return Object.fromEntries(data.map((p) => [p.id, p]));
+  } catch (error) {
+    console.error("Error al procesar catálogo:", error);
+    return {};
+  }
+})();
 
 // Sistema inteligente de recomendaciones basado en múltiples criterios
 const obtenerRecomendaciones = (objetivo, usuario, velocidad) => {
@@ -127,6 +140,11 @@ export default function Recomendador() {
     velocidad
   );
 
+  // Filtrar solo los productos que existen en el catálogo
+  const productosValidos = productosRecomendados.filter(
+    (id) => catalogoProductos[id]
+  );
+
   return (
     <section className="min-h-screen p-6 bg-blue-50 text-blue-900">
       <div className="max-w-3xl mx-auto">
@@ -216,41 +234,57 @@ export default function Recomendador() {
                 🌟 Productos recomendados para ti
               </h3>
 
-              <div className="space-y-4">
-                {productosRecomendados.map((productoId) => {
-                  const producto = catalogoProductos[productoId];
-                  if (!producto) return null;
+              {productosValidos.length > 0 ? (
+                <div className="space-y-4">
+                  {productosValidos.map((productoId) => {
+                    const producto = catalogoProductos[productoId];
 
-                  return (
-                    <div
-                      key={productoId}
-                      className="bg-blue-50 p-4 rounded-lg border border-blue-100"
-                    >
-                      <div className="flex justify-between items-start mb-3">
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-blue-900 text-lg">
-                            {producto.nombre}
-                          </h4>
-                          <p className="text-sm text-blue-700 mt-1">
-                            {producto.descripcion}
+                    return (
+                      <div
+                        key={productoId}
+                        className="bg-blue-50 p-4 rounded-lg border border-blue-100"
+                      >
+                        <div className="flex justify-between items-start mb-3">
+                          <div className="flex-1">
+                            <h4 className="font-semibold text-blue-900 text-lg">
+                              {producto.name}
+                            </h4>
+                            <p className="text-sm text-blue-700 mt-1">
+                              {producto.description}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <p className="text-lg font-bold text-blue-600">
+                            S/ 
+                            {typeof producto.price === "number"
+                              ? producto.price.toFixed(2)
+                              : producto.price}
                           </p>
+                          <button
+                            onClick={irACatalogo}
+                            className="bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-2 px-6 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 shadow-md hover:shadow-lg active:scale-95"
+                          >
+                            Comprar
+                          </button>
                         </div>
                       </div>
-                      <div className="flex justify-between items-center">
-                        <p className="text-lg font-bold text-blue-600">
-                          ${producto.precio.toFixed(2)}
-                        </p>
-                        <button
-                          onClick={irACatalogo}
-                          className="bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-2 px-6 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 shadow-md hover:shadow-lg active:scale-95"
-                        >
-                          Comprar
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="text-center py-8">
+                  <p className="text-blue-600 mb-4">
+                    No se encontraron productos para esta combinación.
+                  </p>
+                  <button
+                    onClick={irACatalogo}
+                    className="bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-2 px-6 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all"
+                  >
+                    Ver catálogo completo
+                  </button>
+                </div>
+              )}
 
               <div className="mt-6 border-t pt-4 bg-blue-50 rounded-lg p-4">
                 <p className="text-sm text-blue-700 mb-2">
