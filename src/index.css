@@ -75,6 +75,63 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Estilos para testimonios */
+.testimonios-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e6f2ff 100%);
+  border-radius: 20px;
+}
+
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonio-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 87, 179, 0.15);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.testimonio-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 87, 179, 0.25);
+  border-color: #0057b3;
+  transform: translateY(-5px);
+}
+
+.testimonio-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1.5rem;
+  border: 4px solid #0057b3;
+  box-shadow: 0 4px 10px rgba(0, 87, 179, 0.2);
+}
+
+.testimonio-texto {
+  font-size: 1rem;
+  color: #495057;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.testimonio-nombre {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0057b3;
+  margin: 0;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
