@@ -86,9 +86,18 @@ export default function Catalogo() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* NAVBAR */}
-      <div className="bg-primary text-black p-4 sticky top-0 z-40 shadow-lg">
+      <div className="bg-blue-700 text-black p-4 sticky top-0 z-40 shadow-lg">
         <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold">🩺 Catálogo Farmaven</h1>
+          <h1
+            className="text-5xl text-center mb-3 tracking-wide drop-shadow-sm"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontWeight: 800,
+              color: "black",
+            }}
+          >
+            🩺 Catálogo Farmaven
+          </h1>
           <button
             onClick={() => setMostrarCarrito(!mostrarCarrito)}
             className="relative bg-primary text-white px-4 py-2 rounded-lg font-semibold"
@@ -354,7 +363,7 @@ export default function Catalogo() {
                 />
                 <button
                   type="submit"
-                  className="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1 rounded w-full sm:w-auto"
+                  className="bg-blue-600 hover:bg-blue-500 text-black px-3 py-1 rounded w-full sm:w-auto"
                 >
                   Enviar
                 </button>

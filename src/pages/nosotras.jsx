@@ -52,13 +52,19 @@ export default function Nosotras() {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <Link to="/" className="nav-link active">INICIO</Link>
+                  <Link to="/" className="nav-link active">
+                    INICIO
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/nosotras" className="nav-link active">SOBRE NOSOTRAS</Link>
+                  <Link to="/nosotras" className="nav-link active">
+                    SOBRE NOSOTRAS
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/valores" className="nav-link active">VALORES</Link>
+                  <Link to="/valores" className="nav-link active">
+                    VALORES
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -68,10 +74,18 @@ export default function Nosotras() {
 
       {/* CONTENIDO */}
       <div className="font-[Montserrat] text-[#495057] bg-gradient-to-b from-primary-50 via-primary-100 to-blue-200 leading-relaxed min-h-screen">
-
         {/* HEADER */}
         <header className="bg-primary shadow-xl mx-auto mt-10 mb-20 p-8 text-center rounded-xl max-w-4xl">
-          <h1 className="text-4xl font-extrabold text-white mb-6">Conócenos</h1>
+          <h1
+            className="text-5xl text-center mb-3 tracking-wide drop-shadow-sm"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontWeight: 800,
+              color: "white",
+            }}
+          >
+            Conócenos
+          </h1>
           <p className="text-black text-lg max-w-3xl mx-auto">
             Somos tres mentes creativas y poderosas, comprometidas con la salud
             y el bienestar de nuestros clientes.
@@ -85,7 +99,10 @@ export default function Nosotras() {
 
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {data.map((persona, idx) => (
-            <div key={idx} className="bg-white shadow-xl rounded-2xl overflow-hidden">
+            <div
+              key={idx}
+              className="bg-white shadow-xl rounded-2xl overflow-hidden"
+            >
               <div className="flex justify-center p-6 bg-blue-50">
                 <img
                   src={persona.img}
@@ -100,9 +117,7 @@ export default function Nosotras() {
                 <p className="text-blue-600 font-semibold">
                   {persona.especialidad}
                 </p>
-                <p className="text-gray-700 mt-2">
-                  {persona.descripcion}
-                </p>
+                <p className="text-gray-700 mt-2">{persona.descripcion}</p>
               </div>
             </div>
           ))}
@@ -153,7 +168,7 @@ export default function Nosotras() {
             />
             <button
               type="submit"
-              className="bg-blue-700 text-white py-3 rounded font-bold"
+              className="bg-blue-700 text-black py-3 rounded font-bold"
             >
               Enviar
             </button>

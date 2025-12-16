@@ -43,7 +43,15 @@ export default function Libro() {
       {/* ENCABEZADO */}
       <header className="bg-blue-800 text-white py-8 shadow-2xl">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-center">
+          <h1
+            className="text-5xl text-center mb-3 tracking-wide drop-shadow-sm"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontWeight: 800,
+              color: "white",
+            }}
+          >
+            {" "}
             Libro de Reclamaciones
           </h1>
           <p className="text-sm md:text-lg italic mt-2 md:mt-0">
@@ -63,9 +71,16 @@ export default function Libro() {
           )}
 
           <div className="lg:w-1/2 text-center lg:text-left">
-            <h2 className="text-4xl font-extrabold text-blue-800 mb-4">
+            <h1
+              className="text-5xl text-center mb-3 tracking-wide drop-shadow-sm"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontWeight: 800,
+                color: "#003b73",
+              }}
+            >
               Atención y Soporte al Cliente
-            </h2>
+            </h1>
             <p className="text-lg text-gray-700">
               En <strong>FARMAVEN</strong> valoramos la transparencia y la
               confianza. Si tienes una queja, reclamo o sugerencia, estamos para

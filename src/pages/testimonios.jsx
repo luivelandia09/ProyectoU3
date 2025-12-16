@@ -28,18 +28,21 @@ export default function Testimonios() {
   return (
     <>
       <section className="testimonios-container">
-        <h2 className="testimonios-titulo">
+        <h1
+          className="text-5xl text-center mb-3 tracking-wide drop-shadow-sm"
+          style={{
+            fontFamily: "'Playfair Display', serif",
+            fontWeight: 800,
+            color: "#003b73",
+          }}
+        >
           💬 Testimonios de nuestros clientes
-        </h2>
+        </h1>
 
         <div className="testimonios-grid">
           {testimonios.map((t, index) => (
             <div key={index} className="testimonio-card">
-              <img
-                src={t.imagen}
-                alt={t.nombre}
-                className="testimonio-img"
-              />
+              <img src={t.imagen} alt={t.nombre} className="testimonio-img" />
               <p className="testimonio-texto">“{t.comentario}”</p>
               <h4 className="testimonio-nombre">— {t.nombre}</h4>
             </div>

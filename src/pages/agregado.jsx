@@ -34,8 +34,7 @@ const catalogoProductos = {
   },
   4: {
     nombre: "Azitromicina",
-    descripcion:
-      "Antibiótico de amplio espectro para infecciones bacterianas.",
+    descripcion: "Antibiótico de amplio espectro para infecciones bacterianas.",
     precio: 25.0,
   },
   5: {
@@ -97,8 +96,7 @@ export default function Recomendador() {
 
   const irACatalogo = () => navigate("/catalogo");
 
-  const productosRecomendados =
-    recomendacionesPorObjetivo[objetivo] || [];
+  const productosRecomendados = recomendacionesPorObjetivo[objetivo] || [];
 
   const productosValidos = productosRecomendados.filter(
     (id) => catalogoProductos[id]
@@ -107,6 +105,25 @@ export default function Recomendador() {
   return (
     <section className="min-h-screen p-6 bg-blue-50 text-blue-900">
       <div className="max-w-3xl mx-auto">
+        <header className="text-center mb-6">
+          <h1
+            className="text-5xl text-center mb-3 tracking-wide drop-shadow-sm"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontWeight: 800,
+              color: "#003b73",
+            }}
+          >
+            ✨ Recomendado para ti ✨
+          </h1>
+          <p
+            className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto font-light italic"
+            style={{ fontFamily: "'Poppins', sans-serif" }}
+          >
+            Respuestas que suman valor, te ahorran tiempo y te acompaña en cada
+            paso.
+          </p>
+        </header>
 
         {/* FORMULARIO */}
         <div className="bg-white rounded-2xl shadow-md p-6 space-y-4">
@@ -162,7 +179,7 @@ export default function Recomendador() {
 
           <button
             onClick={generarRecomendacion}
-            className="w-full py-3 rounded-lg text-white bg-blue-600 font-bold"
+            className="w-full py-3 rounded-lg text-black bg-blue-600 font-bold"
           >
             Ver productos recomendados
           </button>
@@ -170,7 +187,10 @@ export default function Recomendador() {
 
         {/* RESULTADOS */}
         {mostrarResultados && (
-          <div ref={resultadoRef} className="mt-8 bg-white p-6 rounded-2xl shadow">
+          <div
+            ref={resultadoRef}
+            className="mt-8 bg-white p-6 rounded-2xl shadow"
+          >
             <h3 className="text-xl font-bold text-center text-blue-700 mb-4">
               🌟 Productos recomendados
             </h3>
@@ -184,7 +204,7 @@ export default function Recomendador() {
                   <p className="font-bold text-blue-700">S/ {p.precio}</p>
                   <button
                     onClick={irACatalogo}
-                    className="mt-2 bg-blue-600 text-white px-4 py-2 rounded"
+                    className="mt-2 bg-blue-800 text-black px-4 py-2 rounded"
                   >
                     Comprar
                   </button>
@@ -196,11 +216,17 @@ export default function Recomendador() {
 
         {/* PUBLICIDAD */}
         {Array.isArray(publicidad) &&
-          publicidad.filter(p => p.activo).map(p => (
-            <div key={p.id} className="mt-16 flex justify-center">
-              <img src={p.imagen} alt={p.alt} className="rounded-xl shadow-xl" />
-            </div>
-          ))}
+          publicidad
+            .filter((p) => p.activo)
+            .map((p) => (
+              <div key={p.id} className="mt-16 flex justify-center">
+                <img
+                  src={p.imagen}
+                  alt={p.alt}
+                  className="rounded-xl shadow-xl"
+                />
+              </div>
+            ))}
 
         {/* FOOTER GLOBAL */}
         <Footer />
