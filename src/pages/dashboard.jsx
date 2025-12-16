@@ -30,7 +30,7 @@ export default function Dashboard() {
         category: form.category,
         price: Number(form.price),
         stock: Number(form.stock),
-        imageURL: form.imageUrl,
+        imageUrl: form.imageUrl,
         description: form.description,
         createdAt: serverTimestamp(),
       });

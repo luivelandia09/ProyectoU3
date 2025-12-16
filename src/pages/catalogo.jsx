@@ -4,7 +4,6 @@ import { db } from "../services/firebase";
 import { Link } from "react-router-dom";
 import catalogoData from "../json/catalogo.json";
 
-
 const PLACEHOLDER = "https://via.placeholder.com/300x300?text=Sin+imagen";
 
 export default function Catalogo() {
@@ -15,39 +14,33 @@ export default function Catalogo() {
   const [mostrarCarrito, setMostrarCarrito] = useState(false);
 
   // 🔥 LEER PRODUCTOS DESDE FIRESTORE (DASHBOARD)
-useEffect(() => {
-  const unsub = onSnapshot(collection(db, "products"), (snap) => {
-    const firestoreProducts = snap.docs.map((doc) => {
-      const data = doc.data();
-      return {
-        id: doc.id,
-        ...data,
-        // 🔥 NORMALIZAMOS
-        description: data.description || data.descripcion || "",
-        imageURL: data.imageURL || data.imageUrl || "",
-      };
+  useEffect(() => {
+    const unsub = onSnapshot(collection(db, "products"), (snap) => {
+      const firestoreProducts = snap.docs.map((doc) => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          ...data,
+          // 🔥 NORMALIZAMOS
+          description: data.description || data.descripcion || "",
+          imageURL: data.imageURL || data.imageUrl || "",
+        };
+      });
+
+      setProductos([...catalogoData, ...firestoreProducts]);
     });
 
-    setProductos([...catalogoData, ...firestoreProducts]);
-  });
+    return () => unsub();
+  }, []);
 
-  return () => unsub();
-}, []);
-
-
-  const categorias = [
-    "Todas",
-    ...new Set(productos.map((p) => p.category)),
-  ];
+  const categorias = ["Todas", ...new Set(productos.map((p) => p.category))];
 
   const productosFiltrados = productos.filter((p) => {
     const texto = `${p.name ?? ""} ${p.description ?? ""}`.toLowerCase();
-const matchBusqueda = texto.includes(busqueda.toLowerCase());
-
+    const matchBusqueda = texto.includes(busqueda.toLowerCase());
 
     const matchCategoria =
-      categoriaSeleccionada === "Todas" ||
-      p.category === categoriaSeleccionada;
+      categoriaSeleccionada === "Todas" || p.category === categoriaSeleccionada;
 
     return matchBusqueda && matchCategoria;
   });
@@ -88,10 +81,7 @@ const matchBusqueda = texto.includes(busqueda.toLowerCase());
     0
   );
 
-  const cantidadTotal = carrito.reduce(
-    (sum, item) => sum + item.cantidad,
-    0
-  );
+  const cantidadTotal = carrito.reduce((sum, item) => sum + item.cantidad, 0);
 
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -141,10 +131,13 @@ const matchBusqueda = texto.includes(busqueda.toLowerCase());
         {/* CATÁLOGO */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
           {productosFiltrados.map((p) => (
-            <div key={p.id} className="bg-white rounded-xl shadow-md overflow-hidden">
+            <div
+              key={p.id}
+              className="bg-white rounded-xl shadow-md overflow-hidden"
+            >
               <div className="relative bg-gray-50 flex items-center justify-center h-32">
                 <img
-                src={p.imageURL || p.imageUrl || PLACEHOLDER} 
+                  src={p.imageURL || p.imageUrl || PLACEHOLDER}
                   alt={p.name}
                   onError={(e) => (e.currentTarget.src = PLACEHOLDER)}
                   className="max-h-24 object-contain"
@@ -157,19 +150,19 @@ const matchBusqueda = texto.includes(busqueda.toLowerCase());
               <div className="p-4">
                 <h3 className="text-lg font-bold">{p.name}</h3>
                 <p className="text-sm text-gray-600">
-                {p.description || "Sin descripción disponible"}
-                 </p>
+                  {p.description || "Sin descripción disponible"}
+                </p>
 
                 <div className="flex justify-between items-center mt-3">
                   <span className="text-2xl font-bold text-blue-700">
                     S/ {Number(p.price).toFixed(2)}
                     <p
-  className={`mt-1 text-sm font-semibold ${
-    p.stock > 0 ? "text-green-600" : "text-red-600"
-  }`}
->
-  {p.stock > 0 ? `Stock: ${p.stock} unidades` : "Sin stock"}
-</p>   
+                      className={`mt-1 text-sm font-semibold ${
+                        p.stock > 0 ? "text-green-600" : "text-red-600"
+                      }`}
+                    >
+                      {p.stock > 0 ? `Stock: ${p.stock} unidades` : "Sin stock"}
+                    </p>
                   </span>
                 </div>
 
@@ -195,14 +188,17 @@ const matchBusqueda = texto.includes(busqueda.toLowerCase());
       {mostrarCarrito && (
         <div className="fixed inset-0 bg-black/50 z-50 flex justify-end p-4">
           <div className="bg-white w-full max-w-md h-full rounded-lg flex flex-col">
-            <div className="bg-primary text-white p-4 flex justify-between">
+            <div className="bg-blue-800 text-white p-4 flex justify-between">
               <h2 className="text-xl font-bold">🛒 Tu Carrito</h2>
               <button onClick={() => setMostrarCarrito(false)}>×</button>
             </div>
 
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {carrito.map((item) => (
-                <div key={item.id} className="flex gap-3 bg-gray-50 p-3 rounded">
+                <div
+                  key={item.id}
+                  className="flex gap-3 bg-gray-50 p-3 rounded"
+                >
                   <img
                     src={item.imageUrl || PLACEHOLDER}
                     className="w-12 h-12 object-contain bg-white p-1"
@@ -214,10 +210,27 @@ const matchBusqueda = texto.includes(busqueda.toLowerCase());
                     </p>
 
                     <div className="flex items-center gap-2 mt-2">
-                      <button onClick={() => cambiarCantidad(item.id, item.cantidad - 1)}>-</button>
+                      <button
+                        onClick={() =>
+                          cambiarCantidad(item.id, item.cantidad - 1)
+                        }
+                      >
+                        -
+                      </button>
                       <span>{item.cantidad}</span>
-                      <button onClick={() => cambiarCantidad(item.id, item.cantidad + 1)}>+</button>
-                      <button onClick={() => eliminarDelCarrito(item.id)} className="ml-auto text-red-500">🗑️</button>
+                      <button
+                        onClick={() =>
+                          cambiarCantidad(item.id, item.cantidad + 1)
+                        }
+                      >
+                        +
+                      </button>
+                      <button
+                        onClick={() => eliminarDelCarrito(item.id)}
+                        className="ml-auto text-red-500"
+                      >
+                        🗑️
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -244,9 +257,7 @@ const matchBusqueda = texto.includes(busqueda.toLowerCase());
       {/* FOOTER */}
       <footer className="text-white pt-10 bg-blue-700">
         <div className="container mx-auto px-4 flex flex-col md:flex-row flex-wrap justify-around gap-10 text-center">
-
           <div className="flex flex-col md:flex-row gap-10 justify-center md:justify-start w-full md:w-1/2">
-
             <div className="w-auto">
               <img
                 src={new URL("../img/logo.png", import.meta.url).href}
@@ -256,7 +267,8 @@ const matchBusqueda = texto.includes(busqueda.toLowerCase());
 
               <p className="text-sm mt-4 text-white max-w-xs mx-auto md:mx-0 md:text-left">
                 FARMAVEN nació con la misión de ofrecer medicamentos y productos
-                de salud accesibles para todos, con un servicio humano y cercano.
+                de salud accesibles para todos, con un servicio humano y
+                cercano.
               </p>
             </div>
 
@@ -264,27 +276,34 @@ const matchBusqueda = texto.includes(busqueda.toLowerCase());
               <h5 className="font-bold mb-2">FARMAVEN</h5>
               <ul className="text-sm space-y-1">
                 <li>
-                  <Link to="/catalogo" className="hover:underline text-blue-200">
+                  <Link
+                    to="/catalogo"
+                    className="hover:underline text-blue-200"
+                  >
                     Catálogo del mes
                   </Link>
                 </li>
                 <li>
-                  <Link to="/testimonios" className="hover:underline text-blue-200">
+                  <Link
+                    to="/testimonios"
+                    className="hover:underline text-blue-200"
+                  >
                     Testimonios
                   </Link>
                 </li>
                 <li>
-                  <Link to="/libroderecla" className="hover:underline text-blue-200">
+                  <Link
+                    to="/libroderecla"
+                    className="hover:underline text-blue-200"
+                  >
                     Libro de reclamaciones
                   </Link>
                 </li>
               </ul>
             </div>
-
           </div>
 
           <div className="flex flex-col md:flex-row gap-10 justify-center md:justify-start w-full md:w-1/2">
-
             <div className="w-auto md:text-left">
               <h5 className="font-bold mb-2">Contáctanos</h5>
               <ul className="text-sm space-y-1">
@@ -306,7 +325,9 @@ const matchBusqueda = texto.includes(busqueda.toLowerCase());
                     +51 987 654 321
                   </Link>
                 </li>
-                <li className="text-white">Central Telefónica: (01) 612-5000</li>
+                <li className="text-white">
+                  Central Telefónica: (01) 612-5000
+                </li>
               </ul>
             </div>
 
@@ -339,9 +360,7 @@ const matchBusqueda = texto.includes(busqueda.toLowerCase());
                 </button>
               </form>
             </div>
-
           </div>
-
         </div>
 
         <hr className="my-6 border-white/20" />
