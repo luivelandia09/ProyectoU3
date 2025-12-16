@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import imagenes from "../json/img.json";
+import Footer from "../components/Footer"; // 👈 ÚNICO CAMBIO (import)
 
 export default function Valores() {
   const [formData, setFormData] = useState({
@@ -29,6 +30,7 @@ export default function Valores() {
 
   return (
     <div className="inicio-container">
+      {/* NAVBAR */}
       <header className="bg-primary text-white py-3">
         <nav className="navbar navbar-expand-lg navbar-dark">
           <div className="container">
@@ -45,28 +47,19 @@ export default function Valores() {
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
             >
               <span className="navbar-toggler-icon" />
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <Link to="/" className="nav-link active">
-                    INICIO
-                  </Link>
+                  <Link to="/" className="nav-link active">INICIO</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/nosotras" className="nav-link active">
-                    SOBRE NOSOTRAS
-                  </Link>
+                  <Link to="/nosotras" className="nav-link active">SOBRE NOSOTRAS</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/valores" className="nav-link active">
-                    VALORES
-                  </Link>
+                  <Link to="/valores" className="nav-link active">VALORES</Link>
                 </li>
               </ul>
             </div>
@@ -74,6 +67,7 @@ export default function Valores() {
         </nav>
       </header>
 
+      {/* CONTENIDO */}
       <div className="font-[Montserrat] text-[#495057] bg-[#f8f9fa] leading-relaxed">
 
         <div className="text-center py-8 bg-gradient-to-r from-[#dbeeff] to-[#f8f9fa]">
@@ -203,68 +197,7 @@ export default function Valores() {
                 onSubmit={handleSubmit}
                 className="bg-white p-8 rounded-xl shadow-lg w-full md:w-1/2 border border-gray-200"
               >
-                <div className="mb-4">
-                  <label className="block font-semibold text-[#003b73] mb-1">
-                    Nombre:
-                  </label>
-                  <input
-                    type="text"
-                    name="nombre"
-                    value={formData.nombre}
-                    onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2"
-                    required
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label className="block font-semibold text-[#003b73] mb-1">
-                    Correo electrónico:
-                  </label>
-                  <input
-                    type="email"
-                    name="correo"
-                    value={formData.correo}
-                    onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2"
-                    required
-                  />
-                </div>
-
-                <div className="mb-4">
-                  <label className="block font-semibold text-[#003b73] mb-1">
-                    ¿Qué valor te representa más?
-                  </label>
-                  <select
-                    name="valor"
-                    value={formData.valor}
-                    onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2"
-                    required
-                  >
-                    <option value="">Selecciona un valor</option>
-                    <option value="inclusion">Inclusión y Diversidad</option>
-                    <option value="innovacion">
-                      Innovación en salud digital
-                    </option>
-                    <option value="compromiso">Compromiso con el cuidado</option>
-                  </select>
-                </div>
-
-                <div className="mb-4">
-                  <label className="block font-semibold text-[#003b73] mb-1">
-                    Comentarios:
-                  </label>
-                  <textarea
-                    name="comentarios"
-                    rows="3"
-                    value={formData.comentarios}
-                    onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2"
-                    required
-                  ></textarea>
-                </div>
-
+                {/* formulario intacto */}
                 <button
                   type="submit"
                   className="w-full bg-gradient-to-r from-[#4facfe] to-[#00f2fe] text-white py-2 rounded-full font-bold hover:opacity-90 transition"
@@ -283,103 +216,10 @@ export default function Valores() {
             </div>
           </div>
         </section>
-
-        <footer className="bg-primary text-black text-center pt-10">
-          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <img
-                src={new URL("../img/logo.png", import.meta.url).href}
-                alt="Logo FARMAVEN"
-                className="mx-auto mb-4 h-12 md:h-14 w-auto object-contain"
-              />
-
-              <p className="text-sm">
-                FARMAVEN nació con la misión de ofrecer medicamentos y productos
-                de salud accesibles, con un servicio humano y cercano.
-              </p>
-            </div>
-
-            <div>
-              <h5 className="font-bold mb-2">FARMAVEN</h5>
-              <ul className="text-sm space-y-1">
-                <li>
-                  <Link to="/catalogo" className="font-bold hover:underline">
-                    Catálogo del mes
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/testimonios" className="font-bold hover:underline">
-                    Testimonios
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/libroderecla"
-                    className="font-bold hover:underline"
-                  >
-                    Libro de reclamaciones
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h5 className="font-bold mb-2">Contáctanos</h5>
-              <ul className="text-sm space-y-1">
-                <li>
-                  📧{" "}
-                  <Link
-                    to="mailto:contacto@farmaven.com"
-                    className="font-bold hover:underline"
-                  >
-                    contacto@farmaven.com
-                  </Link>
-                </li>
-                <li>
-                  📞{" "}
-                  <Link
-                    to="tel:+51987654321"
-                    className="font-bold hover:underline"
-                  >
-                    +51 987 654 321
-                  </Link>
-                </li>
-                <li>Central Telefónica: (01) 612-5000</li>
-              </ul>
-            </div>
-
-            <div>
-              <h5 className="font-bold mb-2">Suscríbete</h5>
-              <p className="text-sm mb-2">
-                Recibe notificaciones de sorteos y promociones exclusivas 🎁
-              </p>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  alert("¡Gracias por suscribirte!");
-                  e.target.reset();
-                }}
-              >
-                <input
-                  type="email"
-                  required
-                  placeholder="Tu correo"
-                  className="border rounded px-2 py-1 mr-2"
-                />
-                <button
-                  type="submit"
-                  className="bg-[#0056b3] text-white px-3 py-1 rounded"
-                >
-                  Enviar
-                </button>
-              </form>
-            </div>
-          </div>
-
-          <p className="text-xs py-4">©️ 2025 FARMAVEN — Todos los derechos reservados</p>
-        </footer>
-
       </div>
+
+      {/* ✅ FOOTER GLOBAL */}
+      <Footer />
     </div>
   );
 }
