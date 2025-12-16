@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import catalogoData from "../json/catalogo.json";
 import Footer from "../components/Footer";
 
-const PLACEHOLDER =
-  "https://via.placeholder.com/300x300?text=Sin+imagen";
+const PLACEHOLDER = "https://via.placeholder.com/300x300?text=Sin+imagen";
 
 // ✅ FUNCIÓN CLAVE PARA CARGAR IMÁGENES (NO ROMPE DISEÑO)
 const getImageSrc = (image) => {
@@ -46,17 +45,13 @@ export default function Catalogo() {
     return () => unsub();
   }, []);
 
-  const categorias = [
-    "Todas",
-    ...new Set(productos.map((p) => p.category)),
-  ];
+  const categorias = ["Todas", ...new Set(productos.map((p) => p.category))];
 
   const productosFiltrados = productos.filter((p) => {
     const texto = `${p.name ?? ""} ${p.description ?? ""}`.toLowerCase();
     const matchBusqueda = texto.includes(busqueda.toLowerCase());
     const matchCategoria =
-      categoriaSeleccionada === "Todas" ||
-      p.category === categoriaSeleccionada;
+      categoriaSeleccionada === "Todas" || p.category === categoriaSeleccionada;
 
     return matchBusqueda && matchCategoria;
   });
@@ -97,10 +92,7 @@ export default function Catalogo() {
     0
   );
 
-  const cantidadTotal = carrito.reduce(
-    (sum, item) => sum + item.cantidad,
-    0
-  );
+  const cantidadTotal = carrito.reduce((sum, item) => sum + item.cantidad, 0);
 
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -136,9 +128,7 @@ export default function Catalogo() {
 
           <select
             value={categoriaSeleccionada}
-            onChange={(e) =>
-              setCategoriaSeleccionada(e.target.value)
-            }
+            onChange={(e) => setCategoriaSeleccionada(e.target.value)}
             className="px-4 py-2 rounded-lg bg-blue-600 text-white font-semibold"
           >
             {categorias.map((cat) => (
@@ -160,9 +150,7 @@ export default function Catalogo() {
                 <img
                   src={getImageSrc(p.imageURL)}
                   alt={p.name}
-                  onError={(e) =>
-                    (e.currentTarget.src = PLACEHOLDER)
-                  }
+                  onError={(e) => (e.currentTarget.src = PLACEHOLDER)}
                   className="max-h-24 object-contain"
                 />
                 <span className="absolute top-2 right-2 bg-blue-700 text-white text-xs px-2 py-1 rounded-full">
@@ -172,9 +160,7 @@ export default function Catalogo() {
 
               <div className="p-4">
                 <h3 className="text-lg font-bold">{p.name}</h3>
-                <p className="text-sm text-gray-600">
-                  {p.description}
-                </p>
+                <p className="text-sm text-gray-600">{p.description}</p>
 
                 <p className="text-blue-700 font-bold mt-2">
                   S/ {Number(p.price).toFixed(2)}
@@ -182,20 +168,16 @@ export default function Catalogo() {
 
                 <p
                   className={`text-sm font-semibold ${
-                    p.stock > 0
-                      ? "text-green-600"
-                      : "text-red-600"
+                    p.stock > 0 ? "text-green-600" : "text-red-600"
                   }`}
                 >
-                  {p.stock > 0
-                    ? `Stock: ${p.stock} unidades`
-                    : "Sin stock"}
+                  {p.stock > 0 ? `Stock: ${p.stock} unidades` : "Sin stock"}
                 </p>
 
                 {/* ✅ ÚNICO CAMBIO: BOTÓN FORZADO */}
                 <button
                   onClick={() => agregarAlCarrito(p)}
-                  className="w-full mt-3 bg-blue-700 !text-white py-2 rounded-lg font-semibold hover:bg-blue-800"
+                  className="w-full mt-3 bg-blue-700 text-black py-2 rounded-lg font-semibold hover:bg-blue-800"
                 >
                   Agregar al carrito
                 </button>
@@ -211,9 +193,7 @@ export default function Catalogo() {
           <div className="bg-white w-full max-w-md h-full rounded-lg flex flex-col">
             <div className="bg-blue-700 text-white p-4 flex justify-between">
               <h2 className="text-xl font-bold">🛒 Tu Carrito</h2>
-              <button onClick={() => setMostrarCarrito(false)}>
-                ×
-              </button>
+              <button onClick={() => setMostrarCarrito(false)}>×</button>
             </div>
 
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
@@ -227,9 +207,7 @@ export default function Catalogo() {
                     className="w-12 h-12 object-contain bg-white p-1"
                   />
                   <div className="flex-1">
-                    <h3 className="font-semibold">
-                      {item.name}
-                    </h3>
+                    <h3 className="font-semibold">{item.name}</h3>
                     <p className="text-blue-700 font-bold">
                       S/ {Number(item.price).toFixed(2)}
                     </p>
@@ -237,10 +215,7 @@ export default function Catalogo() {
                     <div className="flex items-center gap-2 mt-2">
                       <button
                         onClick={() =>
-                          cambiarCantidad(
-                            item.id,
-                            item.cantidad - 1
-                          )
+                          cambiarCantidad(item.id, item.cantidad - 1)
                         }
                       >
                         -
@@ -248,18 +223,13 @@ export default function Catalogo() {
                       <span>{item.cantidad}</span>
                       <button
                         onClick={() =>
-                          cambiarCantidad(
-                            item.id,
-                            item.cantidad + 1
-                          )
+                          cambiarCantidad(item.id, item.cantidad + 1)
                         }
                       >
                         +
                       </button>
                       <button
-                        onClick={() =>
-                          eliminarDelCarrito(item.id)
-                        }
+                        onClick={() => eliminarDelCarrito(item.id)}
                         className="ml-auto text-red-500"
                       >
                         🗑️
